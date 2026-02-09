@@ -431,8 +431,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 747d49ee361c53a4d99b3a412bc7b5c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accel: 5
+  accel: 10
   braking: 10
+  friction: 0.85
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
