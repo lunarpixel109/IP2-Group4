@@ -896,7 +896,26 @@ MonoBehaviour:
     m_IntData:
       m_Data: []
     m_FloatData:
-      m_Data: []
+      m_Data:
+      - Key: TrackWidth
+        Value:
+          m_IndexUnit: 2
+          m_DefaultValue: 0
+          m_DataPoints:
+          - m_Index: 0
+            m_Value: 1
+          - m_Index: 5
+            m_Value: 0.75
+          - m_Index: 7
+            m_Value: 1.5
+          - m_Index: 10
+            m_Value: 1
+          - m_Index: 13
+            m_Value: 0.75
+          - m_Index: 14
+            m_Value: 0.5
+          - m_Index: 16
+            m_Value: 1
     m_Float4Data:
       m_Data: []
     m_ObjectData:
@@ -1010,7 +1029,7 @@ MonoBehaviour:
       leftTangent: {x: -0.84303474, y: 0.26730347, z: -0.00000029802322}
       rightTangent: {x: 0.8430338, y: -0.26730347, z: 0.00000029802322}
       mode: 1
-      height: 1
+      height: 0.75
       spriteIndex: 0
       corner: 0
       m_CornerMode: 1
@@ -1018,7 +1037,7 @@ MonoBehaviour:
       leftTangent: {x: -2.4800563, y: 0.44320297, z: 0.00000023841858}
       rightTangent: {x: 2.6299996, y: -0.4699993, z: -0.00000047683716}
       mode: 1
-      height: 1
+      height: 0.75
       spriteIndex: 0
       corner: 0
       m_CornerMode: 1
@@ -1026,7 +1045,7 @@ MonoBehaviour:
       leftTangent: {x: -1.3781449, y: 0.5073204, z: -0.00000011920929}
       rightTangent: {x: 0.62033165, y: -0.22835541, z: 0}
       mode: 1
-      height: 1
+      height: 1.5
       spriteIndex: 0
       corner: 0
       m_CornerMode: 1
@@ -1034,7 +1053,7 @@ MonoBehaviour:
       leftTangent: {x: -0.15765202, y: 0.48820877, z: -0.000000059604645}
       rightTangent: {x: 0.15765202, y: -0.48820877, z: 0.000000059604645}
       mode: 1
-      height: 1
+      height: 1.5
       spriteIndex: 0
       corner: 0
       m_CornerMode: 1
@@ -1042,7 +1061,7 @@ MonoBehaviour:
       leftTangent: {x: 0.70000005, y: 0.9000006, z: 0.00000035762787}
       rightTangent: {x: -0.70000005, y: -0.9000006, z: -0.00000035762787}
       mode: 1
-      height: 1
+      height: 1.5
       spriteIndex: 0
       corner: 0
       m_CornerMode: 1
@@ -1215,8 +1234,8 @@ SpriteShapeRenderer:
   - {fileID: 5066330430942148371, guid: 394a8bcc7020f154a87d3e30d9457b5e, type: 3}
   - {fileID: 5066330430942148371, guid: 394a8bcc7020f154a87d3e30d9457b5e, type: 3}
   m_LocalAABB:
-    m_Center: {x: -2.4805622, y: 9.075437, z: 0}
-    m_Extent: {x: 13.916826, y: 9.700747, z: 0}
+    m_Center: {x: -2.4450388, y: 9.020079, z: 0}
+    m_Extent: {x: 13.881303, y: 9.645389, z: 0}
   m_SpriteSortPoint: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

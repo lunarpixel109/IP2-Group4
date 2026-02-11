@@ -7,7 +7,7 @@ using UnityEngine.U2D;
 using Spline = UnityEngine.Splines.Spline;
 
 [ExecuteAlways]
-public class TrackRenderer : MonoBehaviour {
+public class TrackManager : MonoBehaviour {
     
     [Tooltip("The layout of the track that is used to create a track")] public SpriteShapeController spriteShape;
     [FormerlySerializedAs("spline")] [Tooltip("The centreline of the track")] public SplineContainer splineContainer;
@@ -27,9 +27,13 @@ public class TrackRenderer : MonoBehaviour {
         Transform splineTransform = splineContainer.transform;
         Transform shapeTransform = spriteShape.transform;
         
+        float trackWidth = 1f;
+
+        
         spriteShape.spline.Clear();
         for (int i = 0; i < spline.Count; i++)
         {
+            
             BezierKnot knot = spline[i];
             
             Vector3 localKnotPos = shapeTransform.InverseTransformPoint(splineTransform.TransformPoint(knot.Position));
@@ -48,11 +52,23 @@ public class TrackRenderer : MonoBehaviour {
             Vector3 worldTanOut = splineTransform.TransformPoint(tanOut);
             Vector3 worldTanIn = splineTransform.TransformPoint(tanIn);
             
+            if (splineContainer.Spline.TryGetFloatData("TrackWidth", out var trackWidthData)) 
+            {
+                foreach (var data in trackWidthData) 
+                {
+                    if (Mathf.Approximately(data.Index, i)) 
+                    {
+                        trackWidth = data.Value;
+                        break;
+                    }
+                }
+            }
+            
             spriteShape.spline.InsertPointAt(i, localKnotPos);
             spriteShape.spline.SetTangentMode(i, ShapeTangentMode.Continuous);
             spriteShape.spline.SetLeftTangent(i, tanIn);
             spriteShape.spline.SetRightTangent(i, tanOut);
-            
+            spriteShape.spline.SetHeight(i, trackWidth);
             
         }
 
