@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -9,10 +10,18 @@ using Spline = UnityEngine.Splines.Spline;
 [ExecuteAlways]
 public class TrackManager : MonoBehaviour {
     
+    
+    
     [Tooltip("The layout of the track that is used to create a track")] public SpriteShapeController spriteShape;
     [FormerlySerializedAs("spline")] [Tooltip("The centreline of the track")] public SplineContainer splineContainer;
 
-
+    public float trackWidth = 1f;
+    
+    [Header("Colliders")] 
+    public PolygonCollider2D innerCollider;
+    public float colliderRes = 0.01f;
+    
+    
     private void Start()
     {
         spriteShape = GetComponentInChildren<SpriteShapeController>();
@@ -20,7 +29,7 @@ public class TrackManager : MonoBehaviour {
     }
     
     [ContextMenu("Generate Track Visuals")]
-    private void ConvertTrack()
+    private void GenerateTrack()
     {
         Spline spline = splineContainer.Spline;
         
@@ -52,52 +61,56 @@ public class TrackManager : MonoBehaviour {
             Vector3 worldTanOut = splineTransform.TransformPoint(tanOut);
             Vector3 worldTanIn = splineTransform.TransformPoint(tanIn);
             
-            if (splineContainer.Spline.TryGetFloatData("TrackWidth", out var trackWidthData)) 
-            {
-                foreach (var data in trackWidthData) 
-                {
-                    if (Mathf.Approximately(data.Index, i)) 
-                    {
-                        trackWidth = data.Value;
-                        break;
-                    }
-                }
-            }
+            // if (splineContainer.Spline.TryGetFloatData("TrackWidth", out var trackWidthData)) 
+            // {
+            //     foreach (var data in trackWidthData) 
+            //     {
+            //         if (Mathf.Approximately(data.Index, i)) 
+            //         {
+            //             trackWidth = data.Value;
+            //             break;
+            //         }
+            //     }
+            // }
             
             spriteShape.spline.InsertPointAt(i, localKnotPos);
             spriteShape.spline.SetTangentMode(i, ShapeTangentMode.Continuous);
             spriteShape.spline.SetLeftTangent(i, tanIn);
             spriteShape.spline.SetRightTangent(i, tanOut);
-            spriteShape.spline.SetHeight(i, trackWidth);
-            
+            //spriteShape.spline.SetHeight(i, trackWidth);
         }
 
         spriteShape.spline.isOpenEnded = false;
         spriteShape.splineDetail = 256;
         spriteShape.RefreshSpriteShape();
+        
+        // Generate Colliders
+        List<Vector2> innerPoints = new List<Vector2>();
+
+        for (float t = 0; t < 1f; t += colliderRes)
+        {
+            Vector3 point = spline.EvaluatePosition(t);
+            Vector3 tangent = spline.EvaluateTangent(t);
+
+            Vector3 innerPoint = ((point - Vector3.Cross(tangent, Vector3.up)) / 2) + Vector3.one;
+
+            innerPoints.Add(innerPoint);
+
+        }
+        innerCollider.points = innerPoints.ToArray();
+        
     }
 
 
     private void Update()
     {
-        for (int i = 0; i < spriteShape.spline.GetPointCount(); i++)
-        {
-            Debug.Log($"SS{i} LEFT: {spriteShape.spline.GetLeftTangent(i)} RIGHT: {spriteShape.spline.GetRightTangent(i)}"); ;
-        }
-
-        for (int i = 0; i < splineContainer.Spline.Count; i++)
-        {
-            Debug.Log($"KT{i} IN: {splineContainer.Spline[i].TangentIn} OUT: {splineContainer.Spline[i].TangentOut} ROT: {math.Euler(splineContainer.Spline[i].Rotation)}");
-        }
+      
         
     }
 
 
     private void OnDrawGizmos()
     {
-        foreach (BezierKnot knot in splineContainer.Spline)
-        {
-            
-        }
+
     }
 }
