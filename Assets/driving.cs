@@ -16,9 +16,10 @@ public class driving : MonoBehaviour
 
     bool drifing = false;
 
-	public float steering_speed;
+	public float steering_speed_d;
 	public float steering_speed_r;
-    public float direction;
+    public float direction_d;
+	public float direction_r;
 
 
 	Rigidbody2D rb;
@@ -55,9 +56,7 @@ public class driving : MonoBehaviour
 		brake = InputSystem.actions.FindAction("Brake");
 		steering = InputSystem.actions.FindAction("Steering");
 
-		steering_speed_r = steering_speed * math.PI / 180;
-
-		direction = transform.rotation.eulerAngles.z;
+		steering_speed_r = steering_speed_d * math.PI / 180;
 	
 		rb = GetComponent<Rigidbody2D>();
 	}
@@ -65,7 +64,9 @@ public class driving : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate()
 	{
-		speed = GetSpeed();
+		//speed = rb.linearVelocity.magnitude;
+		direction_r = rb.rotation;
+		direction_d = direction_r * math.TORADIANS;
 
         if (drivingState == DrivingState.stationary)
         {
@@ -78,14 +79,14 @@ public class driving : MonoBehaviour
 			{
 				//rb.AddForce(transform.up * accel * Time.deltaTime);
 
-				speed += (accel - (speed / 10)) * Time.deltaTime;
+				speed += (accel - (speed / 10)) * Time.fixedDeltaTime;
 				print("accel " + accelerate.IsPressed());
 			}
 			else if (brake.IsPressed() == true)
 			{
 				//rb.AddForce(transform.forward * -braking * Time.deltaTime);
 
-				speed -= braking * Time.deltaTime;
+				speed -= braking * Time.fixedDeltaTime;
 				if (speed < 0) { Momentum_Change_Stationary(); }
 				print("breaking " + brake.IsPressed());
 			}
@@ -93,7 +94,7 @@ public class driving : MonoBehaviour
 			{
 				//rb.AddForce(transform.forward * -friction * Time.deltaTime);
 
-				speed -= friction * Time.deltaTime;
+				speed -= friction * Time.fixedDeltaTime;
 				if (speed < 0) { Momentum_Change_Stationary(); }
 			}
 		}
@@ -103,14 +104,14 @@ public class driving : MonoBehaviour
             {
 				//rb.AddForce(transform.up * -accel * Time.deltaTime);
 
-                speed -= (accel/2 + speed/10) * Time.deltaTime;
+                speed -= (accel/2 + speed/10) * Time.fixedDeltaTime;
                 print("reversing " + brake.IsPressed());
             }
             else if (accelerate.IsPressed() == true)
             {
 				//rb.AddForce(transform.up * braking * Time.deltaTime);
 
-                speed += braking * Time.deltaTime;
+                speed += braking * Time.fixedDeltaTime;
                 if (speed > 0) { Momentum_Change_Stationary(); }
                 print("R breaking " + accelerate.IsPressed());
             }
@@ -118,38 +119,32 @@ public class driving : MonoBehaviour
             {
 				//rb.AddForce(transform.up * friction * Time.deltaTime);
 
-                speed += friction * Time.deltaTime;
+                speed += friction * Time.fixedDeltaTime;
                 if (speed > 0) { Momentum_Change_Stationary(); }
             }
         }
 
-        #region ignoreable
-
-        if (Input.GetKey(KeyCode.A))
+		if (steering.IsPressed())
 		{
-			//rb.AddTorque(transform.);
+            if ( drivingState == DrivingState.forward)
+            {
+                direction_r += steering.ReadValue<float>() * steering_speed_r;
+                direction_d += steering.ReadValue<float>() * steering_speed_d;
+            }
+            else if (drivingState == DrivingState.barckward)
+            {
+                direction_r -= steering.ReadValue<float>() * steering_speed_r;
+                direction_d -= steering.ReadValue<float>() * steering_speed_d;
+            }
 
-			//rb.MoveRotation();
+            print(steering.ReadValue<float>());
+			print("sadasd");
 		}
-
-        //if (math.abs(speed) < 0.05) { speed = 0; }
-
-        //if (speed > 0) { drivingState = state.forward; }
-        //if (speed < 0) { drivingState = state.barckward; }
-        //if (speed == 0) { drivingState = state.stationary; }
-
-        //print(speed);
-        //if (steering.IsPressed() == true)
-
-        #endregion
 
         print(speed);
 
-        rb.linearVelocity = new Vector2 (speed * math.sin(direction) * Time.fixedDeltaTime, speed * math.cos(direction) * Time.fixedDeltaTime);
-
-
-        //transform.position += new Vector3(speed * math.sin(direction_travel) * Time.deltaTime, speed * math.cos(direction_travel) * Time.deltaTime);
-        //transform.Rotate(Vector3.forward * -90);
+		rb.rotation = direction_r;
+        rb.linearVelocity = new Vector2 (speed * math.sin(direction_d) * Time.fixedDeltaTime, speed * math.cos(direction_d) * Time.fixedDeltaTime);
     }
 
     void Momentum_Change_Stationary()
