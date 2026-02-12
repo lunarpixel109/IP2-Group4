@@ -11,17 +11,14 @@ using Spline = UnityEngine.Splines.Spline;
 public class TrackManager : MonoBehaviour {
     
     
-    
-    [Tooltip("The layout of the track that is used to create a track")] public SpriteShapeController spriteShape;
     [FormerlySerializedAs("spline")] [Tooltip("The centreline of the track")] public SplineContainer splineContainer;
+    [Space]
+    [Tooltip("The layout of the track that is used to create a track")] public SpriteShapeController spriteShape;
+    [Header("Track Colliders")]
+    public float colliderResolution = 0.5f;
+    public EdgeCollider2D innerCollider;
+    public PolygonCollider2D outerCollider;
 
-    public float trackWidth = 1f;
-    
-    [Header("Colliders")] 
-    public PolygonCollider2D innerCollider;
-    public float colliderRes = 0.01f;
-    
-    
     private void Start()
     {
         spriteShape = GetComponentInChildren<SpriteShapeController>();
@@ -29,7 +26,7 @@ public class TrackManager : MonoBehaviour {
     }
     
     [ContextMenu("Generate Track Visuals")]
-    private void GenerateTrack()
+    private void ConvertTrack()
     {
         Spline spline = splineContainer.Spline;
         
@@ -38,7 +35,7 @@ public class TrackManager : MonoBehaviour {
         
         float trackWidth = 1f;
 
-        
+        // Generate the SpriteShape so that the track is rendered
         spriteShape.spline.Clear();
         for (int i = 0; i < spline.Count; i++)
         {
@@ -61,56 +58,54 @@ public class TrackManager : MonoBehaviour {
             Vector3 worldTanOut = splineTransform.TransformPoint(tanOut);
             Vector3 worldTanIn = splineTransform.TransformPoint(tanIn);
             
-            // if (splineContainer.Spline.TryGetFloatData("TrackWidth", out var trackWidthData)) 
-            // {
-            //     foreach (var data in trackWidthData) 
-            //     {
-            //         if (Mathf.Approximately(data.Index, i)) 
-            //         {
-            //             trackWidth = data.Value;
-            //             break;
-            //         }
-            //     }
-            // }
+            if (splineContainer.Spline.TryGetFloatData("TrackWidth", out var trackWidthData)) 
+            {
+                foreach (var data in trackWidthData) 
+                {
+                    if (Mathf.Approximately(data.Index, i)) 
+                    {
+                        trackWidth = data.Value;
+                        break;
+                    }
+                }
+            }
             
             spriteShape.spline.InsertPointAt(i, localKnotPos);
             spriteShape.spline.SetTangentMode(i, ShapeTangentMode.Continuous);
             spriteShape.spline.SetLeftTangent(i, tanIn);
             spriteShape.spline.SetRightTangent(i, tanOut);
-            //spriteShape.spline.SetHeight(i, trackWidth);
+           // spriteShape.spline.SetHeight(i, trackWidth);
+            
         }
 
         spriteShape.spline.isOpenEnded = false;
         spriteShape.splineDetail = 256;
         spriteShape.RefreshSpriteShape();
         
-        // Generate Colliders
-        List<Vector2> innerPoints = new List<Vector2>();
-
-        for (float t = 0; t < 1f; t += colliderRes)
+        
+        // Generate the colliders so that the track can be interacted with
+        List<Vector2> innerPoints = new List<Vector2>(); 
+        List<Vector2> outerPoints = new List<Vector2>();
+        for (float t = 0; t < 1f; t += colliderResolution)
         {
-            Vector3 point = spline.EvaluatePosition(t);
-            Vector3 tangent = spline.EvaluateTangent(t);
-
-            Vector3 innerPoint = ((point - Vector3.Cross(tangent, Vector3.up)) / 2) + Vector3.one;
-
+            Vector3 point = splineContainer.Spline.EvaluatePosition(t);
+            Vector3 tangent = splineContainer.Spline.EvaluateTangent(t);
+            
+            Vector2 perpTangentNorm = new Vector2(tangent.y, -tangent.x).normalized ;
+            
+            Vector2 innerPoint = (Vector2)point - perpTangentNorm;
+            Vector2 outerPoint = (Vector2)point + perpTangentNorm;
+            
             innerPoints.Add(innerPoint);
-
+            outerPoints.Add(outerPoint);
+            
         }
-        innerCollider.points = innerPoints.ToArray();
+        
+        innerCollider.SetPoints(innerPoints);
+        outerCollider.SetPath(0, outerPoints);
         
     }
 
-
-    private void Update()
-    {
-      
-        
-    }
-
-
-    private void OnDrawGizmos()
-    {
-
-    }
+    
+    
 }
