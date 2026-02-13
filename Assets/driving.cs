@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 
 public class driving : MonoBehaviour
 {
-	
+	bool DebugBool = false;
+	public Vector2 debug_Vector = new Vector2(0,0);
 
 	public float accel;
 	public float braking;
@@ -17,9 +18,7 @@ public class driving : MonoBehaviour
     bool drifing = false;
 
 	public float steering_speed_d;
-	public float steering_speed_r;
     public float direction_d;
-	public float direction_r;
 
 
 	Rigidbody2D rb;
@@ -29,6 +28,14 @@ public class driving : MonoBehaviour
 	float prevX;
 	float prevY;
     float speed;
+
+
+	public float speed_display;
+	public float speed_parallel;
+	public float speed_perp;
+	public float speed_direction;
+	public float car_angle;
+	public float speed_angle;
 
     enum Gear{
 		forward,
@@ -55,8 +62,6 @@ public class driving : MonoBehaviour
 		accelerate = InputSystem.actions.FindAction("Accelerate");
 		brake = InputSystem.actions.FindAction("Brake");
 		steering = InputSystem.actions.FindAction("Steering");
-
-		steering_speed_r = steering_speed_d * math.PI / 180;
 	
 		rb = GetComponent<Rigidbody2D>();
 	}
@@ -64,9 +69,11 @@ public class driving : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate()
 	{
-		//speed = rb.linearVelocity.magnitude;
-		direction_r = rb.rotation;
-		direction_d = direction_r * math.TORADIANS;
+		//speed_display = rb.linearVelocity.magnitude;
+		SpeedStuff();
+
+		direction_d = rb.rotation;
+		//Debug.Break();
 
         if (drivingState == DrivingState.stationary)
         {
@@ -124,17 +131,17 @@ public class driving : MonoBehaviour
             }
         }
 
-		if (steering.IsPressed())
+		if (steering.IsPressed() || DebugBool)
 		{
-            if ( drivingState == DrivingState.forward)
+            if ( drivingState == DrivingState.forward || DebugBool)
             {
-                direction_r += steering.ReadValue<float>() * steering_speed_r;
-                direction_d += steering.ReadValue<float>() * steering_speed_d;
+                direction_d -= steering.ReadValue<float>() * steering_speed_d;
+				//direction_d += 5f;
+				//Debug.Break();
             }
             else if (drivingState == DrivingState.barckward)
             {
-                direction_r -= steering.ReadValue<float>() * steering_speed_r;
-                direction_d -= steering.ReadValue<float>() * steering_speed_d;
+                direction_d += steering.ReadValue<float>() * steering_speed_d;
             }
 
             print(steering.ReadValue<float>());
@@ -143,9 +150,15 @@ public class driving : MonoBehaviour
 
         print(speed);
 
-		rb.rotation = direction_r;
-        rb.linearVelocity = new Vector2 (speed * math.sin(direction_d) * Time.fixedDeltaTime, speed * math.cos(direction_d) * Time.fixedDeltaTime);
+		//Debug.Break();
+		rb.rotation = direction_d;
+		//Debug.Break();
+    
+		debug_Vector = new Vector2(speed * math.cos(direction_d) * Time.fixedDeltaTime, speed * math.sin(direction_d) * Time.fixedDeltaTime);
+
+        rb.linearVelocity = new Vector2 (speed * math.cos(direction_d) * Time.fixedDeltaTime, speed * math.sin(direction_d) * Time.fixedDeltaTime);
     }
+
 
     void Momentum_Change_Stationary()
 	{
@@ -166,5 +179,20 @@ public class driving : MonoBehaviour
 		if (math.abs(transform.rotation.eulerAngles.z - dir_deg) > 180) { vel = -vel; }
 
 		return vel;
+	}
+
+    void SpeedStuff()
+	{
+		var delta_angle = 0f;
+
+		car_angle = rb.rotation * math.TODEGREES;
+		speed_angle = math.atan(rb.linearVelocityY/rb.linearVelocityX);
+
+		delta_angle = car_angle-speed_angle;
+
+		speed_display = rb.linearVelocity.magnitude;
+		speed_parallel = math.cos(delta_angle);
+		speed_perp = math.sin(delta_angle);
+
 	}
 }

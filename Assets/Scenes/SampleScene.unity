@@ -347,14 +347,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 747d49ee361c53a4d99b3a412bc7b5c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug_Vector: {x: 0, y: 0}
   accel: 80
   braking: 130
   friction: 30
   gear_change_cooldown_max: 0
-  steering_speed_d: 0
-  steering_speed_r: 0
+  steering_speed_d: 1
   direction_d: 0
-  direction_r: 0
+  speed_display: 0
+  speed_parallel: 0
+  speed_perp: 0
+  speed_direction: 0
+  car_angle: 0
+  speed_angle: 0
 --- !u!50 &527062503
 Rigidbody2D:
   serializedVersion: 5
@@ -381,7 +386,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 3
 --- !u!1 &648497885
 GameObject:
   m_ObjectHideFlags: 0
