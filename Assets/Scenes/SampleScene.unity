@@ -311,7 +311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 527062499}
   - component: {fileID: 527062503}
-  - component: {fileID: 527062502}
+  - component: {fileID: 527062504}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -335,31 +335,6 @@ Transform:
   - {fileID: 1535693375}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &527062502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 527062496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 747d49ee361c53a4d99b3a412bc7b5c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debug_Vector: {x: 0, y: 0}
-  accel: 80
-  braking: 130
-  friction: 30
-  gear_change_cooldown_max: 0
-  steering_speed_d: 1
-  direction_d: 0
-  speed_display: 0
-  speed_parallel: 0
-  speed_perp: 0
-  speed_direction: 0
-  car_angle: 0
-  speed_angle: 0
 --- !u!50 &527062503
 Rigidbody2D:
   serializedVersion: 5
@@ -387,6 +362,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 3
+--- !u!114 &527062504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527062496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b59eec54ddaf0f42b95762790874898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accel: 100
+  braking: 150
+  friction: 70
+  steering_speed: 65
+  rb_speed_local: {x: 0, y: 0}
 --- !u!1 &648497885
 GameObject:
   m_ObjectHideFlags: 0

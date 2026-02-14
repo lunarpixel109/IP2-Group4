@@ -20,6 +20,8 @@ public class driving : MonoBehaviour
 	public float steering_speed_d;
     public float direction_d;
 
+	float steering_speed_r;
+	float direction_r;
 
 	Rigidbody2D rb;
 
@@ -64,15 +66,17 @@ public class driving : MonoBehaviour
 		steering = InputSystem.actions.FindAction("Steering");
 	
 		rb = GetComponent<Rigidbody2D>();
+
+		steering_speed_r = steering_speed_d * math.TORADIANS;
 	}
 
 	// Update is called once per frame
 	void FixedUpdate()
 	{
 		//speed_display = rb.linearVelocity.magnitude;
-		SpeedStuff();
+		//SpeedStuff();
 
-		direction_d = rb.rotation;
+		direction_r = rb.rotation;
 		//Debug.Break();
 
         if (drivingState == DrivingState.stationary)
@@ -135,28 +139,31 @@ public class driving : MonoBehaviour
 		{
             if ( drivingState == DrivingState.forward || DebugBool)
             {
-                direction_d -= steering.ReadValue<float>() * steering_speed_d;
+                direction_r -= steering.ReadValue<float>() * steering_speed_r * Time.fixedDeltaTime;
 				//direction_d += 5f;
 				//Debug.Break();
             }
             else if (drivingState == DrivingState.barckward)
             {
-                direction_d += steering.ReadValue<float>() * steering_speed_d;
+                direction_r += steering.ReadValue<float>() * steering_speed_r * Time.fixedDeltaTime;
             }
 
             print(steering.ReadValue<float>());
 			print("sadasd");
 		}
 
-        print(speed);
+        
 
 		//Debug.Break();
-		rb.rotation = direction_d;
+		rb.rotation = direction_r;
+		transform.rotation = quaternion.RotateZ(direction_r * math.TODEGREES);
 		//Debug.Break();
     
-		debug_Vector = new Vector2(speed * math.cos(direction_d) * Time.fixedDeltaTime, speed * math.sin(direction_d) * Time.fixedDeltaTime);
+		debug_Vector = new Vector2 (speed * math.cos(direction_d) * Time.fixedDeltaTime, speed * math.sin(direction_d) * Time.fixedDeltaTime);
 
-        rb.linearVelocity = new Vector2 (speed * math.cos(direction_d) * Time.fixedDeltaTime, speed * math.sin(direction_d) * Time.fixedDeltaTime);
+		rb.linearVelocity = debug_Vector;
+        //print(speed + " " + rb.linearVelocity.magnitude + " " + rb.linearVelocityX + " " + rb.linearVelocityY);
+        //rb.linearVelocity = new Vector2 (speed * math.cos(direction_d) * Time.fixedDeltaTime, speed * math.sin(direction_d) * Time.fixedDeltaTime);
     }
 
 
