@@ -130,7 +130,7 @@ public class Driving2 : MonoBehaviour
 		#region output
 
 		rb_speed_local = new Vector2(rb_speed_forward,rb_speed_right); // recombines forward and right vectors
-		rb.linearVelocity = rb.GetRelativeVector(rb_speed_local); // sets speed in global space based on speed in local space
+		rb.linearVelocity = rb.GetRelativeVector(rb_speed_local); // sets speed in global space based on speed in local space - NOT WORKING IDK WHY
 
 		rb.rotation = rb_direction;
 		//transform.rotation = quaternion.Euler(0,0,rb.rotation);
