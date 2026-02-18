@@ -6,14 +6,15 @@ public class LapTimerManager : MonoBehaviour
 {
     public static LapTimerManager instance;
 
-    private float currentLapTime;
-    private float bestLapTime = Mathf.Infinity;
-    public List<float> lapTimes = new List<float>();
-    public int laps = 0;
+    private float currentLapTime;                               // tracks current lap time 
+    private float bestLapTime = Mathf.Infinity;                 // stores the fastest lap time
+    public List<float> lapTimes = new List<float>();            // list of all recorded lap times 
+    public int laps = 0;                                        // current lap counter
 
-    public bool raceStarted = false;
+    public bool raceStarted = false;                            
     public bool lapRunning = false;
 
+    // ui refrences 
     public TextMeshProUGUI currentLapTimeText;
     public TextMeshProUGUI lapText;
     public TextMeshProUGUI BestLapTimeText;
@@ -34,12 +35,16 @@ public class LapTimerManager : MonoBehaviour
 
     private void Update()
     {
+        // start lap timer if lap is running 
         if (lapRunning)
         {
             currentLapTime += Time.deltaTime;
         }
+        // update the text ui 
         UpdateUi();
-        if(laps >= 2)
+
+        // after at least 2 laps show best lap time
+        if (laps >= 2)
         {
             BestLapTimeText.gameObject.SetActive(true);
             BeforeBestLapText.gameObject.SetActive(false);
@@ -47,6 +52,7 @@ public class LapTimerManager : MonoBehaviour
 
     }
 
+    // called when the player crosses the start/finish line
     public void OnStartFinishCrossed()
     {
         // First time crossing the line start race
@@ -66,16 +72,21 @@ public class LapTimerManager : MonoBehaviour
         if (lapRunning)
         {
             Debug.Log("Lap finished! Time: " + currentLapTime);
+
+            // if the lap is faster than best lap update best lap
             if (currentLapTime < bestLapTime)
             {
                 bestLapTime = currentLapTime;
             }
 
-            
+
+            // store lap time locally
             lapTimes.Add(currentLapTime);
 
+            // send lap time to leaderboard manager
             LeaderBoardManager.instance.AddLapTime(currentLapTime);
 
+            // reset timer for next lap and move to next lap
             currentLapTime = 0f;
             laps += 1;
             
@@ -87,15 +98,16 @@ public class LapTimerManager : MonoBehaviour
         }
     }
 
-
+    // update all ui elemets 
     private void UpdateUi()
     {
         currentLapTimeText.text = FormatTime(currentLapTime);
         BestLapTimeText.text = FormatTime(bestLapTime);
+        // placeholder text before best lap is available
         BeforeBestLapText.text = "--:--";
         lapText.text = "Lap:" + laps + "/10";
     }
-
+    // converts time to minutes and seconds
     private string FormatTime(float time)
     {
         int minutes = (int)time / 60;
