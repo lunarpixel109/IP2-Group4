@@ -431,7 +431,6 @@ MonoBehaviour:
   colliderResolution: 0.001
   innerCollider: {fileID: 1708965108}
   outerCollider: {fileID: 1708965107}
-  decalPrefab: {fileID: 1411299583291881656, guid: b3568bbfbf51a74cbad253d32fdb24ba, type: 3}
 --- !u!60 &1708965107
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2997,28 +2996,11 @@ MonoBehaviour:
       m_Data: []
     m_ObjectData:
       m_Data:
-      - Key: Decals
+      - Key: Objects
         Value:
           m_IndexUnit: 1
           m_DefaultValue: {fileID: 0}
-          m_DataPoints:
-          - m_Index: 0
-            m_Value: {fileID: -1313317603394411369, guid: a9dd81282338c19459417a823d8f5d36, type: 3}
-          - m_Index: 0.174
-            m_Value: {fileID: -1313317603394411369, guid: a9dd81282338c19459417a823d8f5d36, type: 3}
-          - m_Index: 0.5
-            m_Value: {fileID: -1313317603394411369, guid: a9dd81282338c19459417a823d8f5d36, type: 3}
-          - m_Index: 0.523
-            m_Value: {fileID: -1313317603394411369, guid: a9dd81282338c19459417a823d8f5d36, type: 3}
-          - m_Index: 0.919
-            m_Value: {fileID: -1313317603394411369, guid: a9dd81282338c19459417a823d8f5d36, type: 3}
-      - Key: Checkpoints
-        Value:
-          m_IndexUnit: 2
-          m_DefaultValue: {fileID: 0}
-          m_DataPoints:
-          - m_Index: 0
-            m_Value: {fileID: 0}
+          m_DataPoints: []
   m_Knots:
     m_KnotsLink: []
 --- !u!4 &1793215256

@@ -18,8 +18,6 @@ public class TrackManager : MonoBehaviour {
     public float colliderResolution = 0.5f;
     public EdgeCollider2D innerCollider;
     public PolygonCollider2D outerCollider;
-
-    public GameObject decalPrefab;
     
     private void Start()
     {
@@ -35,17 +33,13 @@ public class TrackManager : MonoBehaviour {
         
         GenerateTrackSpriteShape(spline);
         GenerateTrackCollider();
-        AddDecals();
-        AddCheckpoints();
-        
-        
-        
-        
+        AddObjects();
         
     }
 
     private void GenerateTrackSpriteShape(Spline spline)
     {
+        // Get a reference to the transforms of the spline and the sprite shape for easier calculations
         Transform splineTransform = splineContainer.transform;
         Transform shapeTransform = spriteShape.transform;
         
@@ -58,39 +52,32 @@ public class TrackManager : MonoBehaviour {
             
             BezierKnot knot = spline[i];
             
+            // Transform the position of the knot to local space of the sprite shape
             Vector3 localKnotPos = shapeTransform.InverseTransformPoint(splineTransform.TransformPoint(knot.Position));
             
+
             Vector3 tanIn = Vector3.zero;
             Vector3 tanOut = Vector3.zero;
             
-            // Get Tangent out
+            // Get Tangent out using bezier curve formula, the tangent out is the vector from P0 to P1
             BezierCurve curve = spline.GetCurve(i);
+
             tanOut = curve.P1 - curve.P0;
             
+            // Get Tangent in using bezier curve formula, the tangent in is the vector from P2 to P3
             int prevIndex = (i == 0) ? spline.Count - 1 : i - 1;
             curve = spline.GetCurve(prevIndex);
             tanIn = curve.P2 - curve.P3;
             
+            // Transform the tangents to world space
             Vector3 worldTanOut = splineTransform.TransformPoint(tanOut);
             Vector3 worldTanIn = splineTransform.TransformPoint(tanIn);
             
-            if (splineContainer.Spline.TryGetFloatData("TrackWidth", out var trackWidthData)) 
-            {
-                foreach (var data in trackWidthData) 
-                {
-                    if (Mathf.Approximately(data.Index, i)) 
-                    {
-                        trackWidth = data.Value;
-                        break;
-                    }
-                }
-            }
             
             spriteShape.spline.InsertPointAt(i, localKnotPos);
             spriteShape.spline.SetTangentMode(i, ShapeTangentMode.Continuous);
             spriteShape.spline.SetLeftTangent(i, tanIn);
             spriteShape.spline.SetRightTangent(i, tanOut);
-            // spriteShape.spline.SetHeight(i, trackWidth);
             
         }
 
@@ -101,6 +88,7 @@ public class TrackManager : MonoBehaviour {
 
     private void GenerateTrackCollider()
     {
+        
         // Generate the colliders so that the track can be interacted with
         List<Vector2> innerPoints = new List<Vector2>(); 
         List<Vector2> outerPoints = new List<Vector2>();
@@ -123,26 +111,18 @@ public class TrackManager : MonoBehaviour {
         outerCollider.SetPath(0, outerPoints);
     }
 
-    private void AddDecals()
+    private void AddObjects()
     {
         
         
-        splineContainer.Spline.TryGetObjectData("Decals", out var decals);
+        if (!splineContainer.Spline.TryGetObjectData("Objects", out var objects)) return;
 
-        foreach (var decal in decals)
+        foreach (var obj in objects)
         {
-            GameObject decalObject = Instantiate(decalPrefab, transform);
-            decalObject.GetComponent<SpriteRenderer>().sprite = (Sprite)decal.Value;
-            decalObject.transform.position = splineContainer.transform.TransformPoint(splineContainer.Spline.EvaluatePosition(decal.Index));
+            GameObject objGameObject = obj.Value as GameObject;
+            objGameObject.transform.parent = transform;
+            objGameObject.transform.position = splineContainer.Spline.EvaluatePosition(obj.Index);
         }
     }
 
-    private void AddCheckpoints()
-    {
-        
-    }
-
-    private void Update()
-    {
-    }
 }
