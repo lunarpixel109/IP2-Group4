@@ -19,6 +19,8 @@ public class TrackManager : MonoBehaviour {
     public EdgeCollider2D innerCollider;
     public PolygonCollider2D outerCollider;
 
+    public GameObject decalPrefab;
+    
     private void Start()
     {
         spriteShape = GetComponentInChildren<SpriteShapeController>();
@@ -26,10 +28,24 @@ public class TrackManager : MonoBehaviour {
     }
     
     [ContextMenu("Generate Track Visuals")]
-    private void ConvertTrack()
+    public void BakeTrack()
     {
         Spline spline = splineContainer.Spline;
         
+        
+        GenerateTrackSpriteShape(spline);
+        GenerateTrackCollider();
+        AddDecals();
+        AddCheckpoints();
+        
+        
+        
+        
+        
+    }
+
+    private void GenerateTrackSpriteShape(Spline spline)
+    {
         Transform splineTransform = splineContainer.transform;
         Transform shapeTransform = spriteShape.transform;
         
@@ -74,15 +90,17 @@ public class TrackManager : MonoBehaviour {
             spriteShape.spline.SetTangentMode(i, ShapeTangentMode.Continuous);
             spriteShape.spline.SetLeftTangent(i, tanIn);
             spriteShape.spline.SetRightTangent(i, tanOut);
-           // spriteShape.spline.SetHeight(i, trackWidth);
+            // spriteShape.spline.SetHeight(i, trackWidth);
             
         }
 
         spriteShape.spline.isOpenEnded = false;
         spriteShape.splineDetail = 256;
         spriteShape.RefreshSpriteShape();
-        
-        
+    }
+
+    private void GenerateTrackCollider()
+    {
         // Generate the colliders so that the track can be interacted with
         List<Vector2> innerPoints = new List<Vector2>(); 
         List<Vector2> outerPoints = new List<Vector2>();
@@ -93,8 +111,8 @@ public class TrackManager : MonoBehaviour {
             
             Vector2 perpTangentNorm = new Vector2(tangent.y, -tangent.x).normalized ;
             
-            Vector2 innerPoint = (Vector2)point - perpTangentNorm;
-            Vector2 outerPoint = (Vector2)point + perpTangentNorm;
+            Vector2 innerPoint = (Vector2)point - (perpTangentNorm * 0.5f);
+            Vector2 outerPoint = (Vector2)point + (perpTangentNorm * 0.5f);
             
             innerPoints.Add(innerPoint);
             outerPoints.Add(outerPoint);
@@ -103,9 +121,28 @@ public class TrackManager : MonoBehaviour {
         
         innerCollider.SetPoints(innerPoints);
         outerCollider.SetPath(0, outerPoints);
+    }
+
+    private void AddDecals()
+    {
+        
+        
+        splineContainer.Spline.TryGetObjectData("Decals", out var decals);
+
+        foreach (var decal in decals)
+        {
+            GameObject decalObject = Instantiate(decalPrefab, transform);
+            decalObject.GetComponent<SpriteRenderer>().sprite = (Sprite)decal.Value;
+            decalObject.transform.position = splineContainer.transform.TransformPoint(splineContainer.Spline.EvaluatePosition(decal.Index));
+        }
+    }
+
+    private void AddCheckpoints()
+    {
         
     }
 
-    
-    
+    private void Update()
+    {
+    }
 }
