@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TransitionAnim: {fileID: 5725205518677014081}
-  SceneName: Demo
+  SceneName: Scene_A
 --- !u!1 &5310237787517367076
 GameObject:
   m_ObjectHideFlags: 0
