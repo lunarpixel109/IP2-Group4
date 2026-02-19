@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Audio_Clips/testing.meta
+guid: 261a2711e61ad894e99a135dddff151e
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+========
+guid: f23d57ca55f16b340a382da4b72c2302
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+>>>>>>>> origin/SceneTransitions:Assets/Animations/FadeAwayAnim.anim.meta
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
