@@ -1,19 +1,16 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/arrow.png.meta
-guid: 40c8f7e634f1b95418f16cb1451eb516
+guid: 272a5c32b638555459f9c69cfc955cfc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7482667652216324306
-    second: Square
-========
-guid: 5c0937e69bab64841b9d4b294b4c2a73
-TextureImporter:
-  internalIDToNameTable:
+      213: -9050198275377573605
+    second: booster pad_0
   - first:
-      213: -373196113939356764
-    second: IP2_G4 MainMenu_0
->>>>>>>> origin/SceneTransitions:Assets/Sprites/IP2_G4 MainMenu.png.meta
+      213: 9186718945550531154
+    second: booster pad_1
+  - first:
+      213: -4623279323662797639
+    second: booster pad_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,12 +57,12 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: 0
+  spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -77,7 +74,7 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
@@ -105,9 +102,8 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-<<<<<<<< HEAD:Assets/arrow.png.meta
   - serializedVersion: 4
-    buildTarget: iOS
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -119,69 +115,80 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-========
->>>>>>>> origin/SceneTransitions:Assets/Sprites/IP2_G4 MainMenu.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-<<<<<<<< HEAD:Assets/arrow.png.meta
-      name: Square
-========
-      name: IP2_G4 MainMenu_0
->>>>>>>> origin/SceneTransitions:Assets/Sprites/IP2_G4 MainMenu.png.meta
+      name: booster pad_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-<<<<<<<< HEAD:Assets/arrow.png.meta
-        width: 100
-        height: 256
-========
-        width: 4800
-        height: 2700
->>>>>>>> origin/SceneTransitions:Assets/Sprites/IP2_G4 MainMenu.png.meta
+        x: 11
+        y: 89
+        width: 340
+        height: 266
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-<<<<<<<< HEAD:Assets/arrow.png.meta
-      spriteID: 2d009a6b596c7d760800000000000000
-      internalID: 7482667652216324306
-========
-      spriteID: 4a3a6159c1422daf0800000000000000
-      internalID: -373196113939356764
->>>>>>>> origin/SceneTransitions:Assets/Sprites/IP2_G4 MainMenu.png.meta
+      spriteID: b1154495e9c376280800000000000000
+      internalID: -9050198275377573605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booster pad_1
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 45
+        width: 186
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25af3e82538cd7f70800000000000000
+      internalID: 9186718945550531154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booster pad_2
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 3
+        width: 117
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b4bba743ffc6dfb0800000000000000
+      internalID: -4623279323662797639
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
     customData: 
-    physicsShape:
-    - - {x: -128, y: 128}
-      - {x: -128, y: -128}
-      - {x: 128, y: -128}
-      - {x: 128, y: 128}
+    physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -191,11 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-<<<<<<<< HEAD:Assets/arrow.png.meta
-      Square: 7482667652216324306
-========
-      IP2_G4 MainMenu_0: -373196113939356764
->>>>>>>> origin/SceneTransitions:Assets/Sprites/IP2_G4 MainMenu.png.meta
+      booster pad_0: -9050198275377573605
+      booster pad_1: 9186718945550531154
+      booster pad_2: -4623279323662797639
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

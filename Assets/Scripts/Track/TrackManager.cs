@@ -15,9 +15,10 @@ public class TrackManager : MonoBehaviour {
     [Space]
     [Tooltip("The layout of the track that is used to create a track")] public SpriteShapeController spriteShape;
     [Header("Track Colliders")]
-    public float colliderResolution = 0.5f;
+    public float colliderResolution = 0.001f;
     public EdgeCollider2D innerCollider;
     public PolygonCollider2D outerCollider;
+    public float trackHalfWidth = 1f;
     
     private void Start()
     {
@@ -97,10 +98,10 @@ public class TrackManager : MonoBehaviour {
             Vector3 point = splineContainer.Spline.EvaluatePosition(t);
             Vector3 tangent = splineContainer.Spline.EvaluateTangent(t);
             
-            Vector2 perpTangentNorm = new Vector2(tangent.y, -tangent.x).normalized ;
+            Vector2 perpTangentNorm = new Vector2(tangent.y, -tangent.x).normalized * trackHalfWidth;
             
-            Vector2 innerPoint = (Vector2)point - (perpTangentNorm * 0.5f);
-            Vector2 outerPoint = (Vector2)point + (perpTangentNorm * 0.5f);
+            Vector2 innerPoint = (Vector2)point - perpTangentNorm;
+            Vector2 outerPoint = (Vector2)point + perpTangentNorm;
             
             innerPoints.Add(innerPoint);
             outerPoints.Add(outerPoint);
