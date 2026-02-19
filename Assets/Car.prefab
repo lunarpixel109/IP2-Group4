@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 931478164115617407}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -4.285714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -243,11 +243,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b59eec54ddaf0f42b95762790874898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accel: 6
-  braking: 10
-  friction: 4
-  max_speed: 9999999
-  steering_speed: 65
+  accel: 6.5
+  braking: 15
+  friction: 4.5
+  max_speed: 30
+  steering_speed: 85
   rb_speed_local: {x: 0, y: 0}
   rb_speed_forward: 0
   rb_speed_right: 0
@@ -277,8 +277,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.42, y: -0.44, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 455620569224472102}
   - {fileID: 2905270233679467460}
@@ -447,7 +447,7 @@ Transform:
   m_GameObject: {fileID: 3345522166968583274}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -4.285714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -523,9 +523,9 @@ MonoBehaviour:
   TargetOffset: {x: 0, y: 0, z: 0}
   Damping: {x: 0, y: 0, z: 0}
   Lookahead:
-    Enabled: 0
-    Time: 0
-    Smoothing: 0
+    Enabled: 1
+    Time: 0.081
+    Smoothing: 1.8
     IgnoreY: 0
 --- !u!114 &8618619774508642903
 MonoBehaviour:

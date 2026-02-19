@@ -403,22 +403,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 455620569224472102, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.285714
-      objectReference: {fileID: 0}
-    - target: {fileID: 1117242502611225112, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1117242502611225112, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1117242502611225112, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.7
-      objectReference: {fileID: 0}
     - target: {fileID: 1117242502611225112, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.42
@@ -459,29 +443,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 1117242502611225112, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2338917547797312754, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
       propertyPath: m_Name
       value: Car
-      objectReference: {fileID: 0}
-    - target: {fileID: 4364698497975840783, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.285714
-      objectReference: {fileID: 0}
-    - target: {fileID: 7678064579071866331, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: Lookahead.Time
-      value: 0.159
-      objectReference: {fileID: 0}
-    - target: {fileID: 7678064579071866331, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: Lookahead.Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7678064579071866331, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: Lookahead.Smoothing
-      value: 2.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -957,10 +921,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scene Transition System
       objectReference: {fileID: 0}
-    - target: {fileID: 7902747981218322563, guid: e39ec5d7cf64f404bae7632e87f027e3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7910936510760479198, guid: e39ec5d7cf64f404bae7632e87f027e3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1003,7 +963,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8122340809877625975, guid: e39ec5d7cf64f404bae7632e87f027e3, type: 3}
       propertyPath: SceneName
-      value: Scene_A
+      value: Track2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2076,7 +2036,7 @@ PolygonCollider2D:
       - {x: 0.84023666, y: 1.9964299}
       - {x: 0.4258214, y: 1.9984515}
       - {x: 0.010001423, y: 1.9999789}
-  m_UseDelaunayMesh: 0
+  m_UseDelaunayMesh: 1
 --- !u!68 &1931338015
 EdgeCollider2D:
   m_ObjectHideFlags: 0
