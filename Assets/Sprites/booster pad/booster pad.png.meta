@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: b6cd4f4f23b417242b00c9014b06dbde
+guid: eee914e25ab5396449ffbcffd175e102
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2894126367625617641
-    second: track_0
+      213: -9050198275377573605
+    second: booster pad_0
+  - first:
+      213: 9186718945550531154
+    second: booster pad_1
+  - first:
+      213: -4623279323662797639
+    second: booster pad_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +52,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: track_0
+      name: booster pad_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1024
-        height: 1024
+        x: 11
+        y: 89
+        width: 340
+        height: 266
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9e0aa6df8900a2820800000000000000
-      internalID: 2894126367625617641
+      spriteID: b1154495e9c376280800000000000000
+      internalID: -9050198275377573605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booster pad_1
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 45
+        width: 186
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25af3e82538cd7f70800000000000000
+      internalID: 9186718945550531154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booster pad_2
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 3
+        width: 117
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b4bba743ffc6dfb0800000000000000
+      internalID: -4623279323662797639
       vertices: []
       indices: 
       edges: []
@@ -138,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      track_0: 2894126367625617641
+      booster pad_0: -9050198275377573605
+      booster pad_1: 9186718945550531154
+      booster pad_2: -4623279323662797639
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -6,16 +6,13 @@ public class StartFinishLine : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Start/Finish line trigger entered by: " + other.name);
         // if on cooldown ignore the collision
         if (!canTrigger)
             return;
-
-        // only respond to the player crossing the line
-        if (other.CompareTag("Player"))
-        {
+        
             LapTimerManager.instance.OnStartFinishCrossed();
             StartCoroutine(TriggerCooldown());
-        }
     }
 
     // cooldown to stop multiple triggers

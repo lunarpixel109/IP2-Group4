@@ -69,7 +69,10 @@ public class TrackEditor : Editor
             if (GUILayout.Button("Add Powerup"))
             {
                 trackManager.splineContainer.Spline.TryGetObjectData("Objects", out var objects);
-                objects.Add(new DataPoint<Object>(objectRatio, objectPrefab));
+                GameObject obj = Instantiate(objectPrefab);
+                obj.name = $"{objectPrefab.name}_{objects.Count}";
+                obj.transform.rotation = Quaternion.Euler(0f, 0f, objectRotation);
+                objects.Add(new DataPoint<Object>(objectRatio, obj));
                 trackManager.BakeTrack();
             }
         }

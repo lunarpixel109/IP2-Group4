@@ -29,7 +29,7 @@ public class LapTimerManager : MonoBehaviour
 
 
         BestLapTimeText.gameObject.SetActive(false);
-
+        lapTimes = new  List<float>();
         
     }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.Splines;
 using UnityEngine.U2D;
+using Object = UnityEngine.Object;
 using Spline = UnityEngine.Splines.Spline;
 
 [ExecuteAlways]
@@ -116,11 +117,12 @@ public class TrackManager : MonoBehaviour {
     {
         
         
-        if (!splineContainer.Spline.TryGetObjectData("Objects", out var objects)) return;
+        if (!splineContainer.Spline.TryGetObjectData("SpriteObjects", out var objects)) return;
 
         foreach (var obj in objects)
         {
             GameObject objGameObject = obj.Value as GameObject;
+            if (objGameObject == null) continue;
             objGameObject.transform.parent = transform;
             objGameObject.transform.position = splineContainer.Spline.EvaluatePosition(obj.Index);
         }

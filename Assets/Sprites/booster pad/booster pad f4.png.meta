@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: b6cd4f4f23b417242b00c9014b06dbde
+guid: 39ca6517a29fc804d8eae1c52ecb5276
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2894126367625617641
-    second: track_0
+      213: -4359720628246521531
+    second: booster pad f4_0
+  - first:
+      213: -1985256901209794412
+    second: booster pad f4_1
+  - first:
+      213: 7967804895225137270
+    second: booster pad f4_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +52,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: track_0
+      name: booster pad f4_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1024
-        height: 1024
+        x: 10
+        y: 91
+        width: 340
+        height: 266
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9e0aa6df8900a2820800000000000000
-      internalID: 2894126367625617641
+      spriteID: 5495c69ff292f73c0800000000000000
+      internalID: -4359720628246521531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booster pad f4_1
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 47
+        width: 184
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4985f7fdd53f274e0800000000000000
+      internalID: -1985256901209794412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booster pad f4_2
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 5
+        width: 117
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67843834654539e60800000000000000
+      internalID: 7967804895225137270
       vertices: []
       indices: 
       edges: []
@@ -138,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      track_0: 2894126367625617641
+      booster pad f4_0: -4359720628246521531
+      booster pad f4_1: -1985256901209794412
+      booster pad f4_2: 7967804895225137270
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
