@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class LeaderBoardManager : MonoBehaviour
 {
@@ -42,7 +43,9 @@ public class LeaderBoardManager : MonoBehaviour
         backButton.SetActive(false);
         clear.SetActive(false);
         
-
+        leaderBoardButton.GetComponent<Button>().onClick.AddListener(UpdateLeaderboardUI);
+        backButton.GetComponent<Button>().onClick.AddListener(back);
+        clear.GetComponent<Button>().onClick.AddListener(ClearLeaderboards);
     }
     // called when a new lap is submitted 
     public void AddLapTime(float lapTime)

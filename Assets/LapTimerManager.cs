@@ -112,7 +112,7 @@ public class LapTimerManager : MonoBehaviour
     {
         int minutes = (int)time / 60;
         float seconds = time % 60;
-        return string.Format("{0:00}:{1:00}", minutes, seconds);
+        return string.Format("{0:00}:{1:F3}", minutes, seconds);
     }
 
 }
