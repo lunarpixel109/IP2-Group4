@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TrackMapTest.unity
     guid: afe62e55878907246b45eaf80991d9a0
+  - enabled: 1
+    path: Assets/Scenes/SceneChange1.unity
+    guid: 684d17e50a595be4f99670bd4c7fed85
+  - enabled: 1
+    path: Assets/Scenes/SceneChange2.unity
+    guid: debface99e3c2304d8f4a25ddbfc4c4d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
