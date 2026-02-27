@@ -644,6 +644,10 @@ PrefabInstance:
       propertyPath: m_BackGroundColor.r
       value: 0.18843006
       objectReference: {fileID: 0}
+    - target: {fileID: 199374628785019650, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 455620569224472102, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.37999973
@@ -722,6 +726,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2905270233679467460, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3345522166968583274, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3928607971051202565, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
@@ -2942,7 +2950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7902747981218322563, guid: e39ec5d7cf64f404bae7632e87f027e3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7910936510760479198, guid: e39ec5d7cf64f404bae7632e87f027e3, type: 3}
       propertyPath: m_LocalPosition.x
