@@ -2994,6 +2994,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8122340809877625975, guid: e39ec5d7cf64f404bae7632e87f027e3, type: 3}
+      propertyPath: TrackMap
+      value: 
+      objectReference: {fileID: 9189002346073022539}
+    - target: {fileID: 8122340809877625975, guid: e39ec5d7cf64f404bae7632e87f027e3, type: 3}
       propertyPath: SceneName
       value: SceneChange2
       objectReference: {fileID: 0}
@@ -5867,6 +5871,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b99960235ba79c4a9a622828206db04, type: 3}
+--- !u!1 &9189002346073022539 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9009414004523049679, guid: 8b99960235ba79c4a9a622828206db04, type: 3}
+  m_PrefabInstance: {fileID: 9189002346073022538}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
