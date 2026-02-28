@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 624361018853851095}
   - component: {fileID: 1162449589579945528}
   - component: {fileID: 8191401563798298999}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Transition_Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 700331525090199179}
   - component: {fileID: 4009831678030370737}
   - component: {fileID: 4896691898809494461}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TireTransition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 8262423372041615968}
   - component: {fileID: 634119689277854100}
   - component: {fileID: 5352100320258565680}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TireTransition (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +309,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2738727163635114463}
   - component: {fileID: 8122340809877625975}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,6 +345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TransitionAnim1: {fileID: 4896691898809494461}
   TransitionAnim2: {fileID: 5352100320258565680}
+  TrackMap: {fileID: 0}
   SceneName: SceneChange1
 --- !u!1 &7902747981218322563
 GameObject:
@@ -355,7 +356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7910936510760479198}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Scene Transition System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -15,8 +15,6 @@ public class SceneTransitions : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             StartCoroutine(LoadScene());
-
-            TrackMap.SetActive(false);
         }
     }
 
@@ -26,7 +24,8 @@ public class SceneTransitions : MonoBehaviour
         TransitionAnim2.SetTrigger("End");
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(SceneName);
-        TrackMap.SetActive(true);
+
     }
+
 }
 

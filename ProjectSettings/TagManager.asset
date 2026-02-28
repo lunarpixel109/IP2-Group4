@@ -41,5 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: TrackMap
+    uniqueID: 1762819539
+    locked: 0
+  - name: Transition
+    uniqueID: 287185869
+    locked: 0
   m_RenderingLayers:
   - Default
+  - Transition

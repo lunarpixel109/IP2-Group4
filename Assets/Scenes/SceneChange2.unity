@@ -3208,7 +3208,7 @@ LineRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1c2e60a2985b72c4d8ba7209ae91d5d9, type: 2}
@@ -3452,10 +3452,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2516953198696437946, guid: e39ec5d7cf64f404bae7632e87f027e3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7902747981218322563, guid: e39ec5d7cf64f404bae7632e87f027e3, type: 3}
       propertyPath: m_Name
       value: Scene Transition System
@@ -3499,14 +3495,6 @@ PrefabInstance:
     - target: {fileID: 7910936510760479198, guid: e39ec5d7cf64f404bae7632e87f027e3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7976838274269356645, guid: e39ec5d7cf64f404bae7632e87f027e3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8122340809877625975, guid: e39ec5d7cf64f404bae7632e87f027e3, type: 3}
-      propertyPath: SceneName
-      value: SceneChange1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
