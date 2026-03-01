@@ -18,7 +18,7 @@ public class CarController : MonoBehaviour
 	InputAction steering;
 	InputAction drifting;
 
-	enum DrivingState
+	public enum DrivingState
 	{
 		stationary,
 		forward,
@@ -33,7 +33,7 @@ public class CarController : MonoBehaviour
 
 	float rb_direction;
 
-	DrivingState drivingState = DrivingState.stationary;
+	public DrivingState drivingState = DrivingState.stationary;
 	bool is_drifting = false;
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -139,7 +139,6 @@ public class CarController : MonoBehaviour
 		rb.rotation = rb_direction;
 		#endregion
 	}
-
 
 	void Momentum_Change_Stationary()
 	{

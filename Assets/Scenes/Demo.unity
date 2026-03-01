@@ -658,11 +658,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1117242502611225112, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.83
+      value: 5.87
       objectReference: {fileID: 0}
     - target: {fileID: 1117242502611225112, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.53
+      value: -0.57
       objectReference: {fileID: 0}
     - target: {fileID: 1117242502611225112, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
       propertyPath: m_LocalPosition.z
@@ -728,6 +728,18 @@ PrefabInstance:
       propertyPath: max_speed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 3928607971051202565, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
+      propertyPath: Trail_GameObject.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928607971051202565, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
+      propertyPath: 'Trail_GameObject.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1026164005}
+    - target: {fileID: 3928607971051202565, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
+      propertyPath: 'Trail_GameObject.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2122562403}
     - target: {fileID: 4364698497975840783, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.37999973
@@ -1590,6 +1602,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945778209}
   m_CullTransparentMesh: 1
+--- !u!1 &1026164005 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6012718019064419127, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
+  m_PrefabInstance: {fileID: 334792362}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1116747999
 GameObject:
   m_ObjectHideFlags: 0
@@ -5753,6 +5770,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2030783995}
   m_CullTransparentMesh: 1
+--- !u!1 &2122562403 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8142671033778273609, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
+  m_PrefabInstance: {fileID: 334792362}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
