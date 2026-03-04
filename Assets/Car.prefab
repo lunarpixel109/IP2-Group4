@@ -246,8 +246,11 @@ MonoBehaviour:
   accel: 6.5
   braking: 15
   friction: 4.5
+  drift_speed_threshold: 1
   max_speed: 30
   steering_speed: 85
+  drift_steering_speed_max: 0
+  drift_steering_speeed_min: 0
   rb_speed_local: {x: 0, y: 0}
   rb_speed_forward: 0
   rb_speed_right: 0
