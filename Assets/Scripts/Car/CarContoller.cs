@@ -40,8 +40,8 @@ public class CarController : MonoBehaviour
 
     DrivingState drivingState = DrivingState.stationary;
 
-	bool is_drifting = false;
-	float drifting_value = 0f;
+	public bool is_drifting = false;
+	public float drifting_value = 0f;
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
@@ -69,7 +69,7 @@ public class CarController : MonoBehaviour
 
 		rb_direction = rb.rotation; // gets rotation of car via rigidbody2D
 
-		if (drifting.IsPressed() && drivingState == DrivingState.forward && !brake.IsPressed() && ((!is_drifting && steering.IsInProgress()) ||is_drifting) && rb_speed_forward >= drift_speed_threshold)
+		if (Drift_Check())
 		{
 			if (!is_drifting)
 			{
@@ -82,10 +82,10 @@ public class CarController : MonoBehaviour
 				drifting_value = 1f;
 			}
 		}
-		else { drifting_value -= 2f * Time.fixedDeltaTime; }
+		else { drifting_value -= 2f * Time.fixedDeltaTime; if (drifting_value < 0f) { drifting_value = 0f; } }
 
-		if (drifting_value > 0f) {is_drifting = true;}
-		else {is_drifting = false; print("drift end"); }
+		if (drifting_value > 0f) {is_drifting = true; print("drifting"); }
+		else {is_drifting = false; }
 
 		#endregion
 
@@ -133,6 +133,20 @@ public class CarController : MonoBehaviour
 					//if (rb_speed_forward > 0) { Momentum_Change_Stationary(); }
 				}
 			}
+			else if (drivingState == DrivingState.stationary)
+			{
+				if (accelerate.IsPressed())
+				{
+					rb_speed_forward += (accel - (rb_speed_forward / 10)) * Time.fixedDeltaTime;
+					print("reversing " + brake.IsPressed());
+				}
+				else if (brake.IsPressed())
+				{
+					rb_speed_forward -= (accel / 2 + rb_speed_forward / 10) * Time.fixedDeltaTime;
+					//if (rb_speed_forward > 0) { Momentum_Change_Stationary(); }
+					print("R breaking " + accelerate.IsPressed());
+				}
+			}
 		}
 		// drifting
 		else
@@ -166,7 +180,7 @@ public class CarController : MonoBehaviour
 		}
 		else
 		{
-			rb_direction -= Mathf.Lerp(drift_steering_speeed_min, drift_steering_speed_max, Mathf.InverseLerp(1, -1, steering.ReadValue<float>())) * drift_direction;
+			rb_direction -= (Mathf.Lerp(drift_steering_speeed_min, drift_steering_speed_max, Mathf.InverseLerp(1, -1, steering.ReadValue<float>())) * drift_direction) * Time.fixedDeltaTime;
 			print("drifting");
 		}
 		#endregion
@@ -180,7 +194,6 @@ public class CarController : MonoBehaviour
 		#endregion
 	}
 
-
 	void Momentum_Change_Stationary()
 	{
 		rb_speed_forward = 0;
@@ -190,5 +203,19 @@ public class CarController : MonoBehaviour
 	float Steering_Speed_Curve()
 	{
 		return steering_speed;
+	}
+
+	bool Drift_Check()
+	{
+		if (
+			drifting.IsPressed() && drivingState == DrivingState.forward
+			&& !brake.IsPressed() && accelerate.IsPressed() &&
+			((!is_drifting && steering.IsInProgress()) || is_drifting)
+			&& rb_speed_forward >= drift_speed_threshold
+			)
+		{
+			return true;
+		}
+		else { return false; }
 	}
 }
