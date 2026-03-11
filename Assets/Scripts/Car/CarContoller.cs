@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 
 public class CarController : MonoBehaviour
 {
@@ -73,19 +75,22 @@ public class CarController : MonoBehaviour
 			if (accelerate.IsPressed())
 			{
 				rb_speed_forward += (accel - (rb_speed_forward / 10)) * Time.fixedDeltaTime; // increments forward speed by appropriate value based on input and context
-				if (rb_speed_forward > max_speed) { rb_speed_forward = max_speed; }
+                rb_speed_forward = Mathf.Clamp(rb_speed_forward, -max_speed, max_speed);
+                if (rb_speed_forward > max_speed) { rb_speed_forward = max_speed; }
 				print("accel " + accelerate.IsPressed());
 			}
 			else if (brake.IsPressed())
 			{
 				rb_speed_forward -= braking * Time.fixedDeltaTime;
-				if (rb_speed_forward < 0) { Momentum_Change_Stationary(); }
+                rb_speed_forward = Mathf.Clamp(rb_speed_forward, -max_speed, max_speed);
+                if (rb_speed_forward < 0) { Momentum_Change_Stationary(); }
 				print("breaking " + brake.IsPressed());
 			}
 			else
 			{
 				rb_speed_forward -= friction * Time.fixedDeltaTime;
-				if (rb_speed_forward < 0) { Momentum_Change_Stationary(); }
+                rb_speed_forward = Mathf.Clamp(rb_speed_forward, -max_speed, max_speed);
+                if (rb_speed_forward < 0) { Momentum_Change_Stationary(); }
 			}
 		}
 		else if (drivingState == DrivingState.barckward)
@@ -93,18 +98,21 @@ public class CarController : MonoBehaviour
 			if (brake.IsPressed())
 			{
 				rb_speed_forward -= (accel / 2 + rb_speed_forward / 10) * Time.fixedDeltaTime;
-				print("reversing " + brake.IsPressed());
+                rb_speed_forward = Mathf.Clamp(rb_speed_forward, -max_speed, max_speed);
+                print("reversing " + brake.IsPressed());
 			}
 			else if (accelerate.IsPressed())
 			{
 				rb_speed_forward += braking * Time.fixedDeltaTime;
-				if (rb_speed_forward > 0) { Momentum_Change_Stationary(); }
+                rb_speed_forward = Mathf.Clamp(rb_speed_forward, -max_speed, max_speed);
+                if (rb_speed_forward > 0) { Momentum_Change_Stationary(); }
 				print("R breaking " + accelerate.IsPressed());
 			}
 			else
 			{
 				rb_speed_forward += friction * Time.fixedDeltaTime;
-				if (rb_speed_forward > 0) { Momentum_Change_Stationary(); }
+                rb_speed_forward = Mathf.Clamp(rb_speed_forward, -max_speed, max_speed);
+                if (rb_speed_forward > 0) { Momentum_Change_Stationary(); }
 			}
 		}
 		#endregion
@@ -134,7 +142,7 @@ public class CarController : MonoBehaviour
 		#region output
 
 		rb_speed_local = new Vector2(rb_speed_right, rb_speed_forward); // recombines forward and right vectors
-		rb.linearVelocity = rb.GetRelativeVector(rb_speed_local); // sets speed in global space based on speed in local space - NOT WORKING IDK WHY
+		rb.linearVelocity = Vector2.ClampMagnitude(rb.GetRelativeVector(rb_speed_local),max_speed); // sets speed in global space based on speed in local space - NOT WORKING IDK WHY
 
 		rb.rotation = rb_direction;
 		#endregion
@@ -151,4 +159,36 @@ public class CarController : MonoBehaviour
 	{
 		return steering_speed;
 	}
+
+    public void ApplySpeedMultiplier(float multiplier, float duration)
+    {
+        StartCoroutine(SpeedMultiplierRoutine(multiplier, duration));
+    }
+    
+    IEnumerator SpeedMultiplierRoutine(float multiplier, float duration)
+    {
+        float originalAccel = accel;
+        float originalFriction = friction;
+        float originalMaxSpeed = max_speed;
+
+        accel *= multiplier;
+        friction *= multiplier;
+        max_speed *= multiplier;
+
+        yield return new WaitForSeconds(duration);
+
+        accel = originalAccel;
+        friction = originalFriction;
+        max_speed = originalMaxSpeed;
+    }
+
+    public void ApplyKnockBack(Vector2 worldForce, float forwardLoss)
+    {
+        rb.linearVelocity += worldForce;
+
+        rb_speed_local = rb.GetVector(rb.linearVelocity);
+        rb_speed_forward *= forwardLoss;
+        rb_speed_right = rb_speed_local.x;
+    }
+
 }
