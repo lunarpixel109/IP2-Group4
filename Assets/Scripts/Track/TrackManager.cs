@@ -19,7 +19,7 @@ public class TrackManager : MonoBehaviour {
     public float colliderResolution = 0.001f;
     public EdgeCollider2D innerCollider;
     public PolygonCollider2D outerCollider;
-    public float trackHalfWidth = 1f;
+    public float trackWidth = 2f;
     
     private void Start()
     {
@@ -45,7 +45,6 @@ public class TrackManager : MonoBehaviour {
         Transform splineTransform = splineContainer.transform;
         Transform shapeTransform = spriteShape.transform;
         
-        float trackWidth = 1f;
 
         // Generate the SpriteShape so that the track is rendered
         spriteShape.spline.Clear();
@@ -80,7 +79,7 @@ public class TrackManager : MonoBehaviour {
             spriteShape.spline.SetTangentMode(i, ShapeTangentMode.Continuous);
             spriteShape.spline.SetLeftTangent(i, tanIn);
             spriteShape.spline.SetRightTangent(i, tanOut);
-            
+            spriteShape.spline.SetHeight(i, trackWidth/4f);
         }
 
         spriteShape.spline.isOpenEnded = false;
@@ -99,7 +98,7 @@ public class TrackManager : MonoBehaviour {
             Vector3 point = splineContainer.Spline.EvaluatePosition(t);
             Vector3 tangent = splineContainer.Spline.EvaluateTangent(t);
             
-            Vector2 perpTangentNorm = new Vector2(tangent.y, -tangent.x).normalized * trackHalfWidth;
+            Vector2 perpTangentNorm = new Vector2(tangent.y, -tangent.x).normalized * (trackWidth/2);
             
             Vector2 innerPoint = (Vector2)point - perpTangentNorm;
             Vector2 outerPoint = (Vector2)point + perpTangentNorm;

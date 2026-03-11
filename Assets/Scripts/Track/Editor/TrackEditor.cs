@@ -35,7 +35,7 @@ public class TrackEditor : Editor
             trackManager.BakeTrack();
         }
         
-        
+        trackManager.trackWidth = EditorGUILayout.FloatField("Width", trackManager.trackWidth);
         
         
         decalsFoldout = EditorGUILayout.Foldout(decalsFoldout, "Decals");
