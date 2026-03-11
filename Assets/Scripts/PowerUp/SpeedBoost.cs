@@ -1,30 +1,32 @@
 using UnityEngine;
+using System.Collections;
 
 public class SpeedBoost : MonoBehaviour
 {
-    public float SpeedIncrease = 1f;
-    public float duration = 2f;
-    public bool OnSpeedPad = false;
+     public float speedIncrease = 2f;
+     public float duration = 2f;
+
+    public bool isActive = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Find the Car
-        CarController car = collision.GetComponent<CarController>();
-        if (!car) return;
+        if (isActive) return;
 
-        Boosted(car);
-
-        OnSpeedPad = true;
-
-    }
-    public void Boosted(CarController car)
-    {
-        //car.ApplySpeedMultiplier(SpeedIncrease, duration);
-
+        if (collision.TryGetComponent<CarController>(out var car))
+        {
+            StartCoroutine(HandleBoost(car));
+        }
     }
 
-    void Update()
+    private IEnumerator HandleBoost(CarController car)
     {
-        
+        isActive = true;
+
+        car.ApplySpeedMultiplier(speedIncrease, duration);
+
+
+        yield return new WaitForSeconds(duration);
+
+        isActive = false;
     }
 }
