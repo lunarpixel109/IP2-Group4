@@ -552,7 +552,7 @@
                 {
                     "name": "Drifting",
                     "type": "Button",
-                    "id": "8d9aa820-8b19-4e58-a05e-9452e1ac58ec",
+                    "id": "8b649da1-ab37-4edd-a1f6-f8ab017a8334",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -650,12 +650,23 @@
                 },
                 {
                     "name": "",
-                    "id": "a953cbc4-1cfc-4731-b11f-05be3e81c054",
+                    "id": "0ecee822-73f4-4f74-a5d0-09ed0de1006b",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Drifting",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1422c140-15e2-40ea-9e5a-4a4d810e19c4",
                     "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Brake",
+                    "action": "Drifting",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
