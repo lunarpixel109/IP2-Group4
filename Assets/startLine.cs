@@ -3,6 +3,7 @@ using UnityEngine;
 public class StartFinishLine : MonoBehaviour
 {
     private bool canTrigger = true;             // prevents the trigger going off to many times
+   
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -10,7 +11,11 @@ public class StartFinishLine : MonoBehaviour
         // if on cooldown ignore the collision
         if (!canTrigger)
             return;
-        
+
+        // only respond to the player crossing the line
+        if (other.CompareTag("Player"))
+        {
+            
             LapTimerManager.instance.OnStartFinishCrossed();
             StartCoroutine(TriggerCooldown());
     }

@@ -10,7 +10,7 @@ public class LeaderBoardManager : MonoBehaviour
     private const int MAX_ENTRIES = 10;                             // max number of entries 
     private const string LEADERBOARD_KEY = "BestLapTimes";          // used to save laptime data 
 
-    public List<float> bestLapTimes = new List<float>();            //holds the best lap times top 10
+    public List<LapData> bestLaps = new List<LapData>();            //holds the best lap times top 10
 
     public TextMeshProUGUI leaderboardText;                         // leaderboard text ui 
 
@@ -47,50 +47,70 @@ public class LeaderBoardManager : MonoBehaviour
         backButton.GetComponent<Button>().onClick.AddListener(back);
         clear.GetComponent<Button>().onClick.AddListener(ClearLeaderboards);
     }
-    // called when a new lap is submitted 
-    public void AddLapTime(float lapTime)
+    
+    public void AddLap(LapData lap)
     {
+        bestLaps.Add(lap);
 
-        
-        // add the new lap time
-        bestLapTimes.Add(lapTime);
+        bestLaps.Sort((a, b) => a.totalTime.CompareTo(b.totalTime));
 
-        // Sort best to worst
-        bestLapTimes.Sort();
+        if (bestLaps.Count > MAX_ENTRIES)
+        {
+            bestLaps.RemoveRange(MAX_ENTRIES, bestLaps.Count - MAX_ENTRIES);
+        }
 
-        // Keep only top 10
-        if (bestLapTimes.Count > MAX_ENTRIES)
-            bestLapTimes.RemoveRange(MAX_ENTRIES, bestLapTimes.Count - MAX_ENTRIES);
-
-        // save updated leaderboard
         SaveLeaderboard();
-        //UpdateLeaderboardUI();
     }
+
+
+    
     // saves the leaderboard
     private void SaveLeaderboard()
     {
-        string data = string.Join(",", bestLapTimes);
-        PlayerPrefs.SetString(LEADERBOARD_KEY, data);
+        List<string> entries = new List<string>();
+
+        foreach (LapData lap in bestLaps)
+        {
+            string entry = lap.totalTime.ToString();
+
+            foreach (float sector in lap.sectorTimes)
+            {
+                entry += "|" + sector;
+
+            }
+
+            entries.Add(entry);
+        }
+
+        PlayerPrefs.SetString(LEADERBOARD_KEY, string.Join(",", entries));
         PlayerPrefs.Save();
+
     }
 
     // loads the leaderboard
     private void LoadLeaderboard()
     {
-        bestLapTimes.Clear();
+        bestLaps.Clear();
 
-        // if no saved data the exit early 
-        if (!PlayerPrefs.HasKey(LEADERBOARD_KEY))
-            return;
+        if (!PlayerPrefs.HasKey(LEADERBOARD_KEY)) return;
 
-        // retrived saved data and split into individual times
         string data = PlayerPrefs.GetString(LEADERBOARD_KEY);
-        string[] times = data.Split(',');
+        string[] entries = data.Split(',');
 
-        foreach (string t in times)
+        foreach (string entry in entries)
         {
-            if (float.TryParse(t, out float value))
-                bestLapTimes.Add(value);
+            string[] values = entry.Split('|');
+            LapData lap = new LapData(values.Length - 1);
+
+            lap.totalTime = float.Parse(values[0]);
+
+            for (int i = 1; i < values.Length; i++)
+            {
+                lap.sectorTimes[i - 1] = float.Parse(values[i]);
+
+            }
+
+            bestLaps.Add(lap);
         }
     }
     // display leaderbaord on screen
@@ -98,10 +118,25 @@ public class LeaderBoardManager : MonoBehaviour
     {
         leaderboardText.text = "";
 
-        for (int i = 0; i < bestLapTimes.Count; i++)
+    if (bestLaps.Count == 0)
+    {
+        leaderboardText.text = "No lap times recorded";
+    }
+    else
+    {
+        for (int i = 0; i < bestLaps.Count; i++)
         {
-            leaderboardText.text += $"{i + 1}. {FormatTime(bestLapTimes[i])}\n";
+            LapData lap = bestLaps[i];
+
+            leaderboardText.text +=
+                $"{i + 1}. {FormatTime(lap.totalTime)} | " +
+                $"S1 {lap.sectorTimes[0]:0.00} | " +
+                $"S2 {lap.sectorTimes[1]:0.00} | " +
+                $"S3 {lap.sectorTimes[2]:0.00}\n";
         }
+    }
+
+
         //enable leaderboard ui and disable the leaderboard button
         leaderboardText.gameObject.SetActive(true);
         leaderBoardButton.SetActive(false);
@@ -121,7 +156,7 @@ public class LeaderBoardManager : MonoBehaviour
     // clears leaderboard data
     public void ClearLeaderboards()
     {
-        bestLapTimes.Clear();
+        bestLaps.Clear();
         PlayerPrefs.DeleteKey(LEADERBOARD_KEY);
         PlayerPrefs.Save();
         UpdateLeaderboardUI();

@@ -1,10 +1,19 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Sprites/finish line/finish line f6.png.meta
 guid: 3283b7937874e864b88fc635e06a9c2d
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: 8580554163563788623
     second: finish line f6_0
+========
+guid: b6cd4f4f23b417242b00c9014b06dbde
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2894126367625617641
+    second: track_0
+>>>>>>>> origin/Timer-and-leaderbaord:Assets/Sprites/track.png.meta
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,24 +105,15 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
+<<<<<<<< HEAD:Assets/Sprites/finish line/finish line f6.png.meta
       name: finish line f6_0
+========
+      name: track_0
+>>>>>>>> origin/Timer-and-leaderbaord:Assets/Sprites/track.png.meta
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
+<<<<<<<< HEAD:Assets/Sprites/finish line/finish line f6.png.meta
       spriteID: f49f73fcc80441770800000000000000
       internalID: 8580554163563788623
+========
+      spriteID: 9e0aa6df8900a2820800000000000000
+      internalID: 2894126367625617641
+>>>>>>>> origin/Timer-and-leaderbaord:Assets/Sprites/track.png.meta
       vertices: []
       indices: 
       edges: []
@@ -148,7 +153,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+<<<<<<<< HEAD:Assets/Sprites/finish line/finish line f6.png.meta
       finish line f6_0: 8580554163563788623
+========
+      track_0: 2894126367625617641
+>>>>>>>> origin/Timer-and-leaderbaord:Assets/Sprites/track.png.meta
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,7 +1,19 @@
 fileFormatVersion: 2
-guid: ea925d2bf799b0a42a7ae2d1844fd48c
+<<<<<<<< HEAD:Assets/Sprites/finish line/finish line f6.png.meta
+guid: 3283b7937874e864b88fc635e06a9c2d
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 8580554163563788623
+    second: finish line f6_0
+========
+guid: b6cd4f4f23b417242b00c9014b06dbde
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2894126367625617641
+    second: track_0
+>>>>>>>> origin/Timer-and-leaderbaord:Assets/Sprites/track.png.meta
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -39,16 +51,16 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 0
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,16 +75,16 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 2
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -85,20 +97,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,12 +107,43 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+<<<<<<<< HEAD:Assets/Sprites/finish line/finish line f6.png.meta
+      name: finish line f6_0
+========
+      name: track_0
+>>>>>>>> origin/Timer-and-leaderbaord:Assets/Sprites/track.png.meta
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1024
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+<<<<<<<< HEAD:Assets/Sprites/finish line/finish line f6.png.meta
+      spriteID: f49f73fcc80441770800000000000000
+      internalID: 8580554163563788623
+========
+      spriteID: 9e0aa6df8900a2820800000000000000
+      internalID: 2894126367625617641
+>>>>>>>> origin/Timer-and-leaderbaord:Assets/Sprites/track.png.meta
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -122,7 +152,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+<<<<<<<< HEAD:Assets/Sprites/finish line/finish line f6.png.meta
+      finish line f6_0: 8580554163563788623
+========
+      track_0: 2894126367625617641
+>>>>>>>> origin/Timer-and-leaderbaord:Assets/Sprites/track.png.meta
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
