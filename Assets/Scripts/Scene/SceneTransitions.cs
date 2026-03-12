@@ -12,7 +12,7 @@ public class SceneTransitions : MonoBehaviour
     public string SceneName;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             StartCoroutine(LoadScene());
 

@@ -78,13 +78,13 @@ public class CarController : MonoBehaviour
 				print("drift start");
 				drift_direction = (int)math.sign(steering.ReadValue<float>());
             }
-			drifting_value += 2f * Time.fixedDeltaTime;
+			drifting_value += 5f * Time.fixedDeltaTime;
 			if (drifting_value > 1f)
 			{
 				drifting_value = 1f;
 			}
 		}
-		else { drifting_value -= 2f * Time.fixedDeltaTime; if (drifting_value < 0f) { drifting_value = 0f; } }
+		else { drifting_value -= 5f * Time.fixedDeltaTime; if (drifting_value < 0f) { drifting_value = 0f; } }
 
 		if (drifting_value > 0f) {is_drifting = true; print("drifting"); }
 		else {is_drifting = false; }
@@ -182,7 +182,7 @@ public class CarController : MonoBehaviour
 		}
 		else
 		{
-			rb_direction -= (Mathf.Lerp(drift_steering_speeed_min, drift_steering_speed_max, Mathf.InverseLerp(1, -1, steering.ReadValue<float>())) * drift_direction) * Time.fixedDeltaTime;
+			rb_direction -= (Mathf.Lerp(drift_steering_speeed_min, drift_steering_speed_max, Mathf.InverseLerp(1 * drift_direction, -1 * drift_direction, steering.ReadValue<float>())) * drift_direction) * Time.fixedDeltaTime;
 			print("drifting");
 		}
 		#endregion
@@ -219,5 +219,36 @@ public class CarController : MonoBehaviour
 			return true;
 		}
 		else { return false; }
+	}
+	
+	public void ApplySpeedMultiplier(float multiplier, float duration)
+	{
+		StartCoroutine(SpeedMultiplierRoutine(multiplier, duration));
+	}
+    
+	IEnumerator SpeedMultiplierRoutine(float multiplier, float duration)
+	{
+		float originalAccel = accel;
+		float originalFriction = friction;
+		float originalMaxSpeed = max_speed;
+
+		accel *= multiplier;
+		friction *= multiplier;
+		max_speed *= multiplier;
+
+		yield return new WaitForSeconds(duration);
+
+		accel = originalAccel;
+		friction = originalFriction;
+		max_speed = originalMaxSpeed;
+	}
+
+	public void ApplyKnockBack(Vector2 worldForce, float forwardLoss)
+	{
+		rb.linearVelocity += worldForce;
+
+		rb_speed_local = rb.GetVector(rb.linearVelocity);
+		rb_speed_forward *= forwardLoss;
+		rb_speed_right = rb_speed_local.x;
 	}
 }
