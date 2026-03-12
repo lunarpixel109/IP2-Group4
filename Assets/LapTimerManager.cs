@@ -10,9 +10,15 @@ public class LapTimerManager : MonoBehaviour
     private float bestLapTime = Mathf.Infinity;                 // stores the fastest lap time
     public List<float> lapTimes = new List<float>();            // list of all recorded lap times 
     public int laps = 0;                                        // current lap counter
+    public int totalSectors = 3;
+    private float sectorTimer = 0f;
+    private int currentSector = 0;
+    private LapData currentLap;
 
     public bool raceStarted = false;                            
     public bool lapRunning = false;
+    
+
 
     // ui refrences 
     public TextMeshProUGUI currentLapTimeText;
@@ -30,6 +36,8 @@ public class LapTimerManager : MonoBehaviour
 
         BestLapTimeText.gameObject.SetActive(false);
 
+        currentLap = new LapData(totalSectors);
+
         
     }
 
@@ -39,6 +47,7 @@ public class LapTimerManager : MonoBehaviour
         if (lapRunning)
         {
             currentLapTime += Time.deltaTime;
+            sectorTimer += Time.deltaTime;
         }
         // update the text ui 
         UpdateUi();
@@ -52,6 +61,23 @@ public class LapTimerManager : MonoBehaviour
 
     }
 
+    
+    
+    public void OnSectorCrossed(int sectorIndex)
+    {
+        if (!lapRunning) return;
+
+        if (sectorIndex != currentSector) return;
+
+        currentLap.sectorTimes[currentSector] = sectorTimer;
+
+        sectorTimer = 0f;
+
+        currentSector++;
+    }
+    
+    
+    
     // called when the player crosses the start/finish line
     public void OnStartFinishCrossed()
     {
@@ -64,14 +90,26 @@ public class LapTimerManager : MonoBehaviour
             raceStarted = true;
             lapRunning = true;
             currentLapTime = 0f;
+            sectorTimer = 0f;
+            currentSector = 0;
+            currentLap = new LapData(totalSectors);
             laps = 1;
             return;
         }
 
         // Lap finished record time and restart lap
-        if (lapRunning)
+        if (lapRunning && LapChecker.fullLap == true)
         {
             Debug.Log("Lap finished! Time: " + currentLapTime);
+
+            if (currentSector < totalSectors)
+            {
+                currentLap.sectorTimes[currentSector] = sectorTimer;
+            }
+
+
+
+            currentLap.totalTime = currentLapTime;
 
             // if the lap is faster than best lap update best lap
             if (currentLapTime < bestLapTime)
@@ -84,11 +122,15 @@ public class LapTimerManager : MonoBehaviour
             lapTimes.Add(currentLapTime);
 
             // send lap time to leaderboard manager
-            LeaderBoardManager.instance.AddLapTime(currentLapTime);
+            LeaderBoardManager.instance.AddLap(currentLap);
 
             // reset timer for next lap and move to next lap
             currentLapTime = 0f;
+            sectorTimer = 0f;
+            currentSector = 0;
+            currentLap = new LapData(totalSectors);
             laps += 1;
+            LapChecker.fullLap = false;
             
 
 
