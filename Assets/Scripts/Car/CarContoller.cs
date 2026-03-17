@@ -305,9 +305,11 @@ public class CarController : MonoBehaviour
         _accel = accel;
     }
 
-    public void ApplySpeedMultiplier(float multiplier, float duration)
+    public void ApplyBoost()
 	{
-		StartCoroutine(SpeedMultiplierRoutine(multiplier, duration));
+        boost += 3f* Time.fixedDeltaTime;
+
+		//StartCoroutine(SpeedMultiplierRoutine(multiplier, duration));
 	}
     
 	IEnumerator SpeedMultiplierRoutine(float multiplier, float duration)
