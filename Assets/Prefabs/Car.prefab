@@ -334,11 +334,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carSprite: {fileID: 2780182435876332453}
+  canMove: 1
   accel: 6.5
   braking: 15
   friction: 4.5
   steering_speed: 85
-  max_speed: 10
+  max_speed: 20
   max_speed_reverse: 0
   boost_accel: 0
   boost_max_speed: 0
