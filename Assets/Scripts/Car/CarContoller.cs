@@ -126,11 +126,11 @@ public class CarController : MonoBehaviour
 		{
 			_max_speed = boost_max_speed;
 			_accel = boost_accel;
-			postProcessing.GetComponent<ChromaticAberration>().intensity = chromaticabberation_max;
+			//postProcessing.GetComponent<ChromaticAberration>().intensity = chromaticabberation_max;
 		}
 		else 
 		{
-			postProcessing.GetComponent<ChromaticAberration>().intensity = chromaticabberation_default;
+			//postProcessing.GetComponent<ChromaticAberration>().intensity = chromaticabberation_default;
 
 		}
 
