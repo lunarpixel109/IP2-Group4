@@ -25,7 +25,14 @@ public class CarController : MonoBehaviour
         barckward
     }
 
-    DrivingState drivingState = DrivingState.stationary;
+    public bool canMove = false;
+
+	enum DrivingState
+	{
+		stationary,
+		forward,
+		barckward
+	}
 
     [Header("Driving Setup")]
 
@@ -85,8 +92,18 @@ public class CarController : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate()
 	{
+        if (!canMove)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+            return;
+        }
+
+        
+        
+        
         #region input
-        rb_speed_local = rb.GetVector(rb.linearVelocity); // gets the speed of the car as a vector in global space and turns it into a vector in local space
+		rb_speed_local = rb.GetVector(rb.linearVelocity); // gets the speed of the car as a vector in global space and turns it into a vector in local space
 
         rb_speed_forward = rb_speed_local[1]; // splits local space vector into forward component and right component
         rb_speed_right = rb_speed_local[0];
