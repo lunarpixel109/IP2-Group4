@@ -25,14 +25,9 @@ public class CarController : MonoBehaviour
         barckward
     }
 
+    DrivingState drivingState = DrivingState.stationary;
+    
     public bool canMove = false;
-
-	enum DrivingState
-	{
-		stationary,
-		forward,
-		barckward
-	}
 
     [Header("Driving Setup")]
 
