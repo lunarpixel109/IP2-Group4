@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class LeaderBoardManager : MonoBehaviour
@@ -18,6 +19,7 @@ public class LeaderBoardManager : MonoBehaviour
     public GameObject leaderBoardButton;                            
     public GameObject backButton;
     public GameObject clear;
+    public GameObject resume;
 
     
 
@@ -42,6 +44,7 @@ public class LeaderBoardManager : MonoBehaviour
         leaderboardText.gameObject.SetActive(false);
         backButton.SetActive(false);
         clear.SetActive(false);
+        leaderBoardButton.SetActive(false);
         
         leaderBoardButton.GetComponent<Button>().onClick.AddListener(UpdateLeaderboardUI);
         backButton.GetComponent<Button>().onClick.AddListener(back);
@@ -142,9 +145,12 @@ public class LeaderBoardManager : MonoBehaviour
         leaderBoardButton.SetActive(false);
         clear.SetActive(true);
         backButton.SetActive(true);
+        resume.SetActive(false);
         Time.timeScale = 0;
-        
-        
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(clear);
+
+
     }
 
     private string FormatTime(float time)
@@ -168,11 +174,24 @@ public class LeaderBoardManager : MonoBehaviour
         leaderBoardButton.gameObject.SetActive(true);
         leaderboardText.gameObject.SetActive(false);
         clear.SetActive(false);
+        resume.SetActive(true);
+        
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(leaderBoardButton);
+    }
+
+
+
+    public void Resume()
+    {
+        leaderBoardButton.SetActive(false);
+        resume.SetActive(false);
+
         Time.timeScale = 1;
     }
 
 }
 
-    
+
 
 
