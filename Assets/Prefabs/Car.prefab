@@ -268,7 +268,6 @@ GameObject:
   - component: {fileID: 2905270233679467460}
   - component: {fileID: 6769913712109114126}
   - component: {fileID: 3928607971051202565}
-  - component: {fileID: 6270105593882053902}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -332,17 +331,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b59eec54ddaf0f42b95762790874898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carSprite: {fileID: 2780182435876332453}
   accel: 6.5
   braking: 15
   friction: 4.5
-  drift_speed_threshold: 5
-  max_speed: 30
   steering_speed: 85
-  drift_steering_speed_max: 15
-  drift_steering_speeed_min: 115
+  max_speed: 10
+  max_speed_reverse: 0
+  boost_accel: 0
+  boost_max_speed: 0
+  boost_slowdown: 0
+  drift_speed_threshold: 5
+  drift_steering_speed_max: 30
+  drift_steering_speeed_min: 130
+  drift_transition_time_seconds: 0
+  drift_boost_gain: 0
   rb_speed_local: {x: 0, y: 0}
   rb_speed_forward: 0
   rb_speed_right: 0
+  rb_direction: 0
+  carSprite_direction: 0
+  boost: 0
   is_drifting: 0
   drifting_value: 0
 --- !u!1 &2338917547797312754

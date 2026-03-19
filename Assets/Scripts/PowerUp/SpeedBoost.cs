@@ -22,7 +22,7 @@ public class SpeedBoost : MonoBehaviour
     {
         isActive = true;
 
-        car.ApplySpeedMultiplier(speedIncrease, duration);
+        car.ApplyBoost(speedIncrease, duration);
 
 
         yield return new WaitForSeconds(duration);

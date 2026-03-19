@@ -17,7 +17,8 @@ public class StartFinishLine : MonoBehaviour
         {
             
             LapTimerManager.instance.OnStartFinishCrossed();
-            StartCoroutine(TriggerCooldown());
+            StartCoroutine(TriggerCooldown()); 
+        }
     }
 
     // cooldown to stop multiple triggers

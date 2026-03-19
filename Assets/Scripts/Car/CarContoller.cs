@@ -107,7 +107,7 @@ public class CarController : MonoBehaviour
             }
         }
 
-        if (boost > 3f) { boost = 3f; }
+        //if (boost > 3f) { boost = 3f; }
 
         if (boost > 0f && !is_drifting)
         {
@@ -305,10 +305,11 @@ public class CarController : MonoBehaviour
         _accel = accel;
     }
 
-    public void ApplyBoost()
+    public void ApplyBoost(float multiplier, float duration)
 	{
-        boost += 3f* Time.fixedDeltaTime;
-
+        boost = duration;
+        boost_max_speed *= multiplier;
+        boost_accel *= multiplier;
 		//StartCoroutine(SpeedMultiplierRoutine(multiplier, duration));
 	}
     

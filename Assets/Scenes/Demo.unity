@@ -375,7 +375,7 @@ SpriteShapeRenderer:
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 0}
   m_Sprites:
-  - {fileID: 21300000, guid: ea925d2bf799b0a42a7ae2d1844fd48c, type: 3}
+  - {fileID: 21300000, guid: f8b06f4c9b36a6f46b8ab19fee403178, type: 3}
   m_LocalAABB:
     m_Center: {x: 1.607399, y: 31.405466, z: 0}
     m_Extent: {x: 56.74366, y: 33.865597, z: 0}
@@ -628,38 +628,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 199374628785019650, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 199374628785019650, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.2528302
-      objectReference: {fileID: 0}
-    - target: {fileID: 199374628785019650, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.21693583
-      objectReference: {fileID: 0}
-    - target: {fileID: 199374628785019650, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.18843006
-      objectReference: {fileID: 0}
-    - target: {fileID: 199374628785019650, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 455620569224472102, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.3800001
-      objectReference: {fileID: 0}
-    - target: {fileID: 455620569224472102, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 11.93
-      objectReference: {fileID: 0}
-    - target: {fileID: 455620569224472102, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10
-      objectReference: {fileID: 0}
     - target: {fileID: 1117242502611225112, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.83
@@ -700,61 +668,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 2124570990079937358, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_SortingOrder
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 2338917547797312754, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
       propertyPath: m_Name
       value: Car
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338917547797312754, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2780182435876332453, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2905270233679467460, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 2905270233679467460, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 11.93
-      objectReference: {fileID: 0}
-    - target: {fileID: 2905270233679467460, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3345522166968583274, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3928607971051202565, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: max_speed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3928607971051202565, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: drift_steering_speed_max
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 3928607971051202565, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: drift_steering_speeed_min
-      value: 130
-      objectReference: {fileID: 0}
-    - target: {fileID: 4364698497975840783, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.3800001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4364698497975840783, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 11.93
-      objectReference: {fileID: 0}
-    - target: {fileID: 4364698497975840783, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1209,6 +1125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lapTimes: []
   laps: 0
+  totalSectors: 3
   raceStarted: 1
   lapRunning: 1
   currentLapTimeText: {fileID: 2030783997}
@@ -1242,7 +1159,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efec648ebecf6834aa90088602a48c76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bestLapTimes: []
   leaderboardText: {fileID: 1584100264}
   leaderBoardButton: {fileID: 373259565}
   backButton: {fileID: 352173792}
@@ -5936,7 +5852,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoosterPad
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4808754140753774483, guid: ade2e715e9a86894c92ab21d2e5caa4e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
