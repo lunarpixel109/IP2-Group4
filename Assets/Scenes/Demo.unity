@@ -447,8 +447,64 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+    - target: {fileID: 2338917547797312754, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550246887645730249, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780182435876332453, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905270233679467460, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905270233679467460, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905270233679467460, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928607971051202565, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
+      propertyPath: postProcessing
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928607971051202565, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
+      propertyPath: Trail_GameObject.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928607971051202565, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
+      propertyPath: 'Trail_GameObject.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1026164005}
+    - target: {fileID: 3928607971051202565, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
+      propertyPath: 'Trail_GameObject.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2122562403}
+    - target: {fileID: 4364698497975840783, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3800001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364698497975840783, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364698497975840783, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+>>>>>>> Stashed changes
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8450261320133920802, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
@@ -464,6 +520,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Post Processing
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+    - target: {fileID: 369189225965624252, guid: 6e893ef02cb781241a126853ae6b1185, type: 3}
+      propertyPath: priority
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 369189225965624252, guid: 6e893ef02cb781241a126853ae6b1185, type: 3}
+      propertyPath: m_IsGlobal
+      value: 1
+      objectReference: {fileID: 0}
+>>>>>>> Stashed changes
     - target: {fileID: 539877568599866044, guid: 6e893ef02cb781241a126853ae6b1185, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.36004195
