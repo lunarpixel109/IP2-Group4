@@ -334,6 +334,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carSprite: {fileID: 2780182435876332453}
+  postProcessing: {fileID: 0}
+  chromaticabberation_default:
+    m_OverrideState: 0
+    m_Value: 0
+  chromaticabberation_max:
+    m_OverrideState: 0
+    m_Value: 0
   canMove: 1
   accel: 6.5
   braking: 15
@@ -465,8 +472,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 483073331
+  m_SortingLayer: 3
   m_SortingOrder: 100
   m_Sprite: {fileID: -111117342964185798, guid: f721f24b3b17e2244a32e9220cc3733c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
