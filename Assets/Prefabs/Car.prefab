@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 931478164115617407}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.3800001, y: 11.93, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -70,7 +70,7 @@ Camera:
   far clip plane: 1000
   field of view: 20
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 7.77
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -611,7 +611,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 20
-    OrthographicSize: 7
+    OrthographicSize: 7.77
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0

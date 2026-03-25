@@ -4106,7 +4106,7 @@ Transform:
   m_GameObject: {fileID: 595360085}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -15.9, y: -1, z: 0}
+  m_LocalPosition: {x: -15.8, y: -0.83, z: 0}
   m_LocalScale: {x: 0.49547496, y: 0.49547496, z: 0.49547496}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9589,6 +9589,10 @@ PrefabInstance:
       propertyPath: TrackMap
       value: 
       objectReference: {fileID: 1332872234}
+    - target: {fileID: 8122340809877625975, guid: e39ec5d7cf64f404bae7632e87f027e3, type: 3}
+      propertyPath: SceneName
+      value: Medium Track
+      objectReference: {fileID: 0}
     - target: {fileID: 8122340809877625975, guid: e39ec5d7cf64f404bae7632e87f027e3, type: 3}
       propertyPath: PlayerIcon
       value: 
