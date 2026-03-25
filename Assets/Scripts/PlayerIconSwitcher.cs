@@ -1,12 +1,12 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 using UnityEngine.Rendering;
 
 public class PlayerIconSwitcher : MonoBehaviour
 {
     public Sprite[] PlayerIcon;
     public GameObject CurrentPlayerIcon;
-    public GameObject BoostPad;
 
     public bool isActive = false;
     public float duration = 1.0f;    
@@ -25,25 +25,25 @@ public class PlayerIconSwitcher : MonoBehaviour
                 ShowIcon(2); 
                 break;
 
-            case "OilSpill":
-                Debug.Log("Oil");
+            case "Obstacle":
+                Debug.Log("Obstacle Hit");
                 ShowIcon(3);
                 break;
 
-            case "Booster":
+            case "BoosterPad":
                 Debug.Log("Boosted");
                 ShowIcon(0); 
                 break;
 
             default:
             
-                Debug.Log("Hit something who knows what");
+                Debug.Log("Hit something??? who knows what");
                 break;
         }
     }
     private void ShowIcon(int spriteIndex)
     {
-        CurrentPlayerIcon.GetComponent<SpriteRenderer>().sprite = PlayerIcon[spriteIndex];
+        CurrentPlayerIcon.GetComponent<Image>().sprite = PlayerIcon[spriteIndex];
 
         // make sure there isnt overlap overlap
         StopAllCoroutines();
