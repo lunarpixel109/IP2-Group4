@@ -20,7 +20,7 @@ public class SceneTransitions : MonoBehaviour
         }
     }
 
-    IEnumerator LoadScene()
+    public IEnumerator LoadScene()
     {
         TransitionAnim1.SetTrigger("End");
         TransitionAnim2.SetTrigger("End");

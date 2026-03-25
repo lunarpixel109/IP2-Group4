@@ -5,6 +5,8 @@ using UnityEditor.Experimental.GraphView;
 
 public class LapTimerManager : MonoBehaviour
 {
+    public int maxLaps = 10;
+
     public static LapTimerManager instance;
 
     private float currentLapTime;                               // tracks current lap time 
@@ -144,6 +146,12 @@ public class LapTimerManager : MonoBehaviour
             // send lap time to leaderboard manager
             LeaderBoardManager.instance.AddLap(currentLap);
 
+            if (laps >= maxLaps)
+            {
+                lapRunning = false;
+                StartCoroutine(FindObjectOfType<SceneTransitions>().LoadScene());
+            }
+
             // reset timer for next lap and move to next lap
             currentLapTime = 0f;
             sectorTimer = 0f;
@@ -151,9 +159,6 @@ public class LapTimerManager : MonoBehaviour
             currentLap = new LapData(totalSectors);
             laps += 1;
             LapChecker.fullLap = false;
-            
-
-
 
             //Debug.Log("Total laps recorded: " + lapTimes.Count);
 
@@ -167,7 +172,7 @@ public class LapTimerManager : MonoBehaviour
         BestLapTimeText.text = FormatTime(bestLapTime);
         // placeholder text before best lap is available
         BeforeBestLapText.text = "--:--";
-        lapText.text = "Lap:" + laps + "/10";
+        lapText.text = "Lap: " + Mathf.Min(laps, maxLaps) + "/" + maxLaps;
     }
     // converts time to minutes and seconds
     private string FormatTime(float time)

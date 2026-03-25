@@ -4947,6 +4947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be16ba8c9ba0c245b1dcd6f2cc6d228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxLaps: 3
   lapTimes: []
   laps: 0
   totalSectors: 2
