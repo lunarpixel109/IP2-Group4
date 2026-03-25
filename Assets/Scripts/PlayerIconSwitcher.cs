@@ -59,18 +59,14 @@ public class PlayerIconSwitcher : MonoBehaviour
     public void ShowBestTimeIcon()
     {
         ShowIcon(1);
-        Debug.Log("Fast Lap Icon");
-
     }
     public void ShowSadIcon()
     {
         ShowIcon(3);
-        Debug.Log("Fast Lap Icon");
     }
     public void ShowDeterminedIcon()
     {
         ShowIcon(5);
-        Debug.Log("Fast Lap Icon");
     }
 
     private void ShowIcon(int spriteIndex)
