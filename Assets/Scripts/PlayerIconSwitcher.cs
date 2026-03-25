@@ -38,19 +38,14 @@ public class PlayerIconSwitcher : MonoBehaviour
         switch (tag)
         {
             case "Wall":
-                Debug.Log("Hit wall");
-
                 ShowIcon(2);
                 break;
 
             case "Obstacle":
-                Debug.Log("Obstacle Hit");
-                ShowIcon(3);
+                ShowIcon(2);
                 break;
 
             case "BoosterPad":
-                Debug.Log("Boosted");
-
                 ShowIcon(0);
                 break;
 
@@ -66,6 +61,16 @@ public class PlayerIconSwitcher : MonoBehaviour
         ShowIcon(1);
         Debug.Log("Fast Lap Icon");
 
+    }
+    public void ShowSadIcon()
+    {
+        ShowIcon(3);
+        Debug.Log("Fast Lap Icon");
+    }
+    public void ShowDeterminedIcon()
+    {
+        ShowIcon(5);
+        Debug.Log("Fast Lap Icon");
     }
 
     private void ShowIcon(int spriteIndex)

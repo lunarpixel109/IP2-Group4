@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 
 public class LapTimerManager : MonoBehaviour
 {
@@ -107,20 +108,38 @@ public class LapTimerManager : MonoBehaviour
                 currentLap.sectorTimes[currentSector] = sectorTimer;
             }
 
-
-
             currentLap.totalTime = currentLapTime;
 
+
             // if the lap is faster than best lap update best lap
+            float timeDifference = currentLapTime - bestLapTime;
+
             if (currentLapTime < bestLapTime)
             {
                 bestLapTime = currentLapTime;
+
+                // communicate with player icon script
                 PlayerIconSwitcher.instance.ShowBestTimeIcon();
+            }
+            else
+            {
+                if (timeDifference > 2.0f)
+                {
+                    PlayerIconSwitcher.instance.ShowSadIcon();
+                }
+            
+            else
+                {
+                    PlayerIconSwitcher.instance.ShowDeterminedIcon();
+                }
+
             }
 
 
-            // store lap time locally
-            lapTimes.Add(currentLapTime);
+
+
+                // store lap time locally
+                lapTimes.Add(currentLapTime);
 
             // send lap time to leaderboard manager
             LeaderBoardManager.instance.AddLap(currentLap);
