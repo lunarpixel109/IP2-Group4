@@ -115,6 +115,8 @@ public class LapTimerManager : MonoBehaviour
             if (currentLapTime < bestLapTime)
             {
                 bestLapTime = currentLapTime;
+
+                PlayerIconSwitcher.instance.ShowBestTimeIcon();
             }
 
 

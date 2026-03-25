@@ -5,24 +5,42 @@ using UnityEngine.Rendering;
 
 public class PlayerIconSwitcher : MonoBehaviour
 {
+    public static PlayerIconSwitcher instance;
+
     public Sprite[] PlayerIcon;
     public GameObject CurrentPlayerIcon;
 
     public bool isActive = false;
-    public float duration = 1.0f;    
+    public float duration = 1.0f;
 
+    private void Awake()
+    {
+        instance = this;
+    }
     public void Start()
     {
         CurrentPlayerIcon.SetActive(false);
-    }
 
+        TryGetComponent<LapTimerManager>(out var BestTime);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        switch (collision.gameObject.tag)
+        HandleIcon(collision.gameObject.tag);
+    }
+    private void OnTriggerEnter2D(Collider2D Other)
+    {
+        HandleIcon(Other.gameObject.tag);
+    }
+    private void HandleIcon(string tag)
+    {
+        Debug.Log("Hit " + tag);
+
+        switch (tag)
         {
             case "Wall":
-                Debug.Log("Hit wall.");
-                ShowIcon(2); 
+                Debug.Log("Hit wall");
+
+                ShowIcon(2);
                 break;
 
             case "Obstacle":
@@ -32,20 +50,29 @@ public class PlayerIconSwitcher : MonoBehaviour
 
             case "BoosterPad":
                 Debug.Log("Boosted");
-                ShowIcon(0); 
+
+                ShowIcon(0);
                 break;
 
             default:
-            
+
                 Debug.Log("Hit something??? who knows what");
                 break;
         }
     }
+
+    public void ShowBestTimeIcon()
+    {
+        ShowIcon(1);
+        Debug.Log("Fast Lap Icon");
+
+    }
+
     private void ShowIcon(int spriteIndex)
     {
         CurrentPlayerIcon.GetComponent<Image>().sprite = PlayerIcon[spriteIndex];
 
-        // make sure there isnt overlap overlap
+        //make sure there isnt overlap overlap
         StopAllCoroutines();
         StartCoroutine(IconDisplayTime());
     }

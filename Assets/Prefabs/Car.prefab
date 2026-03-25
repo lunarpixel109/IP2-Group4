@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 2905270233679467460}
   - component: {fileID: 6769913712109114126}
   - component: {fileID: 3928607971051202565}
+  - component: {fileID: 3263386790999409390}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -364,6 +365,26 @@ MonoBehaviour:
   boost: 0
   is_drifting: 0
   drifting_value: 0
+--- !u!114 &3263386790999409390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042382000394750908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc02f5a8ae7ab044b8aa9827180dd3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerIcon:
+  - {fileID: -9095717837082945937, guid: ff1426b9dafecaf499bf8c38354cdfc8, type: 3}
+  - {fileID: -2413806693520163455, guid: 1a299bc2806a7a34c9bca7514e89f5ae, type: 3}
+  - {fileID: 7482667652216324306, guid: 9d61a4017345a4e4698516ff9a4465e1, type: 3}
+  - {fileID: 7482667652216324306, guid: c8f5bd44daec4fc4d9bd4f4d3a2199f0, type: 3}
+  CurrentPlayerIcon: {fileID: 0}
+  isActive: 0
+  duration: 2
 --- !u!1 &2338917547797312754
 GameObject:
   m_ObjectHideFlags: 0

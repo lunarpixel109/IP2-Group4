@@ -39,9 +39,6 @@ public class RaceStartCountdown : MonoBehaviour
 
         countdownText.gameObject.SetActive(false);
 
-       
-
-
     }
 
     

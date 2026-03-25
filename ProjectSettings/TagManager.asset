@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - BoosterPad
+  - Obstacle
   layers:
   - Default
   - TransparentFX

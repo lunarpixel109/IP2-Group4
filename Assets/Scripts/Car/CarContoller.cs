@@ -139,7 +139,7 @@ public class CarController : MonoBehaviour
 		{
 			if (!is_drifting)
 			{
-				print("drift start");
+				//print("drift start");
 				drift_direction = (int)math.sign(steering.ReadValue<float>());
 				rb_speed_forward -= 2f;
 			}
@@ -157,7 +157,7 @@ public class CarController : MonoBehaviour
 
 		if (drifting_value > 0f)
 		{
-			is_drifting = true; print("drifting");
+			is_drifting = true;// print("drifting");
 			boost += drift_boost_gain * Time.fixedDeltaTime;
 		}
 		else { is_drifting = false; }
@@ -175,14 +175,14 @@ public class CarController : MonoBehaviour
 				{
 					rb_speed_forward += (_accel - (rb_speed_forward / 10)) * Time.fixedDeltaTime; // increments forward speed by appropriate value based on input and context
 					if (rb_speed_forward > _max_speed) { var time = Time.fixedDeltaTime; Max_speed_clamp(time); }
-					print("accel " + accelerate.IsPressed());
+					//print("accel " + accelerate.IsPressed());
 				}
 				else if (brake.IsPressed())
 				{
 					rb_speed_forward -= braking * Time.fixedDeltaTime;
 					if (rb_speed_forward < 0) { rb_speed_forward = 0; }
 					Boost_Cancel();
-					print("breaking " + brake.IsPressed());
+					//print("breaking " + brake.IsPressed());
 				}
 				else
 				{
@@ -197,13 +197,13 @@ public class CarController : MonoBehaviour
 				{
 					rb_speed_forward -= (_accel / 2 + rb_speed_forward / 10) * Time.fixedDeltaTime;
 					if (rb_speed_forward < max_speed_reverse) { rb_speed_forward = -max_speed_reverse; }
-					print("reversing " + brake.IsPressed());
+					//print("reversing " + brake.IsPressed());
 				}
 				else if (accelerate.IsPressed())
 				{
 					rb_speed_forward += braking * Time.fixedDeltaTime;
 					if (rb_speed_forward > 0) { rb_speed_forward = 0; }
-					print("R breaking " + accelerate.IsPressed());
+					//print("R breaking " + accelerate.IsPressed());
 				}
 				else
 				{
@@ -217,13 +217,13 @@ public class CarController : MonoBehaviour
 				{
 					rb_speed_forward += (_accel - (rb_speed_forward / 10)) * Time.fixedDeltaTime;
 					if (rb_speed_forward > _max_speed) { rb_speed_forward = _max_speed; }
-					print("accel " + accelerate.IsPressed());
+					//print("accel " + accelerate.IsPressed());
 				}
 				else if (brake.IsPressed())
 				{
 					rb_speed_forward -= (_accel / 2 + rb_speed_forward / 10) * Time.fixedDeltaTime;
 					if (rb_speed_forward < max_speed_reverse) { rb_speed_forward = -max_speed_reverse; }
-					print("reversing " + brake.IsPressed());
+					//print("reversing " + brake.IsPressed());
 				}
 			}
 		}
@@ -260,7 +260,7 @@ public class CarController : MonoBehaviour
 					rb_direction += steering.ReadValue<float>() * Steering_Speed_Curve() * Time.fixedDeltaTime;
 				}
 
-				print("steering" + steering.ReadValue<float>());
+				//print("steering" + steering.ReadValue<float>());
 			}
 		}
 		else
@@ -269,7 +269,7 @@ public class CarController : MonoBehaviour
 
 			rb_direction = drift_amount * Time.fixedDeltaTime;
 			//carSprite.transform.rotation = quaternion.EulerXYZ(0, 0, transform.eulerAngles.z + drift_amount);
-			print("drifting");
+			//print("drifting");
 		}
 		#endregion
 
