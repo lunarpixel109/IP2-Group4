@@ -12,10 +12,13 @@ public class CarController : MonoBehaviour
 	[Header("Other Info")]
 
 	Rigidbody2D rb;
+	public GameObject Player;
 	public GameObject carSprite;
-	public GameObject postProcessing;
-	public ClampedFloatParameter chromaticabberation_default;
-	public ClampedFloatParameter chromaticabberation_max;
+	//public GameObject drift_right;
+	//public GameObject drift_left;
+
+	float drift_right_angle;
+	float drift_left_angle;
 
 	InputAction accelerate;
 	InputAction brake;
@@ -23,14 +26,14 @@ public class CarController : MonoBehaviour
 	InputAction drifting;
 	InputAction boosting;
 
-	enum DrivingState
+	public enum DrivingState
 	{
 		stationary,
 		forward,
 		barckward
 	}
 
-	DrivingState drivingState = DrivingState.stationary;
+	public DrivingState drivingState = DrivingState.stationary;
 	
 	public bool canMove = false;
 
@@ -55,7 +58,10 @@ public class CarController : MonoBehaviour
 	public float drift_steering_speed_max;
 	public float drift_steering_speeed_min;
 	public float drift_transition_time_seconds;
+	public float drift_slowdown;
 	float drift_transition_time;
+
+	public float drift_amount;
 
 	public float drift_boost_gain;
 
@@ -84,14 +90,20 @@ public class CarController : MonoBehaviour
 		boosting = InputSystem.actions.FindAction("Boost");
 
 		rb = GetComponent<Rigidbody2D>();
+
 		_accel = accel;
 		_max_speed = max_speed;
+
 		drift_transition_time = 1 / drift_transition_time_seconds;
 	}
 
 	// Update is called once per frame
 	void FixedUpdate()
 	{
+		if (rb.rotation > 360) { rb.rotation -= 360; }
+		if (rb.rotation < 0) { rb.rotation += 360; }
+
+		#region input
 		if (!canMove)
 		{
 			rb.linearVelocity = Vector2.zero;
@@ -99,10 +111,9 @@ public class CarController : MonoBehaviour
 			return;
 		}
 		
-		#region input
 		rb_speed_local = rb.GetVector(rb.linearVelocity); // gets the speed of the car as a vector in global space and turns it into a vector in local space
 
-		rb_speed_forward = rb_speed_local[1]; // splits local space vector into forward component and right component
+		rb_speed_forward = rb_speed_local[1];// splits local space vector into forward component and right component
 		rb_speed_right = rb_speed_local[0];
 
 		if (rb_speed_forward > 0f) { drivingState = DrivingState.forward; }
@@ -126,12 +137,6 @@ public class CarController : MonoBehaviour
 		{
 			_max_speed = boost_max_speed;
 			_accel = boost_accel;
-			//postProcessing.GetComponent<ChromaticAberration>().intensity = chromaticabberation_max;
-		}
-		else 
-		{
-			//postProcessing.GetComponent<ChromaticAberration>().intensity = chromaticabberation_default;
-
 		}
 
 
@@ -139,9 +144,9 @@ public class CarController : MonoBehaviour
 		{
 			if (!is_drifting)
 			{
-				//print("drift start");
+				print("drift start");
 				drift_direction = (int)math.sign(steering.ReadValue<float>());
-				rb_speed_forward -= 2f;
+				rb_speed_forward -= drift_slowdown;
 			}
 			drifting_value += drift_transition_time * Time.fixedDeltaTime;
 			if (drifting_value > 1f)
@@ -157,14 +162,14 @@ public class CarController : MonoBehaviour
 
 		if (drifting_value > 0f)
 		{
-			is_drifting = true;// print("drifting");
+			is_drifting = true; print("drifting");
 			boost += drift_boost_gain * Time.fixedDeltaTime;
 		}
 		else { is_drifting = false; }
 
 		#endregion
 
-		#region parallel movementel
+		#region parallel (forward/brackward) movementel
 		//normal
 		if (!is_drifting)
 		{
@@ -195,8 +200,8 @@ public class CarController : MonoBehaviour
 			{
 				if (brake.IsPressed())
 				{
-					rb_speed_forward -= (_accel / 2 + rb_speed_forward / 10) * Time.fixedDeltaTime;
-					if (rb_speed_forward < max_speed_reverse) { rb_speed_forward = -max_speed_reverse; }
+					rb_speed_forward -= (_accel / 2 - rb_speed_forward / 10) * Time.fixedDeltaTime;
+					if (rb_speed_forward < -max_speed_reverse) { rb_speed_forward = -max_speed_reverse; }
 					//print("reversing " + brake.IsPressed());
 				}
 				else if (accelerate.IsPressed())
@@ -216,13 +221,11 @@ public class CarController : MonoBehaviour
 				if (accelerate.IsPressed())
 				{
 					rb_speed_forward += (_accel - (rb_speed_forward / 10)) * Time.fixedDeltaTime;
-					if (rb_speed_forward > _max_speed) { rb_speed_forward = _max_speed; }
 					//print("accel " + accelerate.IsPressed());
 				}
 				else if (brake.IsPressed())
 				{
-					rb_speed_forward -= (_accel / 2 + rb_speed_forward / 10) * Time.fixedDeltaTime;
-					if (rb_speed_forward < max_speed_reverse) { rb_speed_forward = -max_speed_reverse; }
+					rb_speed_forward -= (_accel / 2 - rb_speed_forward / 10) * Time.fixedDeltaTime;
 					//print("reversing " + brake.IsPressed());
 				}
 			}
@@ -235,7 +238,7 @@ public class CarController : MonoBehaviour
 		}
 		#endregion
 
-		#region perpendicular movement
+		#region perpendicular (sliding) movement
 		rb_speed_right *= 0.5f; // always lowers right/left speed of car (will not effect drift dont worry)
 		if (math.abs(rb_speed_right) < 0.05) rb_speed_right = 0;
 		#endregion
@@ -243,11 +246,12 @@ public class CarController : MonoBehaviour
 		#region steering
 
 		rb.angularVelocity = 0f;
-		carSprite_direction = carSprite.transform.eulerAngles.z;
+		//carSprite.transform.rotation = Quaternion.LookRotation(carSprite.transform.forward, );
 
 		if (!is_drifting)
 		{
 			//carSprite.transform.rotation = quaternion.EulerXYZ(0, 0, transform.eulerAngles.z);
+			drift_amount = 0f;
 
 			if (steering.IsPressed())
 			{
@@ -260,23 +264,22 @@ public class CarController : MonoBehaviour
 					rb_direction += steering.ReadValue<float>() * Steering_Speed_Curve() * Time.fixedDeltaTime;
 				}
 
-				//print("steering" + steering.ReadValue<float>());
+				print("steering" + steering.ReadValue<float>());
 			}
 		}
 		else
 		{
-			var drift_amount = Mathf.Lerp(drift_steering_speeed_min, drift_steering_speed_max, Mathf.InverseLerp(1 * drift_direction, -1 * drift_direction, steering.ReadValue<float>())) * drift_direction * drifting_value;
+			drift_amount = Mathf.Lerp(drift_steering_speeed_min, drift_steering_speed_max, Mathf.InverseLerp(1 * drift_direction, -1 * drift_direction, steering.ReadValue<float>())) * drift_direction * drifting_value;
 
-			rb_direction = drift_amount * Time.fixedDeltaTime;
-			//carSprite.transform.rotation = quaternion.EulerXYZ(0, 0, transform.eulerAngles.z + drift_amount);
-			//print("drifting");
+			rb_direction -= drift_amount * Time.fixedDeltaTime;
+			print("drifting");
 		}
 		#endregion
 
 		#region output
 
 		rb_speed_local = new Vector2(rb_speed_right, rb_speed_forward); // recombines forward and right vectors
-		rb.linearVelocity = Vector2.ClampMagnitude(rb.GetRelativeVector(rb_speed_local),max_speed); // sets speed in global space based on speed in local space - NOT WORKING IDK WHY
+		rb.linearVelocity = rb.GetRelativeVector(rb_speed_local); // sets speed in global space based on speed in local space
 
 		rb.rotation = rb_direction;
 		#endregion
@@ -309,14 +312,14 @@ public class CarController : MonoBehaviour
 
 	void Max_speed_clamp(float deltaTime)
 	{
-		if (_max_speed - rb_speed_forward < -0.5f)
-		{
-			rb_speed_forward -= boost_slowdown * deltaTime;
-		}
-		else
-		{
-			rb_speed_forward = _max_speed;
-		}
+		//if (_max_speed - rb_speed_forward < -0.5f)
+		//{
+		//	rb_speed_forward -= boost_slowdown * deltaTime;
+		//}
+		//else
+		//{
+		//	rb_speed_forward = _max_speed;
+		//}
 	}
 
 	void Boost_Cancel()
@@ -357,5 +360,7 @@ public class CarController : MonoBehaviour
 		rb_speed_local = rb.GetVector(rb.linearVelocity);
 		rb_speed_forward *= forwardLoss;
 		rb_speed_right = rb_speed_local.x;
+
+		print("knock");
 	}
 }

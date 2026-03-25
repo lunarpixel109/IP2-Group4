@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 3263386790999409390}
   m_Layer: 0
   m_Name: Car
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -335,27 +335,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carSprite: {fileID: 2780182435876332453}
-  postProcessing: {fileID: 0}
-  chromaticabberation_default:
-    m_OverrideState: 0
-    m_Value: 0
-  chromaticabberation_max:
-    m_OverrideState: 0
-    m_Value: 0
+  drivingState: 0
   canMove: 1
   accel: 6.5
   braking: 15
   friction: 4.5
   steering_speed: 85
   max_speed: 20
-  max_speed_reverse: 0
-  boost_accel: 0
-  boost_max_speed: 0
-  boost_slowdown: 0
+  max_speed_reverse: 10
+  boost_accel: 15
+  boost_max_speed: 50
+  boost_slowdown: 5
   drift_speed_threshold: 5
   drift_steering_speed_max: 30
   drift_steering_speeed_min: 130
-  drift_transition_time_seconds: 0
+  drift_transition_time_seconds: 0.2
+  drift_slowdown: 0
+  drift_amount: 0
   drift_boost_gain: 0
   rb_speed_local: {x: 0, y: 0}
   rb_speed_forward: 0
