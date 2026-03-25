@@ -346,7 +346,9 @@ MonoBehaviour:
   TransitionAnim1: {fileID: 4896691898809494461}
   TransitionAnim2: {fileID: 5352100320258565680}
   TrackMap: {fileID: 0}
-  SceneName: SceneChange1
+  PlayerIcon: {fileID: 0}
+  Timer: {fileID: 0}
+  SceneName: Demo
 --- !u!1 &7902747981218322563
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SceneChange2.unity
     guid: debface99e3c2304d8f4a25ddbfc4c4d
+  - enabled: 1
+    path: Assets/Scenes/Tracks/Easy Track.unity
+    guid: e538dfc427dfca84dba8b72eb5405800
+  - enabled: 1
+    path: Assets/Scenes/Demo.unity
+    guid: 2a7be710d49c26a41a40c97a3522643f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

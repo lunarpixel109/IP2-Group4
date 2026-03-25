@@ -3640,6 +3640,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &527225623 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5293285511620755794, guid: 9e5c031a709a4fa4e881264a5143b004, type: 3}
+  m_PrefabInstance: {fileID: 1463694851}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &539684869
 GameObject:
   m_ObjectHideFlags: 0
@@ -7414,12 +7419,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1491506325}
     - target: {fileID: 1437036048363726308, guid: 8b99960235ba79c4a9a622828206db04, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.751193
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437036048363726308, guid: 8b99960235ba79c4a9a622828206db04, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.751193
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437036048363726308, guid: 8b99960235ba79c4a9a622828206db04, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.751193
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437036048363726308, guid: 8b99960235ba79c4a9a622828206db04, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 804
+      value: 764
       objectReference: {fileID: 0}
     - target: {fileID: 1437036048363726308, guid: 8b99960235ba79c4a9a622828206db04, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -403
+      value: -351
       objectReference: {fileID: 0}
     - target: {fileID: 2790635896413481051, guid: 8b99960235ba79c4a9a622828206db04, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9572,17 +9589,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 624361018853851095, guid: e39ec5d7cf64f404bae7632e87f027e3, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 7902747981218322563, guid: e39ec5d7cf64f404bae7632e87f027e3, type: 3}
       propertyPath: m_Name
       value: Scene Transition System
-      objectReference: {fileID: 0}
-    - target: {fileID: 7902747981218322563, guid: e39ec5d7cf64f404bae7632e87f027e3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7910936510760479198, guid: e39ec5d7cf64f404bae7632e87f027e3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9625,13 +9634,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8122340809877625975, guid: e39ec5d7cf64f404bae7632e87f027e3, type: 3}
+      propertyPath: Timer
+      value: 
+      objectReference: {fileID: 1318789064}
+    - target: {fileID: 8122340809877625975, guid: e39ec5d7cf64f404bae7632e87f027e3, type: 3}
       propertyPath: TrackMap
       value: 
       objectReference: {fileID: 1332872234}
     - target: {fileID: 8122340809877625975, guid: e39ec5d7cf64f404bae7632e87f027e3, type: 3}
-      propertyPath: SceneName
-      value: Track2
-      objectReference: {fileID: 0}
+      propertyPath: PlayerIcon
+      value: 
+      objectReference: {fileID: 527225623}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
