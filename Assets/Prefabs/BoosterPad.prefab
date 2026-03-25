@@ -149,4 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedIncrease: 2
   duration: 2
+  pp_GO: {fileID: 0}
+  max_chromatic_value: 1
+  CA_adjustment: {fileID: 0}
   isActive: 0
