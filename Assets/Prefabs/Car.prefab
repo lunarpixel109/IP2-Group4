@@ -45,7 +45,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.18843006, g: 0.21693583, b: 0.2528302, a: 0}
+  m_BackGroundColor: {r: 0.3207547, g: 0, b: 0.009779174, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -70,7 +70,7 @@ Camera:
   far clip plane: 1000
   field of view: 20
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -334,6 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b59eec54ddaf0f42b95762790874898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
   carSprite: {fileID: 2780182435876332453}
   drivingState: 0
   canMove: 1
@@ -374,10 +375,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerIcon:
-  - {fileID: -9095717837082945937, guid: ff1426b9dafecaf499bf8c38354cdfc8, type: 3}
-  - {fileID: -2413806693520163455, guid: 1a299bc2806a7a34c9bca7514e89f5ae, type: 3}
-  - {fileID: 7482667652216324306, guid: 9d61a4017345a4e4698516ff9a4465e1, type: 3}
-  - {fileID: 7482667652216324306, guid: c8f5bd44daec4fc4d9bd4f4d3a2199f0, type: 3}
+  - {fileID: 7571401643613406209, guid: 2b854af7db31a6e4ea13af5c219eaa39, type: 3}
+  - {fileID: 6266176060360064, guid: 5cb745ff25b6d91489780e4141b70e5f, type: 3}
+  - {fileID: -4383094017440065957, guid: b6653810cfbaf3a4f9318b868ea8015c, type: 3}
+  - {fileID: -4597436970944649126, guid: 773a9cfa3d493da4988cd96ad7825f97, type: 3}
+  - {fileID: 3622792381989719942, guid: 6fa13e697bbd6ac4881a3f01536a7c97, type: 3}
+  - {fileID: 5873847569468877488, guid: 5095975d52392ce44b7c840c49aac624, type: 3}
   CurrentPlayerIcon: {fileID: 0}
   isActive: 0
   duration: 2
@@ -608,7 +611,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 20
-    OrthographicSize: 5
+    OrthographicSize: 7
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0

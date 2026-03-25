@@ -2051,26 +2051,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 199374628785019650, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: orthographic size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 199374628785019650, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_BackGroundColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 199374628785019650, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.009779174
-      objectReference: {fileID: 0}
-    - target: {fileID: 199374628785019650, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 199374628785019650, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.3207547
-      objectReference: {fileID: 0}
     - target: {fileID: 1117242502611225112, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.52
@@ -2119,38 +2099,6 @@ PrefabInstance:
       propertyPath: CurrentPlayerIcon
       value: 
       objectReference: {fileID: 1463694852}
-    - target: {fileID: 3263386790999409390, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: PlayerIcon.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3263386790999409390, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: 'PlayerIcon.Array.data[0]'
-      value: 
-      objectReference: {fileID: 7571401643613406209, guid: 2b854af7db31a6e4ea13af5c219eaa39, type: 3}
-    - target: {fileID: 3263386790999409390, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: 'PlayerIcon.Array.data[1]'
-      value: 
-      objectReference: {fileID: 6266176060360064, guid: 5cb745ff25b6d91489780e4141b70e5f, type: 3}
-    - target: {fileID: 3263386790999409390, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: 'PlayerIcon.Array.data[2]'
-      value: 
-      objectReference: {fileID: -4383094017440065957, guid: b6653810cfbaf3a4f9318b868ea8015c, type: 3}
-    - target: {fileID: 3263386790999409390, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: 'PlayerIcon.Array.data[3]'
-      value: 
-      objectReference: {fileID: -4597436970944649126, guid: 773a9cfa3d493da4988cd96ad7825f97, type: 3}
-    - target: {fileID: 3263386790999409390, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: 'PlayerIcon.Array.data[4]'
-      value: 
-      objectReference: {fileID: 3622792381989719942, guid: 6fa13e697bbd6ac4881a3f01536a7c97, type: 3}
-    - target: {fileID: 3263386790999409390, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: 'PlayerIcon.Array.data[5]'
-      value: 
-      objectReference: {fileID: 5873847569468877488, guid: 5095975d52392ce44b7c840c49aac624, type: 3}
-    - target: {fileID: 6943470934020229811, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: Lens.OrthographicSize
-      value: 7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
