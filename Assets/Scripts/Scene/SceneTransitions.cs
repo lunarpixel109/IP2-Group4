@@ -28,7 +28,6 @@ public class SceneTransitions : MonoBehaviour
         SceneManager.LoadScene(SceneName);
         yield return new WaitForSeconds(1.5f);
         TrackMap.SetActive(true);
-
     }
 
 }

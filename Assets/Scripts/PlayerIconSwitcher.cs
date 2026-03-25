@@ -19,7 +19,7 @@ public class PlayerIconSwitcher : MonoBehaviour
     }
     public void Start()
     {
-        CurrentPlayerIcon.SetActive(false);
+        CurrentPlayerIcon.GetComponent<Image>().sprite = PlayerIcon[4];
 
         TryGetComponent<LapTimerManager>(out var BestTime);
     }
@@ -64,6 +64,8 @@ public class PlayerIconSwitcher : MonoBehaviour
     public void ShowBestTimeIcon()
     {
         ShowIcon(1);
+        Debug.Log("Fast Lap Icon");
+
     }
 
     private void ShowIcon(int spriteIndex)
@@ -71,18 +73,19 @@ public class PlayerIconSwitcher : MonoBehaviour
         CurrentPlayerIcon.GetComponent<Image>().sprite = PlayerIcon[spriteIndex];
 
         //make sure there isnt overlap overlap
-        // Only in this script 
-        StopAllCoroutines();
+        // Only in this script
+       // StopAllCoroutines();
+
         StartCoroutine(IconDisplayTime());
     }
 
     public IEnumerator IconDisplayTime()
     {
-        CurrentPlayerIcon.SetActive(true);
+        //CurrentPlayerIcon.SetActive(true);
 
         yield return new WaitForSeconds(duration);
 
-        CurrentPlayerIcon.SetActive(false);
+        CurrentPlayerIcon.GetComponent<Image>().sprite = PlayerIcon[4];
     }
 
 }
