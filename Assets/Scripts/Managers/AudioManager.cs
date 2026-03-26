@@ -6,16 +6,18 @@ using System;
 [Serializable]
 public struct Sound_list // used to create multi dimensional arrays in the inspector to allow for ease of use
 {
-    public AudioClip[] Sounds { get => sounds; }
-    [HideInInspector] public string name;
+    [HideInInspector]public string name;
+    public AudioClip[] Sounds { get => sounds; } 
     [SerializeField] AudioClip[] sounds;
 }
 
 public enum Sound_types // used to store each type of audio case, automatically adds type section to inspector 
 {
-    ACCELERATING,
-    CRASHING,
-    POWERUP
+    ACCELERATION,
+    BOOST,
+    CAR_HOOD,
+    DRIFT,
+    ENGINE_START
 }
 
 [RequireComponent(typeof(AudioSource)), ExecuteInEditMode] // manager object must have an audio source

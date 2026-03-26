@@ -10,17 +10,17 @@ public class AudioManagerDummyScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            AudioManager.PlaySound(Sound_types.ACCELERATING, 0);
+            AudioManager.PlaySound(Sound_types., 0);
         } else if (Input.GetKeyDown(KeyCode.S))
         {
-            AudioManager.PlaySound(Sound_types.CRASHING, 0);
+            AudioManager.PlaySound(Sound_types., 0);
         } else if (Input.GetKeyDown(KeyCode.Space))
         {
-            AudioManager.PlaySound(Sound_types.POWERUP, 0);
+            AudioManager.PlaySound(Sound_types., 0);
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {
-            AudioManager.PlayRandomSound(Sound_types.CRASHING);
+            AudioManager.PlayRandomSound(Sound_types.);
         }
     }
 }

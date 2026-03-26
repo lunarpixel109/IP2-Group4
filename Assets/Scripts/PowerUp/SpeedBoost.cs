@@ -10,7 +10,7 @@ public class SpeedBoost : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        AudioManager.PlaySound(Sound_types.BOOST, 0);
 
         if (isActive) return;
 
