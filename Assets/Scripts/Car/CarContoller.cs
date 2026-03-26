@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using Unity.Mathematics;
@@ -49,9 +50,6 @@ public class CarController : MonoBehaviour
 	public float boost_max_speed;
 	public float boost_slowdown;
 
-	float _accel;
-	float _max_speed;
-
 	[Header("Drifting Setup")]
 
 	public float drift_speed_threshold;
@@ -73,15 +71,21 @@ public class CarController : MonoBehaviour
 
 	public float rb_direction;
 	public float carSprite_direction;
-	int drift_direction;
+	public int drift_direction;
 
 	public float boost;
+    public float _accel;
+    public float _max_speed;
 
-	public bool is_drifting = false;
+    public bool is_drifting = false;
 	public float drifting_value = 0f;
+	public GameObject drift_left_target;
+    public GameObject drift_right_target;
+    public GameObject middle_target;
 
-	// Start is called once before the first execution of Update after the MonoBehaviour is created
-	void Start()
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
 	{
 		accelerate = InputSystem.actions.FindAction("Accelerate");
 		brake = InputSystem.actions.FindAction("Brake");
@@ -144,7 +148,7 @@ public class CarController : MonoBehaviour
 		{
 			if (!is_drifting)
 			{
-				print("drift start");
+				
 				drift_direction = (int)math.sign(steering.ReadValue<float>());
 				rb_speed_forward -= drift_slowdown;
 			}
@@ -162,7 +166,7 @@ public class CarController : MonoBehaviour
 
 		if (drifting_value > 0f)
 		{
-			is_drifting = true; print("drifting");
+			is_drifting = true; 
 			boost += drift_boost_gain * Time.fixedDeltaTime;
 		}
 		else { is_drifting = false; }
@@ -264,16 +268,55 @@ public class CarController : MonoBehaviour
 					rb_direction += steering.ReadValue<float>() * Steering_Speed_Curve() * Time.fixedDeltaTime;
 				}
 
-				print("steering" + steering.ReadValue<float>());
-			}
+                //Vector3 targetDir = transform.position - middle_target.transform.position;
+                //Vector3 currentDirection = Vector3.RotateTowards(transform.forward, targetDir, 0.8f * Time.fixedDeltaTime, 0.0f);
+                //carSprite.transform.rotation = Quaternion.LookRotation(currentDirection);
+
+               
+
+            }
 		}
 		else
 		{
+
 			drift_amount = Mathf.Lerp(drift_steering_speeed_min, drift_steering_speed_max, Mathf.InverseLerp(1 * drift_direction, -1 * drift_direction, steering.ReadValue<float>())) * drift_direction * drifting_value;
 
 			rb_direction -= drift_amount * Time.fixedDeltaTime;
-			print("drifting");
-		}
+			//print("drifting");
+
+
+			//right
+			if (drift_direction == 1f)
+			{
+
+
+                //testing quats
+                Vector2 dir = transform.position - drift_right_target.transform.position;
+                Quaternion rot = Quaternion.LookRotation(Vector2.up, dir);
+				carSprite.transform.rotation = Quaternion.Lerp(carSprite.transform.rotation, rot, Time.deltaTime * 0.4f);
+
+                //            print("Drift right");
+                //            Vector3 targetDir = transform.position - drift_right_target.transform.position;
+                //Vector3 currentDirection = Vector3.RotateTowards(transform.forward, targetDir, 0.4f * Time.fixedDeltaTime, 0.0f);
+                //carSprite.transform.rotation = Quaternion.LookRotation(currentDirection);
+            }
+
+			//left
+            if (drift_direction == -1f)
+            {
+
+                //testing quats
+                Vector2 dir = transform.position - drift_left_target.transform.position;
+                Quaternion rot = Quaternion.LookRotation(Vector2.up, dir);
+                carSprite.transform.rotation = Quaternion.Lerp(carSprite.transform.rotation, rot, Time.deltaTime * 0.4f);
+                //print("Drift left");
+                //            Vector3 targetDir = transform.position - drift_left_target.transform.position;
+                //            Vector3 currentDirection = Vector3.RotateTowards(transform.forward, targetDir, 0.4f * Time.fixedDeltaTime, 0.0f);
+                //            carSprite.transform.rotation = Quaternion.LookRotation(currentDirection);
+            }
+
+
+        }
 		#endregion
 
 		#region output

@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b59eec54ddaf0f42b95762790874898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 2042382000394750908}
   carSprite: {fileID: 2780182435876332453}
   drivingState: 0
   canMove: 1
@@ -360,6 +360,8 @@ MonoBehaviour:
   rb_direction: 0
   carSprite_direction: 0
   boost: 0
+  _accel: 0
+  _max_speed: 0
   is_drifting: 0
   drifting_value: 0
 --- !u!114 &3263386790999409390

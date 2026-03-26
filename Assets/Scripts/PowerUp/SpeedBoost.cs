@@ -10,6 +10,8 @@ public class SpeedBoost : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+
         if (isActive) return;
 
         if (collision.TryGetComponent<CarController>(out var car))
