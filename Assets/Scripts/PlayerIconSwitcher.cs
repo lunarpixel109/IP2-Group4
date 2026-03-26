@@ -42,7 +42,7 @@ public class PlayerIconSwitcher : MonoBehaviour
                 break;
 
             case "Obstacle":
-                ShowIcon(2);
+                ShowIcon(5);
                 break;
 
             case "BoosterPad":
