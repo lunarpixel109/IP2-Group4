@@ -15,8 +15,6 @@ public class CarController : MonoBehaviour
 	Rigidbody2D rb;
 	public GameObject Player;
 	public GameObject carSprite;
-	//public GameObject drift_right;
-	//public GameObject drift_left;
 
 	float drift_right_angle;
 	float drift_left_angle;
@@ -55,6 +53,8 @@ public class CarController : MonoBehaviour
 	public float drift_speed_threshold;
 	public float drift_steering_speed_max;
 	public float drift_steering_speeed_min;
+	public float drift_steering_visual_max;
+	public float drift_steering_visual_min;
 	public float drift_transition_time_seconds;
 	public float drift_slowdown;
 	float drift_transition_time;
@@ -79,9 +79,6 @@ public class CarController : MonoBehaviour
 
     public bool is_drifting = false;
 	public float drifting_value = 0f;
-	public GameObject drift_left_target;
-    public GameObject drift_right_target;
-    public GameObject middle_target;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -160,7 +157,7 @@ public class CarController : MonoBehaviour
 		}
 		else
 		{
-			drifting_value -= drift_transition_time * Time.fixedDeltaTime;
+			drifting_value -= drift_transition_time*5 * Time.fixedDeltaTime;
 			if (drifting_value < 0f) { drifting_value = 0f; }
 		}
 
@@ -268,27 +265,24 @@ public class CarController : MonoBehaviour
 					rb_direction += steering.ReadValue<float>() * Steering_Speed_Curve() * Time.fixedDeltaTime;
 				}
 
-                //Vector3 targetDir = transform.position - middle_target.transform.position;
-                //Vector3 currentDirection = Vector3.RotateTowards(transform.forward, targetDir, 0.8f * Time.fixedDeltaTime, 0.0f);
-                //carSprite.transform.rotation = Quaternion.LookRotation(currentDirection);
-
-               
-
             }
 		}
 		else
 		{
 
-			drift_amount = Mathf.Lerp(drift_steering_speeed_min, drift_steering_speed_max, Mathf.InverseLerp(1 * drift_direction, -1 * drift_direction, steering.ReadValue<float>())) * drift_direction * drifting_value;
+			drift_amount = Mathf.Lerp(drift_steering_speeed_min, drift_steering_speed_max, Mathf.InverseLerp(1 * drift_direction, -1 * drift_direction, steering.ReadValue<float>())) * drift_direction;
 
 			rb_direction -= drift_amount * Time.fixedDeltaTime;
 			//print("drifting");
+
+			/*
 
 
 			//right
 			if (drift_direction == 1f)
 			{
 
+				var roatation_needed = 0f;
 
                 //testing quats
                 Vector2 dir = transform.position - drift_right_target.transform.position;
@@ -313,15 +307,26 @@ public class CarController : MonoBehaviour
                 //            Vector3 targetDir = transform.position - drift_left_target.transform.position;
                 //            Vector3 currentDirection = Vector3.RotateTowards(transform.forward, targetDir, 0.4f * Time.fixedDeltaTime, 0.0f);
                 //            carSprite.transform.rotation = Quaternion.LookRotation(currentDirection);
+			
             }
-
+			*/
 
         }
-		#endregion
+		
+		var desired_angle = Mathf.Lerp(drift_steering_visual_min, drift_steering_visual_max, Mathf.InverseLerp(1 * drift_direction, -1 * drift_direction, steering.ReadValue<float>())) * drift_direction * drifting_value;
+        var current_angle = carSprite.transform.localRotation.z;
 
-		#region output
+        var delta_angle = current_angle - desired_angle;
+		var delta_angle_rads = math.TORADIANS * delta_angle;
+	
 
-		rb_speed_local = new Vector2(rb_speed_right, rb_speed_forward); // recombines forward and right vectors
+		carSprite.transform.localRotation = quaternion.Euler(new float3(0, 0, (float)delta_angle_rads));
+
+        #endregion
+
+        #region output
+
+        rb_speed_local = new Vector2(rb_speed_right, rb_speed_forward); // recombines forward and right vectors
 		rb.linearVelocity = rb.GetRelativeVector(rb_speed_local); // sets speed in global space based on speed in local space
 
 		rb.rotation = rb_direction;
@@ -355,14 +360,14 @@ public class CarController : MonoBehaviour
 
 	void Max_speed_clamp(float deltaTime)
 	{
-		//if (_max_speed - rb_speed_forward < -0.5f)
-		//{
-		//	rb_speed_forward -= boost_slowdown * deltaTime;
-		//}
-		//else
-		//{
-		//	rb_speed_forward = _max_speed;
-		//}
+		if (_max_speed - rb_speed_forward < -0.5f)
+		{
+			rb_speed_forward -= boost_slowdown * deltaTime;
+		}
+		else
+		{
+			rb_speed_forward = _max_speed;
+		}
 	}
 
 	void Boost_Cancel()

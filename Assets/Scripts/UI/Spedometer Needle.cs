@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
@@ -19,6 +21,8 @@ public class SpedometerNeedle : MonoBehaviour
 	Quaternion needleRot;
 
 	public float _needleRotZ;
+	public float desired_angle;
+	public float current_angle;
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
@@ -44,14 +48,16 @@ public class SpedometerNeedle : MonoBehaviour
 		}
 		else if (player_speed_forward >= 0) // forward
 		{
-			_needleRotZ = Mathf.Lerp(Needle_min,Needle_max, Mathf.InverseLerp(0,max_speed, player_speed_forward));
+			_needleRotZ = Mathf.Lerp(Needle_min,Needle_max, Mathf.InverseLerp(0,max_speed, math.abs(player_speed_forward)));
 		}
-		else // backward
-		{
-            _needleRotZ = Mathf.Lerp(Needle_min, Needle_max, Mathf.InverseLerp(-max_speed, 0, player_speed_forward));
-        }
+
+		desired_angle = _needleRotZ;
+		current_angle = rt.rotation.z;
+
+		var delta_angle = current_angle - desired_angle;
+		var delta_angle_rads = math.TORADIANS * delta_angle;
 
 
-		rt.SetLocalPositionAndRotation(needlePos, new Quaternion(needleRot.x, needleRot.y, _needleRotZ, needleRot.w));
+		//rt.transform.localRotation = quaternion.Euler(new float3(0, 0, (float)delta_angle_rads));
 	}
 }

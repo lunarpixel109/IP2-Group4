@@ -342,7 +342,7 @@ MonoBehaviour:
   braking: 15
   friction: 4.5
   steering_speed: 85
-  max_speed: 20
+  max_speed: 30
   max_speed_reverse: 10
   boost_accel: 15
   boost_max_speed: 50
@@ -350,8 +350,10 @@ MonoBehaviour:
   drift_speed_threshold: 5
   drift_steering_speed_max: 30
   drift_steering_speeed_min: 130
+  drift_steering_visual_max: 15
+  drift_steering_visual_min: 65
   drift_transition_time_seconds: 0.2
-  drift_slowdown: 0
+  drift_slowdown: 2
   drift_amount: 0
   drift_boost_gain: 0
   rb_speed_local: {x: 0, y: 0}
@@ -359,6 +361,7 @@ MonoBehaviour:
   rb_speed_right: 0
   rb_direction: 0
   carSprite_direction: 0
+  drift_direction: 0
   boost: 0
   _accel: 0
   _max_speed: 0
@@ -446,7 +449,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2780182435876332453}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -497,7 +500,7 @@ SpriteRenderer:
   m_SortingLayerID: 483073331
   m_SortingLayer: 3
   m_SortingOrder: 100
-  m_Sprite: {fileID: -111117342964185798, guid: f721f24b3b17e2244a32e9220cc3733c, type: 3}
+  m_Sprite: {fileID: -5043152041547984946, guid: ff43da8192f59514fb496f9f38594032, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -546,7 +549,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.52, y: 1.99}
+    oldSize: {x: 1.99, y: 4.52}
     newSize: {x: 4.52, y: 1.99}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
