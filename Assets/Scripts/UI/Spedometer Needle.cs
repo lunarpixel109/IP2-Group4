@@ -24,18 +24,18 @@ public class SpedometerNeedle : MonoBehaviour
 	public float desired_angle;
 	public float current_angle;
 
-	// Start is called once before the first execution of Update after the MonoBehaviour is created
+	public float needle_max_weird;
+	public float needle_min_weird;
+
 	void Start()
 	{
 		PlayerStats = player.GetComponent<CarController>();
 		max_speed = PlayerStats.boost_max_speed * 10;
 
-
 		rb = player.GetComponent<Rigidbody2D>();
 		rt = needle.GetComponent<RectTransform>();
 	}
 
-	// Update is called once per frame
 	void FixedUpdate()
 	{
 		player_speed_forward = rb.GetVector(rb.linearVelocity)[1] * 10;
@@ -54,10 +54,19 @@ public class SpedometerNeedle : MonoBehaviour
 		desired_angle = _needleRotZ;
 		current_angle = rt.rotation.z;
 
-		var delta_angle = current_angle - desired_angle;
-		var delta_angle_rads = math.TORADIANS * delta_angle;
+		var delta_angle = desired_angle - current_angle;
+		var delta_angle_weird = DegreesToWeird(delta_angle);
 
 
-		//rt.transform.localRotation = quaternion.Euler(new float3(0, 0, (float)delta_angle_rads));
+		rt.transform.rotation = quaternion.Euler(new float3(0, 0, (float)delta_angle_weird));
+	}
+
+	float DegreesToWeird(float degrees)
+	{
+		var weird = 0f;
+
+		weird = Mathf.Lerp(needle_min_weird, needle_max_weird, Mathf.InverseLerp(Needle_min, Needle_max, degrees));
+
+		return weird;
 	}
 }

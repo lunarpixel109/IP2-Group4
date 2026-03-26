@@ -19,6 +19,10 @@ public class CarController : MonoBehaviour
 	float drift_right_angle;
 	float drift_left_angle;
 
+	public GameObject drift_target_left;
+	public GameObject drift_target_right;
+	public GameObject drift_target_centre;
+
 	InputAction accelerate;
 	InputAction brake;
 	InputAction steering;
@@ -74,15 +78,15 @@ public class CarController : MonoBehaviour
 	public int drift_direction;
 
 	public float boost;
-    public float _accel;
-    public float _max_speed;
+	public float _accel;
+	public float _max_speed;
 
-    public bool is_drifting = false;
+	public bool is_drifting = false;
 	public float drifting_value = 0f;
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+	// Start is called once before the first execution of Update after the MonoBehaviour is created
+	void Start()
 	{
 		accelerate = InputSystem.actions.FindAction("Accelerate");
 		brake = InputSystem.actions.FindAction("Brake");
@@ -247,11 +251,11 @@ public class CarController : MonoBehaviour
 		#region steering
 
 		rb.angularVelocity = 0f;
-		//carSprite.transform.rotation = Quaternion.LookRotation(carSprite.transform.forward, );
+		//carSprite.transform.rotation = Quaternion.LookRotation(carSprite.transform.forward, ); // attempt 3
 
 		if (!is_drifting)
 		{
-			//carSprite.transform.rotation = quaternion.EulerXYZ(0, 0, transform.eulerAngles.z);
+			//carSprite.transform.rotation = quaternion.EulerXYZ(0, 0, transform.eulerAngles.z); // attempt 2
 			drift_amount = 0f;
 
 			if (steering.IsPressed())
@@ -265,7 +269,10 @@ public class CarController : MonoBehaviour
 					rb_direction += steering.ReadValue<float>() * Steering_Speed_Curve() * Time.fixedDeltaTime;
 				}
 
-            }
+			}
+
+			//attempt 1
+			//carSprite.transform.rotation = quaternion.Euler(transform.rotation.z);
 		}
 		else
 		{
@@ -273,60 +280,72 @@ public class CarController : MonoBehaviour
 			drift_amount = Mathf.Lerp(drift_steering_speeed_min, drift_steering_speed_max, Mathf.InverseLerp(1 * drift_direction, -1 * drift_direction, steering.ReadValue<float>())) * drift_direction;
 
 			rb_direction -= drift_amount * Time.fixedDeltaTime;
-			//print("drifting");
+            //print("drifting");
 
-			/*
-
-
+            /* Attempt 4
 			//right
 			if (drift_direction == 1f)
 			{
-
-				var roatation_needed = 0f;
-
-                //testing quats
-                Vector2 dir = transform.position - drift_right_target.transform.position;
-                Quaternion rot = Quaternion.LookRotation(Vector2.up, dir);
-				carSprite.transform.rotation = Quaternion.Lerp(carSprite.transform.rotation, rot, Time.deltaTime * 0.4f);
-
-                //            print("Drift right");
-                //            Vector3 targetDir = transform.position - drift_right_target.transform.position;
-                //Vector3 currentDirection = Vector3.RotateTowards(transform.forward, targetDir, 0.4f * Time.fixedDeltaTime, 0.0f);
-                //carSprite.transform.rotation = Quaternion.LookRotation(currentDirection);
-            }
+				print("Drift right");
+				Vector3 targetDir = transform.position - drift_right_target.transform.position;
+				Vector3 currentDirection = Vector3.RotateTowards(transform.forward, targetDir, 0.4f * Time.fixedDeltaTime, 0.0f);
+				carSprite.transform.rotation = Quaternion.LookRotation(currentDirection);
+			}
 
 			//left
-            if (drift_direction == -1f)
-            {
-
-                //testing quats
-                Vector2 dir = transform.position - drift_left_target.transform.position;
-                Quaternion rot = Quaternion.LookRotation(Vector2.up, dir);
-                carSprite.transform.rotation = Quaternion.Lerp(carSprite.transform.rotation, rot, Time.deltaTime * 0.4f);
-                //print("Drift left");
-                //            Vector3 targetDir = transform.position - drift_left_target.transform.position;
-                //            Vector3 currentDirection = Vector3.RotateTowards(transform.forward, targetDir, 0.4f * Time.fixedDeltaTime, 0.0f);
-                //            carSprite.transform.rotation = Quaternion.LookRotation(currentDirection);
+			if (drift_direction == -1f)
+			{
+				print("Drift left");
+			    Vector3 targetDir = transform.position - drift_left_target.transform.position;
+				Vector3 currentDirection = Vector3.RotateTowards(transform.forward, targetDir, 0.4f * Time.fixedDeltaTime, 0.0f);
+				carSprite.transform.rotation = Quaternion.LookRotation(currentDirection);
 			
-            }
+			}
+			*/
+
+
+            /* Attempt 5
+			//right
+			if (drift_direction == 1f)
+			{
+			//testing quats
+			Vector2 dir = transform.position - drift_right_target.transform.position;
+			Quaternion rot = Quaternion.LookRotation(Vector2.up, dir);
+			carSprite.transform.rotation = Quaternion.Lerp(carSprite.transform.rotation, rot, Time.deltaTime * 0.4f);
+
+			print("Drift right");
+			}
+
+			//left
+			if (drift_direction == -1f)
+			{
+
+			//testing quats
+			Vector2 dir = transform.position - drift_left_target.transform.position;
+			Quaternion rot = Quaternion.LookRotation(Vector2.up, dir);
+			carSprite.transform.rotation = Quaternion.Lerp(carSprite.transform.rotation, rot, Time.deltaTime * 0.4f);
+
+			print("Drift left");
+
+			}
 			*/
 
         }
-		
-		var desired_angle = Mathf.Lerp(drift_steering_visual_min, drift_steering_visual_max, Mathf.InverseLerp(1 * drift_direction, -1 * drift_direction, steering.ReadValue<float>())) * drift_direction * drifting_value;
-        var current_angle = carSprite.transform.localRotation.z;
 
-        var delta_angle = current_angle - desired_angle;
+        var desired_angle = Mathf.Lerp(drift_steering_visual_min, drift_steering_visual_max, Mathf.InverseLerp(1 * drift_direction, -1 * drift_direction, steering.ReadValue<float>())) * drift_direction * drifting_value;
+		var current_angle = carSprite.transform.localRotation.z;
+
+		var delta_angle = current_angle - desired_angle;
 		var delta_angle_rads = math.TORADIANS * delta_angle;
 	
 
 		carSprite.transform.localRotation = quaternion.Euler(new float3(0, 0, (float)delta_angle_rads));
 
-        #endregion
+		#endregion
 
-        #region output
+		#region output
 
-        rb_speed_local = new Vector2(rb_speed_right, rb_speed_forward); // recombines forward and right vectors
+		rb_speed_local = new Vector2(rb_speed_right, rb_speed_forward); // recombines forward and right vectors
 		rb.linearVelocity = rb.GetRelativeVector(rb_speed_local); // sets speed in global space based on speed in local space
 
 		rb.rotation = rb_direction;
