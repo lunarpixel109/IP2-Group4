@@ -7,6 +7,7 @@ TagManager:
   - Wall
   - BoosterPad
   - Obstacle
+  - settings camera
   layers:
   - Default
   - TransparentFX
