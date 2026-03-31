@@ -12,12 +12,30 @@ public struct Sound_list // used to create multi dimensional arrays in the inspe
 }
 
 public enum Sound_types // used to store each type of audio case, automatically adds type section to inspector 
-{
-    ACCELERATION,
+{ //ONLY SOUNDS THAT DO NOT LOOP
+
+    //Car
     BOOST,
-    CAR_HOOD,
-    DRIFT,
-    ENGINE_START
+    ENGINE_START_IDLE,
+    ENGINE_START,
+
+    //Menu 
+    HOOD_SLAM1,
+    HOOD_SLAM2,
+    DOOR_OPEN,
+    DOOR_CLOSE,
+    BOOT_OPEN,
+    MENU_CLICK1,
+    MENU_CLICK2,
+
+    //Obstacles
+    OIL,
+    LOG,
+    LEAVES,
+
+    //Race Start/Stop
+    COUNTDOWN,
+    FINISH
 }
 
 [RequireComponent(typeof(AudioSource)), ExecuteInEditMode] // manager object must have an audio source
