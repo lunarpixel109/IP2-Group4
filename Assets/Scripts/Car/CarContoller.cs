@@ -38,6 +38,8 @@ public class CarController : MonoBehaviour
 	DrivingState drivingState = DrivingState.stationary;
 	bool is_drifting = false;
 
+    
+
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
@@ -190,5 +192,8 @@ public class CarController : MonoBehaviour
         rb_speed_forward *= forwardLoss;
         rb_speed_right = rb_speed_local.x;
     }
+
+
+    
 
 }
