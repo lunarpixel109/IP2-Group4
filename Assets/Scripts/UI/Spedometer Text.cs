@@ -19,7 +19,7 @@ public class Spedometer_Text : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate()
 	{
-		player_speed_forward = rb.GetVector(rb.linearVelocity)[1];
+		player_speed_forward = math.abs(rb.GetVector(rb.linearVelocity)[1]);
 
 		text.text = math.round(player_speed_forward*10) + " k/hr";
 	}

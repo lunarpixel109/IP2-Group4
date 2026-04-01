@@ -29,7 +29,18 @@ public class CarController : MonoBehaviour
 	InputAction drifting;
 	InputAction boosting;
 
-	public enum DrivingState
+	InputAction ActionKey1;
+	InputAction ActionKey2;
+	InputAction ActionKey3;
+	InputAction ActionKey4;
+	InputAction ActionKey5;
+	InputAction ActionKey6;
+	InputAction ActionKey7;
+	InputAction ActionKey8;
+	InputAction ActionKey9;
+
+
+    public enum DrivingState
 	{
 		stationary,
 		forward,
@@ -84,6 +95,8 @@ public class CarController : MonoBehaviour
 	public bool is_drifting = false;
 	public float drifting_value = 0f;
 
+	public float _steering;
+
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
@@ -93,6 +106,16 @@ public class CarController : MonoBehaviour
 		steering = InputSystem.actions.FindAction("Steering");
 		drifting = InputSystem.actions.FindAction("Drifting");
 		boosting = InputSystem.actions.FindAction("Boost");
+
+		ActionKey1 = InputSystem.actions.FindAction("Action Key 1");
+		ActionKey2 = InputSystem.actions.FindAction("Action Key 2");
+		ActionKey3 = InputSystem.actions.FindAction("Action Key 3");
+		ActionKey4 = InputSystem.actions.FindAction("Action Key 4");
+		ActionKey5 = InputSystem.actions.FindAction("Action Key 5");
+		ActionKey6 = InputSystem.actions.FindAction("Action Key 6");
+		ActionKey7 = InputSystem.actions.FindAction("Action Key 7");
+		ActionKey8 = InputSystem.actions.FindAction("Action Key 8");
+		ActionKey9 = InputSystem.actions.FindAction("Action Key 9");
 
 		rb = GetComponent<Rigidbody2D>();
 
@@ -250,86 +273,35 @@ public class CarController : MonoBehaviour
 
 		#region steering
 
+		_steering = 0f;
 		rb.angularVelocity = 0f;
-		//carSprite.transform.rotation = Quaternion.LookRotation(carSprite.transform.forward, ); // attempt 3
 
 		if (!is_drifting)
 		{
-			//carSprite.transform.rotation = quaternion.EulerXYZ(0, 0, transform.eulerAngles.z); // attempt 2
 			drift_amount = 0f;
 
 			if (steering.IsPressed())
 			{
-				if (drivingState == DrivingState.forward)
+                _steering = steering.ReadValue<float>();
+                ActionKeys();
+
+                if (drivingState == DrivingState.forward)
 				{
-					rb_direction -= steering.ReadValue<float>() * Steering_Speed_Curve() * Time.fixedDeltaTime;
+					rb_direction -= _steering * Steering_Speed_Curve() * Time.fixedDeltaTime;
 				}
 				else if (drivingState == DrivingState.barckward)
 				{
-					rb_direction += steering.ReadValue<float>() * Steering_Speed_Curve() * Time.fixedDeltaTime;
+					rb_direction += _steering * Steering_Speed_Curve() * Time.fixedDeltaTime;
 				}
 
 			}
 
-			//attempt 1
-			//carSprite.transform.rotation = quaternion.Euler(transform.rotation.z);
 		}
 		else
 		{
-
 			drift_amount = Mathf.Lerp(drift_steering_speeed_min, drift_steering_speed_max, Mathf.InverseLerp(1 * drift_direction, -1 * drift_direction, steering.ReadValue<float>())) * drift_direction;
 
 			rb_direction -= drift_amount * Time.fixedDeltaTime;
-            //print("drifting");
-
-            /* Attempt 4
-			//right
-			if (drift_direction == 1f)
-			{
-				print("Drift right");
-				Vector3 targetDir = transform.position - drift_right_target.transform.position;
-				Vector3 currentDirection = Vector3.RotateTowards(transform.forward, targetDir, 0.4f * Time.fixedDeltaTime, 0.0f);
-				carSprite.transform.rotation = Quaternion.LookRotation(currentDirection);
-			}
-
-			//left
-			if (drift_direction == -1f)
-			{
-				print("Drift left");
-			    Vector3 targetDir = transform.position - drift_left_target.transform.position;
-				Vector3 currentDirection = Vector3.RotateTowards(transform.forward, targetDir, 0.4f * Time.fixedDeltaTime, 0.0f);
-				carSprite.transform.rotation = Quaternion.LookRotation(currentDirection);
-			
-			}
-			*/
-
-
-            /* Attempt 5
-			//right
-			if (drift_direction == 1f)
-			{
-			//testing quats
-			Vector2 dir = transform.position - drift_right_target.transform.position;
-			Quaternion rot = Quaternion.LookRotation(Vector2.up, dir);
-			carSprite.transform.rotation = Quaternion.Lerp(carSprite.transform.rotation, rot, Time.deltaTime * 0.4f);
-
-			print("Drift right");
-			}
-
-			//left
-			if (drift_direction == -1f)
-			{
-
-			//testing quats
-			Vector2 dir = transform.position - drift_left_target.transform.position;
-			Quaternion rot = Quaternion.LookRotation(Vector2.up, dir);
-			carSprite.transform.rotation = Quaternion.Lerp(carSprite.transform.rotation, rot, Time.deltaTime * 0.4f);
-
-			print("Drift left");
-
-			}
-			*/
-
         }
 
         var desired_angle = Mathf.Lerp(drift_steering_visual_min, drift_steering_visual_max, Mathf.InverseLerp(1 * drift_direction, -1 * drift_direction, steering.ReadValue<float>())) * drift_direction * drifting_value;
@@ -430,4 +402,44 @@ public class CarController : MonoBehaviour
 
 		print("knock");
 	}
+
+	void ActionKeys()
+	{
+		if (ActionKey1.IsPressed())
+		{
+			if (math.abs(_steering) > 0.1f) { _steering = 0.1f * math.sign(_steering); }
+		}
+        else if (ActionKey2.IsPressed())
+        {
+            if (math.abs(_steering) > 0.2f) { _steering = 0.2f * math.sign(_steering); }
+        }
+        else if (ActionKey3.IsPressed())
+        {
+            if (math.abs(_steering) > 0.3f) { _steering = 0.3f * math.sign(_steering); }
+        }
+        else if (ActionKey4.IsPressed())
+        {
+            if (math.abs(_steering) > 0.4f) { _steering = 0.4f * math.sign(_steering); }
+        }
+        else if (ActionKey5.IsPressed())
+        {
+            if (math.abs(_steering) > 0.5f) { _steering = 0.5f * math.sign(_steering); }
+        }
+        else if (ActionKey6.IsPressed())
+        {
+            if (math.abs(_steering) > 0.6f) { _steering = 0.6f * math.sign(_steering); }
+        }
+        else if (ActionKey7.IsPressed())
+        {
+            if (math.abs(_steering) > 0.7f) { _steering = 0.7f * math.sign(_steering); }
+        }
+        else if (ActionKey8.IsPressed())
+        {
+            if (math.abs(_steering) > 0.8f) { _steering = 0.8f * math.sign(_steering); }
+        }
+        else if (ActionKey9.IsPressed())
+        {
+            if (math.abs(_steering) > 0.9f) { _steering = 0.9f * math.sign(_steering); }
+        }
+    }
 }

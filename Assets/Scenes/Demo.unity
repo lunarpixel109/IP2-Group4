@@ -1145,18 +1145,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8365395102808833946, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 8365395102808833946, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 4.52
-      objectReference: {fileID: 0}
-    - target: {fileID: 8904436875226070207, guid: 11f0ea7038f8f1c4bb02027b3d2c4915, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7492,6 +7480,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2112682482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2112682483}
+  m_Layer: 5
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2112682483
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112682482}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1454162316}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -660, y: -340}
+  m_SizeDelta: {x: 300, y: 300}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2134960221
 GameObject:
   m_ObjectHideFlags: 0
@@ -10738,7 +10761,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3455959460020199282, guid: 77b0db9e44c219a45a7e39c99a024495, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 200
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 3455959460020199282, guid: 77b0db9e44c219a45a7e39c99a024495, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10796,13 +10819,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spedometer
       objectReference: {fileID: 0}
+    - target: {fileID: 7846014367610366622, guid: 77b0db9e44c219a45a7e39c99a024495, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9096296126671982268, guid: 622ae4af1f442984b8afdba25cd9279c, type: 3}
     - target: {fileID: 8662868944012854940, guid: 77b0db9e44c219a45a7e39c99a024495, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1535995537}
+    - target: {fileID: 8684464448165161136, guid: 77b0db9e44c219a45a7e39c99a024495, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6181759175199383640, guid: 84328288c49d2834da6908707b76ce54, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3455959460020199282, guid: 77b0db9e44c219a45a7e39c99a024495, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 2112682483}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77b0db9e44c219a45a7e39c99a024495, type: 3}
 --- !u!1660057539 &9223372036854775807
