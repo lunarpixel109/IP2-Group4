@@ -3,8 +3,9 @@ using System.Collections;
 
 public class SpeedBoost : MonoBehaviour
 {
-     public float speedIncrease = 2f;
-     public float duration = 2f;
+    public float duration = 2f;
+    public float max_speed_boost = 50f;
+    public float boost_accel = 20f;
 
     public bool isActive = false;
 
@@ -16,7 +17,8 @@ public class SpeedBoost : MonoBehaviour
 
         if (collision.TryGetComponent<CarController>(out var car))
         {
-            StartCoroutine(HandleBoost(car));
+            car.ApplyBoost(duration, max_speed_boost, boost_accel);
+            //StartCoroutine(HandleBoost(car));
         }
     }
 
@@ -24,7 +26,7 @@ public class SpeedBoost : MonoBehaviour
     {
         isActive = true;
 
-        car.ApplyBoost(speedIncrease, duration);
+        //car.ApplyBoost(speedIncrease, duration);
 
 
         yield return new WaitForSeconds(duration);

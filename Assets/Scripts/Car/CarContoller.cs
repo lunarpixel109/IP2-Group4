@@ -150,7 +150,7 @@ public class CarController : MonoBehaviour
 
 		rb_direction = rb.rotation; // gets rotation of car via rigidbody2D
 
-		if (boosting.IsPressed()) { boost += 0.5f * Time.fixedDeltaTime; }
+		if (boosting.IsPressed()) { boost += 1.5f * Time.fixedDeltaTime; }
 		
 		
 		if (!is_drifting)
@@ -172,7 +172,6 @@ public class CarController : MonoBehaviour
 		{
 			if (!is_drifting)
 			{
-				
 				drift_direction = (int)math.sign(steering.ReadValue<float>());
 				rb_speed_forward -= drift_slowdown;
 			}
@@ -367,11 +366,11 @@ public class CarController : MonoBehaviour
 		_accel = accel;
 	}
 
-	public void ApplyBoost(float multiplier, float duration)
+	public void ApplyBoost(float duration, float new_max_speed, float new_accel)
 	{
 		boost = duration;
-		boost_max_speed *= multiplier;
-		boost_accel *= multiplier;
+		boost_max_speed = new_max_speed;
+		boost_accel = new_accel;
 		//StartCoroutine(SpeedMultiplierRoutine(multiplier, duration));
 	}
 	

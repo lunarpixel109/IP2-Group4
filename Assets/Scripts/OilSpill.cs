@@ -46,8 +46,7 @@ public class OilSpill : MonoBehaviour
 
     public void OnHit(CarController car)
     {
-        car.ApplyBoost(slowMultiplier, duration);
-        
+        car.ApplyBoost(duration, 15f, 1f);
     }
 
     IEnumerator FadeAndDestroy()
