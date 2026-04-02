@@ -33,7 +33,7 @@ public class PlayerIconSwitcher : MonoBehaviour
     }
     private void HandleIcon(string tag)
     {
-        Debug.Log("Hit " + tag);
+        //Debug.Log("Hit " + tag);
 
         switch (tag)
         {

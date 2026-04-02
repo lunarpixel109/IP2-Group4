@@ -21,6 +21,6 @@ public class Spedometer_Text : MonoBehaviour
 	{
 		player_speed_forward = math.abs(rb.GetVector(rb.linearVelocity)[1]);
 
-		text.text = math.round(player_speed_forward*10) + " k/hr";
+		text.text = math.round(player_speed_forward*10) + " kph";
 	}
 }

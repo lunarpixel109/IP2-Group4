@@ -11,15 +11,17 @@ public class SpeedBoost : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        var car = collision.GetComponentInParent<CarController>();
+        car.ApplyBoost(duration,max_speed_boost,boost_accel);
+
         AudioManager.PlaySound(Sound_types.BOOST, 0);
 
-        if (isActive) return;
-
-        if (collision.TryGetComponent<CarController>(out var car))
-        {
-            car.ApplyBoost(duration, max_speed_boost, boost_accel);
-            //StartCoroutine(HandleBoost(car));
-        }
+        //if (collision.TryGetComponent<CarController>(out var car))
+        //{
+        //    print("dsnmdbmnsdabnmsdbnmdsbsdabnmasdbndssnbmbnm,bnm,bn");
+        //    car.ApplyBoost(duration, max_speed_boost, boost_accel);
+        //    //StartCoroutine(HandleBoost(car));
+        //}
     }
 
     private IEnumerator HandleBoost(CarController car)
