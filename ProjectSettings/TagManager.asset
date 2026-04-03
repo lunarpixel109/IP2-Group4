@@ -56,6 +56,9 @@ TagManager:
   - name: Player
     uniqueID: 483073331
     locked: 0
+  - name: StreetLight
+    uniqueID: 2303489849
+    locked: 0
   m_RenderingLayers:
   - Default
   - Transition
