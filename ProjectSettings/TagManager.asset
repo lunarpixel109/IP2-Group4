@@ -8,6 +8,8 @@ TagManager:
   - BoosterPad
   - Obstacle
   - settings camera
+  - Oil
+  - Log
   layers:
   - Default
   - TransparentFX
