@@ -107,15 +107,15 @@ public class CarController : MonoBehaviour
 		drifting = InputSystem.actions.FindAction("Drifting");
 		boosting = InputSystem.actions.FindAction("Boost");
 
-		ActionKey1 = InputSystem.actions.FindAction("Action Key 1");
-		ActionKey2 = InputSystem.actions.FindAction("Action Key 2");
-		ActionKey3 = InputSystem.actions.FindAction("Action Key 3");
-		ActionKey4 = InputSystem.actions.FindAction("Action Key 4");
-		ActionKey5 = InputSystem.actions.FindAction("Action Key 5");
-		ActionKey6 = InputSystem.actions.FindAction("Action Key 6");
-		ActionKey7 = InputSystem.actions.FindAction("Action Key 7");
-		ActionKey8 = InputSystem.actions.FindAction("Action Key 8");
-		ActionKey9 = InputSystem.actions.FindAction("Action Key 9");
+		//ActionKey1 = InputSystem.actions.FindAction("Action Key 1");
+		//ActionKey2 = InputSystem.actions.FindAction("Action Key 2");
+		//ActionKey3 = InputSystem.actions.FindAction("Action Key 3");
+		//ActionKey4 = InputSystem.actions.FindAction("Action Key 4");
+		//ActionKey5 = InputSystem.actions.FindAction("Action Key 5");
+		//ActionKey6 = InputSystem.actions.FindAction("Action Key 6");
+		//ActionKey7 = InputSystem.actions.FindAction("Action Key 7");
+		//ActionKey8 = InputSystem.actions.FindAction("Action Key 8");
+		//ActionKey9 = InputSystem.actions.FindAction("Action Key 9");
 
 		rb = GetComponent<Rigidbody2D>();
 
@@ -282,7 +282,7 @@ public class CarController : MonoBehaviour
 			if (steering.IsPressed())
 			{
                 _steering = steering.ReadValue<float>();
-                ActionKeys();
+                // ActionKeys();
 
                 if (drivingState == DrivingState.forward)
 				{
@@ -402,43 +402,43 @@ public class CarController : MonoBehaviour
 		print("knock");
 	}
 
-	void ActionKeys()
-	{
-		if (ActionKey1.IsPressed())
-		{
-			if (math.abs(_steering) > 0.1f) { _steering = 0.1f * math.sign(_steering); }
-		}
-        else if (ActionKey2.IsPressed())
-        {
-            if (math.abs(_steering) > 0.2f) { _steering = 0.2f * math.sign(_steering); }
-        }
-        else if (ActionKey3.IsPressed())
-        {
-            if (math.abs(_steering) > 0.3f) { _steering = 0.3f * math.sign(_steering); }
-        }
-        else if (ActionKey4.IsPressed())
-        {
-            if (math.abs(_steering) > 0.4f) { _steering = 0.4f * math.sign(_steering); }
-        }
-        else if (ActionKey5.IsPressed())
-        {
-            if (math.abs(_steering) > 0.5f) { _steering = 0.5f * math.sign(_steering); }
-        }
-        else if (ActionKey6.IsPressed())
-        {
-            if (math.abs(_steering) > 0.6f) { _steering = 0.6f * math.sign(_steering); }
-        }
-        else if (ActionKey7.IsPressed())
-        {
-            if (math.abs(_steering) > 0.7f) { _steering = 0.7f * math.sign(_steering); }
-        }
-        else if (ActionKey8.IsPressed())
-        {
-            if (math.abs(_steering) > 0.8f) { _steering = 0.8f * math.sign(_steering); }
-        }
-        else if (ActionKey9.IsPressed())
-        {
-            if (math.abs(_steering) > 0.9f) { _steering = 0.9f * math.sign(_steering); }
-        }
-    }
+	//void ActionKeys()
+	//{
+	//	if (ActionKey1.IsPressed())
+	//	{
+	//		if (math.abs(_steering) > 0.1f) { _steering = 0.1f * math.sign(_steering); }
+	//	}
+ //       else if (ActionKey2.IsPressed())
+ //       {
+ //           if (math.abs(_steering) > 0.2f) { _steering = 0.2f * math.sign(_steering); }
+ //       }
+ //       else if (ActionKey3.IsPressed())
+ //       {
+ //           if (math.abs(_steering) > 0.3f) { _steering = 0.3f * math.sign(_steering); }
+ //       }
+ //       else if (ActionKey4.IsPressed())
+ //       {
+ //           if (math.abs(_steering) > 0.4f) { _steering = 0.4f * math.sign(_steering); }
+ //       }
+ //       else if (ActionKey5.IsPressed())
+ //       {
+ //           if (math.abs(_steering) > 0.5f) { _steering = 0.5f * math.sign(_steering); }
+ //       }
+ //       else if (ActionKey6.IsPressed())
+ //       {
+ //           if (math.abs(_steering) > 0.6f) { _steering = 0.6f * math.sign(_steering); }
+ //       }
+ //       else if (ActionKey7.IsPressed())
+ //       {
+ //           if (math.abs(_steering) > 0.7f) { _steering = 0.7f * math.sign(_steering); }
+ //       }
+ //       else if (ActionKey8.IsPressed())
+ //       {
+ //           if (math.abs(_steering) > 0.8f) { _steering = 0.8f * math.sign(_steering); }
+ //       }
+ //       else if (ActionKey9.IsPressed())
+ //       {
+ //           if (math.abs(_steering) > 0.9f) { _steering = 0.9f * math.sign(_steering); }
+ //       }
+ //   }
 }

@@ -1,24 +1,25 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static CarController;
 
-public class trail_script : MonoBehaviour
+public class TrailScript : MonoBehaviour
 {
     public bool boosting = false;
 
     [SerializeField] private TrailRenderer[] brake_trails;
     [SerializeField] private TrailRenderer[] Boost_trails;
 
-    private CarController car_ref;
+    public bool isBoostEffect = false;
 
     InputAction brake;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        car_ref = GetComponentInParent<CarController>(); 
         brake = InputSystem.actions.FindAction("Brake");
+
         foreach (var trail in brake_trails)
         {
             trail.emitting = true;
@@ -28,7 +29,7 @@ public class trail_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(car_ref.boost);
+
         if (brake.IsPressed())
         {
             foreach (var trail in brake_trails)
@@ -43,7 +44,7 @@ public class trail_script : MonoBehaviour
             }
         }
 
-        if (car_ref.boost > 0f && !car_ref.is_drifting)
+        if (isBoostEffect)
         {
             foreach (var trail in Boost_trails)
             {
@@ -59,8 +60,20 @@ public class trail_script : MonoBehaviour
 
     }
 
-    void Braking()
+    public void Boost(float duration)
     {
-
+        StartCoroutine(BoostTimer(duration));
     }
+
+    IEnumerator BoostTimer(float duration)
+    {
+        float timer = 0f;
+        isBoostEffect = true;
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        isBoostEffect = false;
+    }    
 }

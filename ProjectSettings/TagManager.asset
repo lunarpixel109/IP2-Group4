@@ -44,6 +44,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Track
+    uniqueID: 3749723163
+    locked: 0
+  - name: Player
+    uniqueID: 483073331
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -52,9 +58,6 @@ TagManager:
     locked: 0
   - name: Transition
     uniqueID: 287185869
-    locked: 0
-  - name: Player
-    uniqueID: 483073331
     locked: 0
   - name: StreetLight
     uniqueID: 2303489849

@@ -14,6 +14,9 @@ public class SpeedBoost : MonoBehaviour
         var car = collision.GetComponentInParent<CarController>();
         car.ApplyBoost(duration,max_speed_boost,boost_accel);
 
+        var trail = car.GetComponentInChildren<TrailScript>();
+        trail.Boost(duration);
+
         AudioManager.PlaySound(Sound_types.BOOST, 0);
 
         //if (collision.TryGetComponent<CarController>(out var car))

@@ -29,7 +29,7 @@ public class OilSpill : MonoBehaviour
         {
             hitSpill = true;
             car.ApplyBoost(duration, slowMaxSpeed, minCrawlSpeed);
-
+            
             StartCoroutine(PreventCompleteStop(car));
             StartTireTrails();
         }
