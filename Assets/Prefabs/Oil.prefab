@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -6748384255609890082, guid: 822ebc70e78ad414c8c7a71feedd14e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -101,11 +101,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ecde7f59742e9a4dbdcd5dced1ac142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowMultiplier: 0.5
   duration: 2
-  hitSpill: 0
-  fadeTime: 0.8
-  shrinkAmount: 0.9
+  slowMaxSpeed: 7
+  minCrawlSpeed: 3
+  trailRendererPrefab1: {fileID: 0}
+  trailRendererPrefab2: {fileID: 0}
+  trailDuration: 2.5
+  leftTireAnchor: {fileID: 0}
+  rightTireAnchor: {fileID: 0}
 --- !u!61 &4200853882045494100
 BoxCollider2D:
   m_ObjectHideFlags: 0
