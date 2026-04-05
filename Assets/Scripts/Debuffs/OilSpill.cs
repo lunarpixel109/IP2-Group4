@@ -1,47 +1,53 @@
 using UnityEngine;
+
 using System.Collections;
 
+
 public class OilSpill : MonoBehaviour
+
 {
+
     public float duration = 2.0f;
     public float slowMaxSpeed = 7f;
     public float minCrawlSpeed = 3f;
 
     public GameObject trailRendererPrefab1;
     public GameObject trailRendererPrefab2;
-    public float trailDuration = 2.5f; 
+    public float trailDuration = 2.5f;
 
     public Transform leftTireAnchor;
     public Transform rightTireAnchor;
+    private bool hitSpill = false;
 
-    private bool hitSpill = false; 
     private void OnTriggerEnter2D(Collider2D collision)
+
     {
         if (hitSpill) return;
-
         CarController car = collision.GetComponentInParent<CarController>();
 
         if (car != null)
         {
             hitSpill = true;
+            car.ApplyBoost(duration, slowMaxSpeed, minCrawlSpeed);
 
-            car.ApplyBoost(duration, slowMaxSpeed, 15f);
             StartCoroutine(PreventCompleteStop(car));
-
             StartTireTrails();
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
+
     {
         CarController car = collision.GetComponentInParent<CarController>();
         if (car != null)
+
         {
             hitSpill = false;
         }
     }
 
     void StartTireTrails()
+
     {
         if (leftTireAnchor != null && trailRendererPrefab1 != null)
             SpawnSingleTrail(leftTireAnchor, trailRendererPrefab1);
@@ -51,11 +57,14 @@ public class OilSpill : MonoBehaviour
     }
 
     void SpawnSingleTrail(Transform anchor, GameObject prefab)
+
     {
         GameObject trailObj = Instantiate(prefab, anchor.position, anchor.rotation);
+
         trailObj.transform.SetParent(anchor);
 
         TrailRenderer tr = trailObj.GetComponent<TrailRenderer>();
+
         if (tr != null)
         {
             tr.emitting = true;
@@ -64,6 +73,7 @@ public class OilSpill : MonoBehaviour
     }
 
     IEnumerator StopTrail(GameObject trailObj, TrailRenderer tr)
+
     {
         yield return new WaitForSeconds(trailDuration);
 
@@ -76,7 +86,9 @@ public class OilSpill : MonoBehaviour
         }
     }
 
+
     IEnumerator PreventCompleteStop(CarController car)
+
     {
         float elapsed = 0;
         while (elapsed < duration)
@@ -86,6 +98,7 @@ public class OilSpill : MonoBehaviour
 
             elapsed += Time.deltaTime;
             yield return null;
+
         }
     }
 }
