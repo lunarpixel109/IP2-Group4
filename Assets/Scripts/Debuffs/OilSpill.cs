@@ -1,75 +1,91 @@
 using UnityEngine;
-
 using System.Collections;
 
 public class OilSpill : MonoBehaviour
 {
-
-    public float slowMultiplier = 0.5f;
     public float duration = 2.0f;
-    public bool hitSpill = false;
+    public float slowMaxSpeed = 7f;
+    public float minCrawlSpeed = 3f;
 
-    public float fadeTime = 0.8f;
-    public float shrinkAmount = 0.9f;
+    public GameObject trailRendererPrefab1;
+    public GameObject trailRendererPrefab2;
+    public float trailDuration = 2.5f; 
 
-    
-    private SpriteRenderer sr;
-    private Collider2D col;
-    private Vector3 startScale;
+    public Transform leftTireAnchor;
+    public Transform rightTireAnchor;
 
-    void Awake()
-    {
-        sr = GetComponent<SpriteRenderer>();
-        col = GetComponent<Collider2D>();
-        startScale = transform.localScale;
-    }
-
-
+    private bool hitSpill = false; 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (hitSpill) return;
 
-        Debug.Log("hit oil spill");
-       
+        CarController car = collision.GetComponentInParent<CarController>();
 
-        CarController car = collision.GetComponent<CarController>();
-        if (!car) return;
-
-        OnHit(car);
-        hitSpill = true;
-
-        col.enabled = false;
-
-        StartCoroutine(FadeAndDestroy());
-
-    }
-
-    public void OnHit(CarController car)
-    {
-        car.ApplyBoost(duration, 15f, 1f);
-    }
-
-    IEnumerator FadeAndDestroy()
-    {
-        float t = 0f;
-        Color startColor = sr.color;
-
-        while (t < fadeTime)
+        if (car != null)
         {
-            t += Time.deltaTime;
-            float lerp = t / fadeTime;
+            hitSpill = true;
 
-            Color c = startColor;
-            c.a = Mathf.Lerp(startColor.a, 0f, lerp);
+            car.ApplyBoost(duration, slowMaxSpeed, 15f);
+            StartCoroutine(PreventCompleteStop(car));
 
-            transform.localScale = Vector3.Lerp(startScale, startScale * shrinkAmount, lerp);
+            StartTireTrails();
+        }
+    }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        CarController car = collision.GetComponentInParent<CarController>();
+        if (car != null)
+        {
+            hitSpill = false;
+        }
+    }
+
+    void StartTireTrails()
+    {
+        if (leftTireAnchor != null && trailRendererPrefab1 != null)
+            SpawnSingleTrail(leftTireAnchor, trailRendererPrefab1);
+
+        if (rightTireAnchor != null && trailRendererPrefab2 != null)
+            SpawnSingleTrail(rightTireAnchor, trailRendererPrefab2);
+    }
+
+    void SpawnSingleTrail(Transform anchor, GameObject prefab)
+    {
+        GameObject trailObj = Instantiate(prefab, anchor.position, anchor.rotation);
+        trailObj.transform.SetParent(anchor);
+
+        TrailRenderer tr = trailObj.GetComponent<TrailRenderer>();
+        if (tr != null)
+        {
+            tr.emitting = true;
+            StartCoroutine(StopTrail(trailObj, tr));
+        }
+    }
+
+    IEnumerator StopTrail(GameObject trailObj, TrailRenderer tr)
+    {
+        yield return new WaitForSeconds(trailDuration);
+
+        if (trailObj != null && tr != null)
+        {
+            tr.emitting = false;
+            trailObj.transform.SetParent(null);
+
+            Destroy(trailObj, tr.time);
+        }
+    }
+
+    IEnumerator PreventCompleteStop(CarController car)
+    {
+        float elapsed = 0;
+        while (elapsed < duration)
+        {
+            if (car.rb_speed_forward < minCrawlSpeed)
+                car.rb_speed_forward = minCrawlSpeed;
+
+            elapsed += Time.deltaTime;
             yield return null;
         }
-
-        Destroy(gameObject);
     }
-
-
-
 }
