@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        pause = InputSystem.actions.FindAction("Pause");
+        //pause = InputSystem.actions.FindAction("Pause");
     }
 
     // Update is called once per frame
