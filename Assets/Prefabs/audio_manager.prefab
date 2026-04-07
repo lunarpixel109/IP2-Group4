@@ -44,7 +44,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 41f9e07c5e1c70245a1281fd8fbf3e80, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -143,17 +143,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound_list:
-  - name: ACCELERATION
-    sounds: []
   - name: BOOST
     sounds:
-    - {fileID: 8300000, guid: 808a4d1437e5baf4ca68da7669b57b9e, type: 3}
-  - name: CAR_HOOD
+    - {fileID: 8300000, guid: 10ea59b8e6da1f4498da82e2033c84c6, type: 3}
+  - name: ENGINE_START_IDLE
     sounds:
-    - {fileID: 8300000, guid: 808a4d1437e5baf4ca68da7669b57b9e, type: 3}
-  - name: DRIFT
-    sounds:
-    - {fileID: 8300000, guid: 808a4d1437e5baf4ca68da7669b57b9e, type: 3}
+    - {fileID: 8300000, guid: 6fb74b239e39a6341aae55c8e8e15ef9, type: 3}
   - name: ENGINE_START
     sounds:
-    - {fileID: 8300000, guid: 808a4d1437e5baf4ca68da7669b57b9e, type: 3}
+    - {fileID: 8300000, guid: 47b66f4ad292c4b40aa36a6ddad90ef8, type: 3}
+  - name: HOOD_SLAM1
+    sounds:
+    - {fileID: 8300000, guid: 087f833c23b355c438f6f44db2ac8b7b, type: 3}
+  - name: HOOD_SLAM2
+    sounds:
+    - {fileID: 8300000, guid: 468788b14a1d2a2419bc4f6b111776d4, type: 3}
+  - name: DOOR_OPEN
+    sounds:
+    - {fileID: 8300000, guid: 5cb033391fe7a67418f3657771fe2fff, type: 3}
+  - name: DOOR_CLOSE
+    sounds:
+    - {fileID: 8300000, guid: 2c0f753004d39cb48ba679ac9139e594, type: 3}
+  - name: BOOT_OPEN
+    sounds:
+    - {fileID: 8300000, guid: fac2403dcb62ac843a5089e2bb19cb1b, type: 3}
+  - name: MENU_CLICK1
+    sounds:
+    - {fileID: 8300000, guid: 2899cd3024dc7e54db167ab0a397cdf5, type: 3}
+  - name: MENU_CLICK2
+    sounds:
+    - {fileID: 8300000, guid: ca7d334a48fee794a973fd7228f16ea4, type: 3}
+  - name: OIL
+    sounds:
+    - {fileID: 8300000, guid: ee65ea257c9457347b1d89717cffba8e, type: 3}
+  - name: LOG
+    sounds:
+    - {fileID: 8300000, guid: d7d828b1060969646adefbab576317c0, type: 3}
+  - name: LEAVES
+    sounds:
+    - {fileID: 8300000, guid: 79669646e8467894498a7092729cd7c4, type: 3}
+  - name: COUNTDOWN
+    sounds:
+    - {fileID: 8300000, guid: 946aed0c3358f3740beb05f22b7da1b2, type: 3}
+  - name: FINISH
+    sounds:
+    - {fileID: 8300000, guid: fe39a28a678f03049817256fa96414b1, type: 3}

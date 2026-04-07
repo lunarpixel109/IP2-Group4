@@ -7,7 +7,7 @@ public class SceneTransitions : MonoBehaviour
     // when setting up references just drag the canvases of the track map, timer and player icon in 
 
     public Animator TransitionAnim1;
-    public Animator TransitionAnim2;
+ //   public Animator TransitionAnim2;
 
     public GameObject TrackMap;
     public GameObject PlayerIcon;
@@ -26,7 +26,7 @@ public class SceneTransitions : MonoBehaviour
     public IEnumerator LoadScene()
     {
         TransitionAnim1.SetTrigger("End");
-        TransitionAnim2.SetTrigger("End");
+       // TransitionAnim2.SetTrigger("End");
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(SceneName);
     }
