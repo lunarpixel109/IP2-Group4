@@ -1,13 +1,22 @@
 fileFormatVersion: 2
-guid: f3cd85fde3729214182da67204f7826b
+guid: 2c5617dcad6d75d479757b4927aa9a3d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3158462641580532563
-    second: MAINMENUFINAL_UNDERLAY_0
+      213: 4697394485917966287
+    second: track1button_0
   - first:
-      213: 8670261509815609049
-    second: MAINMENUFINAL_UNDERLAY_1
+      213: 900692679810771705
+    second: track1button_1
+  - first:
+      213: 7068301992478861101
+    second: track1button_2
+  - first:
+      213: -380858096231542941
+    second: track1button_3
+  - first:
+      213: 8681795262884947180
+    second: track1button_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -99,30 +108,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MAINMENUFINAL_UNDERLAY_0
+      name: track1button_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 492
-        width: 601
-        height: 588
+        x: 5
+        y: 24
+        width: 147
+        height: 158
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +127,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dac104436f2ea24d0800000000000000
-      internalID: -3158462641580532563
+      spriteID: fcfd407a56f703140800000000000000
+      internalID: 4697394485917966287
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MAINMENUFINAL_UNDERLAY_1
+      name: track1button_1
       rect:
         serializedVersion: 2
-        x: 74
-        y: 0
-        width: 605
-        height: 844
+        x: 90
+        y: 13
+        width: 120
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +149,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d62d4af7e4f25870800000000000000
-      internalID: 8670261509815609049
+      spriteID: 9fa6aef5837ef7c00800000000000000
+      internalID: 900692679810771705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: track1button_2
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 47
+        width: 83
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2763e27637a71260800000000000000
+      internalID: 7068301992478861101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: track1button_3
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 2
+        width: 202
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36f8940549be6baf0800000000000000
+      internalID: -380858096231542941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: track1button_4
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 49
+        width: 105
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce42de02bceeb7870800000000000000
+      internalID: 8681795262884947180
       vertices: []
       indices: 
       edges: []
@@ -173,8 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MAINMENUFINAL_UNDERLAY_0: -3158462641580532563
-      MAINMENUFINAL_UNDERLAY_1: 8670261509815609049
+      track1button_0: 4697394485917966287
+      track1button_1: 900692679810771705
+      track1button_2: 7068301992478861101
+      track1button_3: -380858096231542941
+      track1button_4: 8681795262884947180
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

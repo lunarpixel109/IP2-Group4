@@ -43,9 +43,9 @@ public class LeaderBoardManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstButton);
         
-        leaderBoardButton.GetComponent<Button>().onClick.AddListener(UpdateLeaderboardUI);
-        backButton.GetComponent<Button>().onClick.AddListener(back);
-        clear.GetComponent<Button>().onClick.AddListener(ClearLeaderboards);
+       // leaderBoardButton.GetComponent<Button>().onClick.AddListener(UpdateLeaderboardUI);
+       // backButton.GetComponent<Button>().onClick.AddListener(back);
+       // clear.GetComponent<Button>().onClick.AddListener(ClearLeaderboards);
     }
 
 

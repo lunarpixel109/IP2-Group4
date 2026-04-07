@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: f3cd85fde3729214182da67204f7826b
+guid: d697aeaca24370240a586d7d0913845d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3158462641580532563
-    second: MAINMENUFINAL_UNDERLAY_0
-  - first:
-      213: 8670261509815609049
-    second: MAINMENUFINAL_UNDERLAY_1
+      213: -6897056894880916472
+    second: scoreboard2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -99,52 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MAINMENUFINAL_UNDERLAY_0
+      name: scoreboard2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 492
-        width: 601
-        height: 588
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dac104436f2ea24d0800000000000000
-      internalID: -3158462641580532563
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MAINMENUFINAL_UNDERLAY_1
-      rect:
-        serializedVersion: 2
-        x: 74
+        x: 26
         y: 0
-        width: 605
-        height: 844
+        width: 1869
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d62d4af7e4f25870800000000000000
-      internalID: 8670261509815609049
+      spriteID: 80cd6f8db4bb840a0800000000000000
+      internalID: -6897056894880916472
       vertices: []
       indices: 
       edges: []
@@ -163,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -173,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MAINMENUFINAL_UNDERLAY_0: -3158462641580532563
-      MAINMENUFINAL_UNDERLAY_1: 8670261509815609049
+      scoreboard2_0: -6897056894880916472
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
