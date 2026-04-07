@@ -1,0 +1,611 @@
+fileFormatVersion: 2
+guid: f3e41b393404cc44d970ddddae2aac8c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4284511411513361838
+    second: shredded log0020_0
+  - first:
+      213: 1051502069016592793
+    second: shredded log0020_1
+  - first:
+      213: -5236518726385425231
+    second: shredded log0020_2
+  - first:
+      213: 6488643164157540095
+    second: shredded log0020_3
+  - first:
+      213: -2963828809144760189
+    second: shredded log0020_4
+  - first:
+      213: -4396538040809205671
+    second: shredded log0020_5
+  - first:
+      213: 9121835843303831493
+    second: shredded log0020_6
+  - first:
+      213: -3059301101425952
+    second: shredded log0020_7
+  - first:
+      213: 1246377593946743188
+    second: shredded log0020_8
+  - first:
+      213: -492925931566897364
+    second: shredded log0020_9
+  - first:
+      213: -6026858780240008925
+    second: shredded log0020_10
+  - first:
+      213: 94085056481818408
+    second: shredded log0020_11
+  - first:
+      213: 9098513599296044394
+    second: shredded log0020_12
+  - first:
+      213: 6597690874821293170
+    second: shredded log0020_13
+  - first:
+      213: 1084708600038492875
+    second: shredded log0020_14
+  - first:
+      213: 3548826829237288267
+    second: shredded log0020_15
+  - first:
+      213: -456472030589664084
+    second: shredded log0020_16
+  - first:
+      213: 3923969618646192357
+    second: shredded log0020_17
+  - first:
+      213: -6686258470435715312
+    second: shredded log0020_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: shredded log0020_0
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 1353
+        width: 293
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea58c5fad64a57b30800000000000000
+      internalID: 4284511411513361838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shredded log0020_1
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 1247
+        width: 244
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99182588f8fa79e00800000000000000
+      internalID: 1051502069016592793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shredded log0020_2
+      rect:
+        serializedVersion: 2
+        x: 1404
+        y: 1341
+        width: 193
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b4ad1e66f52457b0800000000000000
+      internalID: -5236518726385425231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shredded log0020_3
+      rect:
+        serializedVersion: 2
+        x: 2015
+        y: 1343
+        width: 274
+        height: 347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff670e9549a4c0a50800000000000000
+      internalID: 6488643164157540095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shredded log0020_4
+      rect:
+        serializedVersion: 2
+        x: 2130
+        y: 1088
+        width: 217
+        height: 367
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3888bdfa66d5ed6d0800000000000000
+      internalID: -2963828809144760189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shredded log0020_5
+      rect:
+        serializedVersion: 2
+        x: 2340
+        y: 1430
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 950531c12fb5cf2c0800000000000000
+      internalID: -4396538040809205671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shredded log0020_6
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 974
+        width: 128
+        height: 395
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c7fc83be55479e70800000000000000
+      internalID: 9121835843303831493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shredded log0020_7
+      rect:
+        serializedVersion: 2
+        x: 1404
+        y: 835
+        width: 362
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0eaa694f49125fff0800000000000000
+      internalID: -3059301101425952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shredded log0020_8
+      rect:
+        serializedVersion: 2
+        x: 2036
+        y: 1333
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 491a33f61d50c4110800000000000000
+      internalID: 1246377593946743188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shredded log0020_9
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 1030
+        width: 213
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2760641a76c829f0800000000000000
+      internalID: -492925931566897364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shredded log0020_10
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 938
+        width: 203
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 329a95cfedb4c5ca0800000000000000
+      internalID: -6026858780240008925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shredded log0020_11
+      rect:
+        serializedVersion: 2
+        x: 1954
+        y: 868
+        width: 252
+        height: 371
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82775424cd14e4100800000000000000
+      internalID: 94085056481818408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shredded log0020_12
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 837
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6df91e99e9644e70800000000000000
+      internalID: 9098513599296044394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shredded log0020_13
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 771
+        width: 458
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2743f8305e4bf8b50800000000000000
+      internalID: 6597690874821293170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shredded log0020_14
+      rect:
+        serializedVersion: 2
+        x: 1097
+        y: 773
+        width: 224
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bca0b1689b8ad0f00800000000000000
+      internalID: 1084708600038492875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shredded log0020_15
+      rect:
+        serializedVersion: 2
+        x: 1836
+        y: 673
+        width: 172
+        height: 287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4d701ed237ff3130800000000000000
+      internalID: 3548826829237288267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shredded log0020_16
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 473
+        width: 234
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca44dce4b194aa9f0800000000000000
+      internalID: -456472030589664084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shredded log0020_17
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 470
+        width: 203
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e0d4dcf39db47630800000000000000
+      internalID: 3923969618646192357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shredded log0020_18
+      rect:
+        serializedVersion: 2
+        x: 1423
+        y: 633
+        width: 322
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0178b31b853a533a0800000000000000
+      internalID: -6686258470435715312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      shredded log0020_0: 4284511411513361838
+      shredded log0020_1: 1051502069016592793
+      shredded log0020_10: -6026858780240008925
+      shredded log0020_11: 94085056481818408
+      shredded log0020_12: 9098513599296044394
+      shredded log0020_13: 6597690874821293170
+      shredded log0020_14: 1084708600038492875
+      shredded log0020_15: 3548826829237288267
+      shredded log0020_16: -456472030589664084
+      shredded log0020_17: 3923969618646192357
+      shredded log0020_18: -6686258470435715312
+      shredded log0020_2: -5236518726385425231
+      shredded log0020_3: 6488643164157540095
+      shredded log0020_4: -2963828809144760189
+      shredded log0020_5: -4396538040809205671
+      shredded log0020_6: 9121835843303831493
+      shredded log0020_7: -3059301101425952
+      shredded log0020_8: 1246377593946743188
+      shredded log0020_9: -492925931566897364
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
