@@ -9,6 +9,7 @@ public class PlayerIconSwitcher : MonoBehaviour
 
     public Sprite[] PlayerIcon;
     public Sprite[] ComicSprite;
+    private Animator IdleIcon;
 
     public GameObject CurrentPlayerIcon;
     public GameObject CurrentComicSprite;
@@ -18,15 +19,14 @@ public class PlayerIconSwitcher : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        CurrentPlayerIcon.GetComponent<Image>().sprite = PlayerIcon[4];
+        IdleIcon = CurrentPlayerIcon.GetComponent<Animator>();
     }
     public void Start()
     {
-        CurrentPlayerIcon.GetComponent<Image>().sprite = PlayerIcon[4];
-
         TryGetComponent<LapTimerManager>(out var BestTime);
 
         CurrentComicSprite.SetActive(false);
-
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -40,13 +40,12 @@ public class PlayerIconSwitcher : MonoBehaviour
     //Trigger collisions
     private void HandleIcon(string tag)
     {
-        //Debug.Log("Hit " + tag);
+        Debug.Log("Hit " + tag);
 
         switch (tag)
         {
             case "Wall":
                 ShowPlayerIcon(2);
-
                 int randomComic = Random.Range(0, 2);
                 ShowComicIcon(randomComic);
 
@@ -70,7 +69,6 @@ public class PlayerIconSwitcher : MonoBehaviour
                 break;
 
             default:
-
                 Debug.Log("Hit something??? who knows what");
                 break;
         }
@@ -79,20 +77,18 @@ public class PlayerIconSwitcher : MonoBehaviour
     //Other collisions
 
     public void ShowBestTimeIcon()
-        // when player gets a best lap ( and overall time - need to add )
+        // when player gets a best lap 
     {
         ShowPlayerIcon(1);
     }
     public void ShowSadIcon()
     {
         // when player does a really slow lap in comparrison to their best lap
-
         ShowPlayerIcon(3);
     }
     public void ShowDeterminedIcon()
     {
         // when player doesnt quite beat best time
-
         ShowPlayerIcon(5);
         ShowComicIcon(4);
     }
@@ -104,7 +100,7 @@ public class PlayerIconSwitcher : MonoBehaviour
         //make sure there isnt overlap overlap
         // Only in this script
        // StopAllCoroutines();
-
+                    
         StartCoroutine(IconDisplayTime());
     }
     private void ShowComicIcon(int spriteIndex)
