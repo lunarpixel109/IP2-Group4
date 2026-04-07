@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1f;
             try
             {
-                SceneManager.UnloadScene("settings menu");
+                SceneManager.UnloadSceneAsync("settings menu");
             }
             catch
             {
