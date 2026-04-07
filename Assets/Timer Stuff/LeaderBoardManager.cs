@@ -11,7 +11,7 @@ public class LeaderBoardManager : MonoBehaviour
              
 
     [SerializeField] private string trackID = "Track1";
-    private string LeaderboradKey => "BestLapTimes_" + trackID;
+    private string LeaderboardKey => "BestLapTimes_" + trackID;
 
 
     public List<LapData> bestLaps = new List<LapData>();            //holds the best lap times top 10
@@ -87,7 +87,7 @@ public class LeaderBoardManager : MonoBehaviour
             entries.Add(entry);
         }
 
-        PlayerPrefs.SetString(LeaderboradKey, string.Join(",", entries));
+        PlayerPrefs.SetString(LeaderboardKey, string.Join(",", entries));
         PlayerPrefs.Save();
 
     }
@@ -97,9 +97,9 @@ public class LeaderBoardManager : MonoBehaviour
     {
         bestLaps.Clear();
 
-        if (!PlayerPrefs.HasKey(LeaderboradKey)) return;
+        if (!PlayerPrefs.HasKey(LeaderboardKey)) return;
 
-        string data = PlayerPrefs.GetString(LeaderboradKey);
+        string data = PlayerPrefs.GetString(LeaderboardKey);
         string[] entries = data.Split(',');
 
         foreach (string entry in entries)
@@ -157,7 +157,7 @@ public class LeaderBoardManager : MonoBehaviour
     public void ClearCurrentLeaderboards()
     {
         bestLaps.Clear();
-        PlayerPrefs.DeleteKey(LeaderboradKey);
+        PlayerPrefs.DeleteKey(LeaderboardKey);
         PlayerPrefs.Save();
         UpdateLeaderboardUI();
     }
