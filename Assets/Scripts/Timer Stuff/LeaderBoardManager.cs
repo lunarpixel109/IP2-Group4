@@ -9,19 +9,21 @@ public class LeaderBoardManager : MonoBehaviour
     public static LeaderBoardManager instance;
 
     private const int MAX_ENTRIES = 10;                             // max number of entries 
-    private const string LEADERBOARD_KEY = "BestLapTimes";          // used to save laptime data 
+             
+
+    [SerializeField] private string trackID = "Track1";
+    private string LeaderboardKey => "BestLapTimes_" + trackID;
+
 
     public List<LapData> bestLaps = new List<LapData>();            //holds the best lap times top 10
 
     public TextMeshProUGUI leaderboardText;                         // leaderboard text ui 
 
-    // ui elements for menu navigation 
-    public GameObject leaderBoardButton;                            
-    public GameObject backButton;
-    public GameObject clear;
-    public GameObject resume;
-
     
+
+    public Transform entriesContainer;
+    public GameObject leaderboardRowPrefab;
+    public GameObject firstButton;
 
 
     private void Awake()
@@ -38,19 +40,22 @@ public class LeaderBoardManager : MonoBehaviour
 
         // load leaderboard data from previous sesions 
         LoadLeaderboard();
-        //UpdateLeaderboardUI();
-
-        // hide leaderboard ui at the start
-        leaderboardText.gameObject.SetActive(false);
-        backButton.SetActive(false);
-        clear.SetActive(false);
-        leaderBoardButton.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(firstButton);
         
         leaderBoardButton.GetComponent<Button>().onClick.AddListener(UpdateLeaderboardUI);
         backButton.GetComponent<Button>().onClick.AddListener(back);
         clear.GetComponent<Button>().onClick.AddListener(ClearLeaderboards);
     }
-    
+
+
+    private void Start()
+    {
+        LoadLeaderboard();
+        UpdateLeaderboardUI();
+    }
+
+
     public void AddLap(LapData lap)
     {
         bestLaps.Add(lap);
@@ -85,7 +90,7 @@ public class LeaderBoardManager : MonoBehaviour
             entries.Add(entry);
         }
 
-        PlayerPrefs.SetString(LEADERBOARD_KEY, string.Join(",", entries));
+        PlayerPrefs.SetString(LeaderboardKey, string.Join(",", entries));
         PlayerPrefs.Save();
 
     }
@@ -95,9 +100,9 @@ public class LeaderBoardManager : MonoBehaviour
     {
         bestLaps.Clear();
 
-        if (!PlayerPrefs.HasKey(LEADERBOARD_KEY)) return;
+        if (!PlayerPrefs.HasKey(LeaderboardKey)) return;
 
-        string data = PlayerPrefs.GetString(LEADERBOARD_KEY);
+        string data = PlayerPrefs.GetString(LeaderboardKey);
         string[] entries = data.Split(',');
 
         foreach (string entry in entries)
@@ -119,38 +124,30 @@ public class LeaderBoardManager : MonoBehaviour
     // display leaderbaord on screen
     public void UpdateLeaderboardUI()
     {
-        leaderboardText.text = "";
+        foreach (Transform child in entriesContainer)
+        {
+            Destroy(child.gameObject);
+        }
 
-    if (bestLaps.Count == 0)
-    {
-        leaderboardText.text = "No lap times recorded";
-    }
-    else
-    {
+        if (bestLaps.Count == 0)
+        {
+            GameObject row = Instantiate(leaderboardRowPrefab, entriesContainer);
+            LeaderboardRowUI rowUI = row.GetComponent<LeaderboardRowUI>();
+
+            rowUI.posText.text = "-";
+            rowUI.totalText.text = "No times";
+            rowUI.s1Text.text = "-";
+            rowUI.s2Text.text = "-";
+            rowUI.s3Text.text = "-";
+            return;
+        }
+
         for (int i = 0; i < bestLaps.Count; i++)
         {
-            LapData lap = bestLaps[i];
-
-            leaderboardText.text +=
-                $"{i + 1}. {FormatTime(lap.totalTime)} | " +
-                $"S1 {lap.sectorTimes[0]:0.00} | " +
-                $"S2 {lap.sectorTimes[1]:0.00} | " +
-                $"S3 {lap.sectorTimes[2]:0.00}\n";
+            GameObject row = Instantiate(leaderboardRowPrefab, entriesContainer);
+            LeaderboardRowUI rowUI = row.GetComponent<LeaderboardRowUI>();
+            rowUI.SetRow(i + 1, bestLaps[i]);
         }
-    }
-
-
-        //enable leaderboard ui and disable the leaderboard button
-        leaderboardText.gameObject.SetActive(true);
-        leaderBoardButton.SetActive(false);
-        clear.SetActive(true);
-        backButton.SetActive(true);
-        resume.SetActive(false);
-        Time.timeScale = 0;
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(clear);
-
-
     }
 
     private string FormatTime(float time)
@@ -160,34 +157,46 @@ public class LeaderBoardManager : MonoBehaviour
         return string.Format("{0:00}:{1:00.00}", minutes, seconds);
     }
     // clears leaderboard data
-    public void ClearLeaderboards()
+    public void ClearCurrentLeaderboards()
     {
         bestLaps.Clear();
-        PlayerPrefs.DeleteKey(LEADERBOARD_KEY);
+        PlayerPrefs.DeleteKey(LeaderboardKey);
         PlayerPrefs.Save();
         UpdateLeaderboardUI();
     }
     // return from leaderboard view back to normal view
-    public void back()
+    public void Back()
     {
-        backButton.gameObject.SetActive(false);
-        leaderBoardButton.gameObject.SetActive(true);
-        leaderboardText.gameObject.SetActive(false);
-        clear.SetActive(false);
-        resume.SetActive(true);
-        
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(leaderBoardButton);
+        //pauseCanvas.SetActive(false);
+
+        Time.timeScale = 1;
+       
     }
 
 
-
-    public void Resume()
+    public void ShowTrack1()
     {
-        leaderBoardButton.SetActive(false);
-        resume.SetActive(false);
+        ShowTrack("Track1");
+    }
+   
 
-        Time.timeScale = 1;
+    public void ShowTrack2()
+    {
+        ShowTrack("Track2");
+    }
+
+
+    public void ShowTrack3()
+    {
+        ShowTrack("Track3");
+    }
+
+
+    public void ShowTrack(string newTrackID)
+    {
+        trackID = newTrackID;
+        LoadLeaderboard();
+        UpdateLeaderboardUI();
     }
 
 }
