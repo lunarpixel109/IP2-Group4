@@ -11,7 +11,7 @@ public class LogCollisionHandler : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool isDestroying = false;
 
-    void Awake() // Runs before Start()
+    void Awake() 
     {
         logAnimator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
