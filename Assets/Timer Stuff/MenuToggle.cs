@@ -3,14 +3,15 @@ using UnityEngine.EventSystems;
 
 public class MenuToggle : MonoBehaviour
 {
-    public GameObject leaderBoardButton;
-    public GameObject resumeButton;
 
+    public GameObject pauseCanvas;
+    public GameObject firstButton;
+    public GameObject timerStuff;
 
     void Start()
     {
-        leaderBoardButton.SetActive(false);
-        resumeButton.SetActive(false);
+        pauseCanvas.SetActive(false);
+        
     }
 
 
@@ -21,7 +22,7 @@ public class MenuToggle : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.JoystickButton7) || Input.GetKeyDown(KeyCode.P))
         {
-            if (leaderBoardButton.activeSelf)
+            if (pauseCanvas.activeSelf)
             {
                 resumeGame();
             }
@@ -37,19 +38,19 @@ public class MenuToggle : MonoBehaviour
 
     public void pauseGame()
     {
-        leaderBoardButton.SetActive(true);
-        resumeButton.SetActive(true);
+        pauseCanvas.SetActive(true);
+        timerStuff.SetActive(false);
 
         Time.timeScale = 0f;
 
         EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(leaderBoardButton);
+        EventSystem.current.SetSelectedGameObject(firstButton);
     }
 
     public void resumeGame()
     {
-        leaderBoardButton.SetActive(false);
-        resumeButton.SetActive(false);
+        pauseCanvas.SetActive(false);
+        timerStuff.SetActive(true);
 
         Time.timeScale = 1f;
     }
