@@ -7,11 +7,12 @@ public class SceneTransitions : MonoBehaviour
     // when setting up references just drag the canvases of the track map, timer and player icon in 
 
     public Animator TransitionAnim1;
- //   public Animator TransitionAnim2;
+    public Animator TransitionAnim2;
 
     public GameObject TrackMap;
     public GameObject PlayerIcon;
     public GameObject Timer;
+    public GameObject Speedometer;
 
     public string SceneName;
 
@@ -20,13 +21,17 @@ public class SceneTransitions : MonoBehaviour
         TrackMap.SetActive(false);
         PlayerIcon.SetActive(false);
         Timer.SetActive(false);
+        Speedometer.SetActive(false);
 
         StartCoroutine(HideUI());
     }
     public IEnumerator LoadScene()
     {
+        TransitionAnim2.SetTrigger("End");
+        yield return new WaitForSeconds(2f);
+
         TransitionAnim1.SetTrigger("End");
-       // TransitionAnim2.SetTrigger("End");
+
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(SceneName);
     }
@@ -37,7 +42,7 @@ public class SceneTransitions : MonoBehaviour
         TrackMap.SetActive(true);
         PlayerIcon.SetActive(true);
         Timer.SetActive(true);
-
+        Speedometer.SetActive(false);
     }
 
 }
