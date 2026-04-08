@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using UnityEngine.Rendering;
 
 public class PlayerIconSwitcher : MonoBehaviour
 {
@@ -9,6 +8,8 @@ public class PlayerIconSwitcher : MonoBehaviour
 
     public Sprite[] PlayerIcon;
     public Sprite[] ComicSprite;
+
+    public Animator IconAnim;
 
     public GameObject CurrentPlayerIcon;
     public GameObject CurrentComicSprite;
@@ -40,20 +41,19 @@ public class PlayerIconSwitcher : MonoBehaviour
     //Trigger collisions
     private void HandleIcon(string tag)
     {
-        //Debug.Log("Hit " + tag);
+        Debug.Log("Hit " + tag);
 
         switch (tag)
         {
             case "Wall":
                 ShowPlayerIcon(2);
-
                 int randomComic = Random.Range(0, 2);
                 ShowComicIcon(randomComic);
 
                 break;
 
             case "Oil":
-                ShowPlayerIcon(4);
+                ShowPlayerIcon(5);
                 ShowComicIcon(3);
 
                 break;
@@ -70,7 +70,6 @@ public class PlayerIconSwitcher : MonoBehaviour
                 break;
 
             default:
-
                 Debug.Log("Hit something??? who knows what");
                 break;
         }
@@ -79,20 +78,18 @@ public class PlayerIconSwitcher : MonoBehaviour
     //Other collisions
 
     public void ShowBestTimeIcon()
-        // when player gets a best lap ( and overall time - need to add )
+    // when player gets a best lap 
     {
         ShowPlayerIcon(1);
     }
     public void ShowSadIcon()
     {
         // when player does a really slow lap in comparrison to their best lap
-
         ShowPlayerIcon(3);
     }
     public void ShowDeterminedIcon()
     {
         // when player doesnt quite beat best time
-
         ShowPlayerIcon(5);
         ShowComicIcon(4);
     }
@@ -101,12 +98,12 @@ public class PlayerIconSwitcher : MonoBehaviour
     {
         CurrentPlayerIcon.GetComponent<Image>().sprite = PlayerIcon[spriteIndex];
 
-        //make sure there isnt overlap overlap
-        // Only in this script
-       // StopAllCoroutines();
+        if (IconAnim != null) IconAnim.enabled = (spriteIndex == 4);
 
         StartCoroutine(IconDisplayTime());
     }
+
+
     private void ShowComicIcon(int spriteIndex)
     {
         SpriteRenderer comicRend = CurrentComicSprite.GetComponent<SpriteRenderer>();
@@ -114,9 +111,6 @@ public class PlayerIconSwitcher : MonoBehaviour
         if (comicRend != null)
         {
             comicRend.sprite = ComicSprite[spriteIndex];
-
-            //CurrentComicSprite.transform.localScale = new Vector3(2f, 2f, 1f);
-            //CurrentComicSprite.transform.localPosition = new Vector3(0f, 1.5f, 0f); 
 
             CurrentComicSprite.transform.localRotation = Quaternion.Euler(0, 0, 45f);
         }
@@ -131,7 +125,7 @@ public class PlayerIconSwitcher : MonoBehaviour
         yield return new WaitForSeconds(duration);
 
         CurrentComicSprite.SetActive(false);
-
+        if (IconAnim != null) IconAnim.enabled = true;
         CurrentPlayerIcon.GetComponent<Image>().sprite = PlayerIcon[4];
     }
 
