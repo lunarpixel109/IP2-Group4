@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 398830978}
   - component: {fileID: 398830977}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 549883055}
   - component: {fileID: 549883054}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Underlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -280,8 +280,9 @@ GameObject:
   - component: {fileID: 591628972}
   - component: {fileID: 591628974}
   - component: {fileID: 591628973}
+  - component: {fileID: 591628975}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: Logo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -344,6 +345,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 591628971}
   m_CullTransparentMesh: 1
+--- !u!114 &591628975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591628971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db0e2de1d6cbfdf40bd80529982968c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logoImage: {fileID: 591628973}
+  logoOff: {fileID: 21300000, guid: 5b44a54914fb1bf42acaf2a1f9e9a544, type: 3}
+  logoOn: {fileID: 21300000, guid: bc8bf527c1589574091e7ffdcb768e65, type: 3}
+  flickerCount: 5
+  minDelay: 0.06
+  maxDelay: 0.55
 --- !u!1 &702897259
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,6 +579,67 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &998683754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 998683755}
+  - component: {fileID: 998683756}
+  m_Layer: 5
+  m_Name: Buttons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &998683755
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998683754}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1277185635}
+  - {fileID: 1244076920}
+  - {fileID: 1997138197}
+  m_Father: {fileID: 1706709454}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -674, y: -49.227295}
+  m_SizeDelta: {x: 572, y: 920.37463}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &998683756
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998683754}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 06e689a1b69053943b51c7d92c09fa0e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1204279177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -810,7 +890,7 @@ GameObject:
   - component: {fileID: 1244076922}
   - component: {fileID: 1244076921}
   m_Layer: 5
-  m_Name: Leaderboard Button (1)
+  m_Name: Settings Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -823,16 +903,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244076919}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1706709454}
+  m_Father: {fileID: 998683755}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -702.27124, y: -395.69}
+  m_AnchoredPosition: {x: -28.27124, y: -346.4627}
   m_SizeDelta: {x: 515.4575, y: 227.4492}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1244076921
@@ -848,10 +928,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 1277185636}
+    m_SelectOnDown: {fileID: 1997138198}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 2
@@ -866,7 +946,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 1028659770084060225, guid: 46e5bf6b19b50e444b1408fcb8625e8b, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 1028659770084060225, guid: 46e5bf6b19b50e444b1408fcb8625e8b, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -879,7 +959,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1706709455}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
         m_MethodName: Settings
         m_Mode: 1
@@ -955,17 +1035,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277185634}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1706709454}
+  m_Father: {fileID: 998683755}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -737.04846, y: -104}
-  m_SizeDelta: {x: 445.903, y: 355.9286}
+  m_AnchoredPosition: {x: -63.048462, y: -54.773}
+  m_SizeDelta: {x: 445.903, y: 355.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1277185636
 MonoBehaviour:
@@ -980,10 +1060,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 1997138198}
+    m_SelectOnDown: {fileID: 1244076921}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 2
@@ -998,7 +1078,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: -8536290016669691925, guid: dbaca02267092dd4eacc880080e91866, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: -8536290016669691925, guid: dbaca02267092dd4eacc880080e91866, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1011,7 +1091,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1706709455}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
         m_MethodName: LeaderBoard
         m_Mode: 1
@@ -1159,9 +1239,7 @@ RectTransform:
   - {fileID: 398830976}
   - {fileID: 549883053}
   - {fileID: 591628972}
-  - {fileID: 1277185635}
-  - {fileID: 1244076920}
-  - {fileID: 1997138197}
+  - {fileID: 998683755}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1178,9 +1256,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1706709450}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c14e02b497e6d64b9966c55736e2513, type: 3}
+  m_Script: {fileID: 11500000, guid: 1bfbeb01dad64c3438b5831ec701aaee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playButton: {fileID: 1997138198}
+  leaderboardButton: {fileID: 1277185636}
+  settingsButton: {fileID: 1244076921}
+  buttonAnimator: {fileID: 998683756}
 --- !u!1 &1997138196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1194,7 +1276,7 @@ GameObject:
   - component: {fileID: 1997138199}
   - component: {fileID: 1997138198}
   m_Layer: 5
-  m_Name: Leaderboard Button (2)
+  m_Name: Start Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1207,16 +1289,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997138196}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1706709454}
+  m_Father: {fileID: 998683755}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -674, y: 242.46}
+  m_AnchoredPosition: {x: 0, y: 291.68732}
   m_SizeDelta: {x: 572, y: 337}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1997138198
@@ -1232,10 +1314,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 1244076921}
+    m_SelectOnDown: {fileID: 1277185636}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 2
@@ -1250,7 +1332,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: -1904537139393744816, guid: cf68f9883a262cd4696cc0e01b6cae53, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: -1904537139393744816, guid: cf68f9883a262cd4696cc0e01b6cae53, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1263,7 +1345,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1706709455}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1

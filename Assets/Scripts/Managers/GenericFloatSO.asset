@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5da32232f0d089940b485c94f6f58601, type: 3}
   m_Name: GenericFloatSO
   m_EditorClassIdentifier: 
-  volume: -31.053127
+  volume: -16

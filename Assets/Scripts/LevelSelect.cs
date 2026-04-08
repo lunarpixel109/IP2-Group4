@@ -20,6 +20,6 @@ public class LevelSelect : MonoBehaviour
     }
     public void MainMenu()
     {
-        SceneManager.LoadScene("Scenes/MainMenu");
+        SceneManager.UnloadSceneAsync("Level Select");
     }
 }

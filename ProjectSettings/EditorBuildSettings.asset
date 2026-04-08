@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu/Level Select.unity
     guid: b9aebe76668576f47b6fe8f1792a4267
   - enabled: 1
+    path: Assets/Scenes/Menu/settings menu.unity
+    guid: 713d040615372cc47b790d93d683b617
+  - enabled: 1
     path: Assets/Scenes/Tracks/Easy Track.unity
     guid: e538dfc427dfca84dba8b72eb5405800
   - enabled: 1
@@ -21,11 +24,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Tracks/Hard Track.unity
     guid: eadbb52656b06db459668d8dac9ec97b
   - enabled: 1
-    path: Assets/LeaderboardScene.unity
+    path: Assets/Scenes/LeaderboardScene.unity
     guid: 1498ab1aa335e0a4e95c99eb185220be
-  - enabled: 1
-    path: Assets/Scenes/Menu/settings menu.unity
-    guid: 713d040615372cc47b790d93d683b617
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

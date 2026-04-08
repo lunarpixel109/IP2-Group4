@@ -1,6 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Settings_manager : MonoBehaviour
@@ -9,7 +10,7 @@ public class Settings_manager : MonoBehaviour
     public AudioMixer main_mixer;
     public Slider vol_Slider;
     public GenericFloatSO volumeSO;
-
+    public Button button;
     private void Awake()
     {
         instance = this;
@@ -18,15 +19,24 @@ public class Settings_manager : MonoBehaviour
 
     private void Start()
     {
-        vol_Slider.value = volumeSO.volume;
-        SetVolume(vol_Slider.value);
+        button.onClick.AddListener(Back);
+        vol_Slider.Select();
+        float volume = PlayerPrefs.GetFloat("Volume", 0f);
     }
 
     public void SetVolume(float volume)
     {
+        PlayerPrefs.SetFloat("Volume", volume);
         main_mixer.SetFloat("Master Volume", volume);
-        volumeSO.volume = volume;
-        EditorUtility.SetDirty(volumeSO);
     }
 
+    void Back()
+    {
+        FindFirstObjectByType<MainMenu>()?.EnterButtons();
+        FindFirstObjectByType<MainMenu>()?.playButton.Select();
+        SceneManager.UnloadSceneAsync("settings menu");
+         
+    }
+    
+    
 }

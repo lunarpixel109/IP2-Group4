@@ -16,6 +16,6 @@ public class mainMenu : MonoBehaviour
 
     public void Settings()
     {
-        SceneManager.LoadScene("Settings-Menu");
+        SceneManager.LoadScene("Scenes/Menu/settings menu");
     }
 }
