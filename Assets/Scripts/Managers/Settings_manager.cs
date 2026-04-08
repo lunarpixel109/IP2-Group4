@@ -33,7 +33,6 @@ public class Settings_manager : MonoBehaviour
     void Back()
     {
         FindFirstObjectByType<MainMenu>()?.EnterButtons();
-        FindFirstObjectByType<MainMenu>()?.playButton.Select();
         SceneManager.UnloadSceneAsync("settings menu");
          
     }

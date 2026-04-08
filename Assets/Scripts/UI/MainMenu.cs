@@ -26,12 +26,14 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
+        ExitButtons();
         SceneManager.LoadScene(1, LoadSceneMode.Additive);
     }
 
     public void LeaderboardButton()
     {
-        SceneManager.LoadScene("LeaderboardScene");
+        ExitButtons();
+        SceneManager.LoadScene("LeaderboardScene", LoadSceneMode.Additive);
     }
 
     public void SettingsButton()
@@ -49,6 +51,7 @@ public class MainMenu : MonoBehaviour
     public void EnterButtons()
     {
         buttonAnimator.Play("Enter");
+        StartCoroutine(WaitForAnimFinish());
     }
 
     public void ExitButtons()

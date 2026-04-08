@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 3776018}
   - component: {fileID: 3776017}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Track3Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 106590456}
   - component: {fileID: 106590455}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -502,6 +502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92b804a743b3a742968afa5b3d3af63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 1841982041}
 --- !u!1 &545793112
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,7 +670,7 @@ GameObject:
   - component: {fileID: 1841982042}
   - component: {fileID: 1841982041}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Track1Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -801,7 +802,7 @@ GameObject:
   - component: {fileID: 2054686668}
   - component: {fileID: 2054686667}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Track2Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

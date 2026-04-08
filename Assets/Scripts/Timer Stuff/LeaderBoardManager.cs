@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LeaderBoardManager : MonoBehaviour
@@ -167,10 +168,10 @@ public class LeaderBoardManager : MonoBehaviour
     // return from leaderboard view back to normal view
     public void Back()
     {
-        //pauseCanvas.SetActive(false);
 
-        Time.timeScale = 1;
-       
+        FindFirstObjectByType<MainMenu>()?.EnterButtons();
+        SceneManager.UnloadSceneAsync("LeaderboardScene");
+
     }
 
 

@@ -45,6 +45,8 @@ public class PlayerIconSwitcher : MonoBehaviour
 
         switch (tag)
         {
+            case "Finish":
+                break;
             case "Wall":
                 ShowPlayerIcon(2);
                 int randomComic = Random.Range(0, 2);
@@ -91,7 +93,7 @@ public class PlayerIconSwitcher : MonoBehaviour
     {
         // when player doesnt quite beat best time
         ShowPlayerIcon(5);
-        ShowComicIcon(4);
+        //ShowComicIcon(4);
     }
 
     private void ShowPlayerIcon(int spriteIndex)
