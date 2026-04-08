@@ -100,7 +100,7 @@ public class LapTimerManager : MonoBehaviour
         }
 
         // Lap finished record time and restart lap
-        if (lapRunning && LapChecker.fullLap == true)
+        if (lapRunning && LapChecker.fullLap == true && currentSector >= totalSectors)
         {
             Debug.Log("Lap finished! Time: " + currentLapTime);
 
