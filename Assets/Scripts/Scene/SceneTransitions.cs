@@ -42,7 +42,7 @@ public class SceneTransitions : MonoBehaviour
         TrackMap.SetActive(true);
         PlayerIcon.SetActive(true);
         Timer.SetActive(true);
-        Speedometer.SetActive(false);
+        Speedometer.SetActive(true);
     }
 
 }

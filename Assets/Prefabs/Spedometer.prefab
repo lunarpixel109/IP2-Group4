@@ -68,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -9096296126671982268, guid: 622ae4af1f442984b8afdba25cd9279c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6d0f669cfbf975145a0dce08721a95e8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 2798571673449253196}
   - component: {fileID: 1699737944260714332}
   - component: {fileID: 2106184461315820017}
+  - component: {fileID: 5133274838245608281}
   m_Layer: 5
   m_Name: Text Screen
   m_TagString: Untagged
@@ -154,6 +155,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5133274838245608281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5348398034059756323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b99b49ee2e4dd41a89574aa7d50883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  text: {fileID: 8068017376084140672}
 --- !u!1 &5797553782501697166
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +234,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6076021343587974282, guid: 947b4b227d6ec5649b5ff47fd549bf5e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 947b4b227d6ec5649b5ff47fd549bf5e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
