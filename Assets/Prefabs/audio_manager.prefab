@@ -184,7 +184,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 79669646e8467894498a7092729cd7c4, type: 3}
   - name: COUNTDOWN
     sounds:
-    - {fileID: 8300000, guid: 946aed0c3358f3740beb05f22b7da1b2, type: 3}
+    - {fileID: 8300000, guid: 0d86ec25c9d8a174cab6adef542b2a0d, type: 3}
+    - {fileID: 8300000, guid: d2764368352a1b34e8a2003deed86efd, type: 3}
   - name: FINISH
     sounds:
     - {fileID: 8300000, guid: fe39a28a678f03049817256fa96414b1, type: 3}
