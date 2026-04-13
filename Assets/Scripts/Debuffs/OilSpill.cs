@@ -1,6 +1,7 @@
 using UnityEngine;
 
 using System.Collections;
+using UnityEngine.Serialization;
 
 
 public class OilSpill : MonoBehaviour
@@ -11,8 +12,8 @@ public class OilSpill : MonoBehaviour
     public float slowMaxSpeed = 7f;
     public float minCrawlSpeed = 3f;
 
-    public GameObject trailRendererPrefab1;
-    public GameObject trailRendererPrefab2;
+    [FormerlySerializedAs("trailRendererPrefab1")] public GameObject trailRenderer1;
+    [FormerlySerializedAs("trailRendererPrefab2")] public GameObject trailRenderer2;
     public float trailDuration = 2.5f;
 
     public Transform leftTireAnchor;
@@ -49,26 +50,26 @@ public class OilSpill : MonoBehaviour
     void StartTireTrails()
 
     {
-        if (leftTireAnchor != null && trailRendererPrefab1 != null)
-            SpawnSingleTrail(leftTireAnchor, trailRendererPrefab1);
+        if (trailRenderer1 != null)
+            SpawnSingleTrail(trailRenderer1);
 
-        if (rightTireAnchor != null && trailRendererPrefab2 != null)
-            SpawnSingleTrail(rightTireAnchor, trailRendererPrefab2);
+        if (trailRenderer2 != null)
+            SpawnSingleTrail(trailRenderer2);
     }
 
-    void SpawnSingleTrail(Transform anchor, GameObject prefab)
+    void SpawnSingleTrail(GameObject trailRenderer)
 
     {
-        GameObject trailObj = Instantiate(prefab, anchor.position, anchor.rotation);
+        //GameObject trailObj = Instantiate(prefab, anchor.position, anchor.rotation);
 
-        trailObj.transform.SetParent(anchor);
+        //trailObj.transform.SetParent(anchor);
 
-        TrailRenderer tr = trailObj.GetComponent<TrailRenderer>();
+        TrailRenderer tr = trailRenderer.GetComponent<TrailRenderer>();
 
         if (tr != null)
         {
             tr.emitting = true;
-            StartCoroutine(StopTrail(trailObj, tr));
+            StartCoroutine(StopTrail(trailRenderer, tr));
         }
     }
 
@@ -80,9 +81,9 @@ public class OilSpill : MonoBehaviour
         if (trailObj != null && tr != null)
         {
             tr.emitting = false;
-            trailObj.transform.SetParent(null);
+            //trailObj.transform.SetParent(null);
 
-            Destroy(trailObj, tr.time);
+            //Destroy(trailObj, tr.time);
         }
     }
 

@@ -27,6 +27,7 @@ public class SceneTransitions : MonoBehaviour
     }
     public IEnumerator LoadScene()
     {
+        FindFirstObjectByType<CarController>().canMove = false;
         TransitionAnim2.SetTrigger("End");
         yield return new WaitForSeconds(2f);
 
@@ -43,6 +44,7 @@ public class SceneTransitions : MonoBehaviour
         PlayerIcon.SetActive(true);
         Timer.SetActive(true);
         Speedometer.SetActive(true);
+        FindFirstObjectByType<StartCountdown>().StartRace();
     }
 
 }
