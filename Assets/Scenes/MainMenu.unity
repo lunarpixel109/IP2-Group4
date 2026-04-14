@@ -377,7 +377,7 @@ GameObject:
   - component: {fileID: 697123461}
   - component: {fileID: 697123460}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Quit Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -390,13 +390,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697123458}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1706709454}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -758,7 +758,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -674, y: -49.227295}
+  m_AnchoredPosition: {x: -1243.75, y: -49.227295}
   m_SizeDelta: {x: 572, y: 920.37463}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &998683756
@@ -1075,8 +1075,8 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 1277185636}
     m_SelectOnDown: {fileID: 1997138198}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 697123461}
+    m_SelectOnRight: {fileID: 697123461}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1208,7 +1208,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1997138198}
     m_SelectOnDown: {fileID: 1244076921}
     m_SelectOnLeft: {fileID: 697123461}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 697123461}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1465,7 +1465,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1244076921}
     m_SelectOnDown: {fileID: 1277185636}
     m_SelectOnLeft: {fileID: 697123461}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 697123461}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}

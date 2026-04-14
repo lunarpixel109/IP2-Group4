@@ -18,6 +18,8 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
+        Debug.Log("MAIN MENU LOAD");
         playButton.onClick.AddListener(PlayGame);
         leaderboardButton.onClick.AddListener(LeaderboardButton);
         settingsButton.onClick.AddListener(SettingsButton);
@@ -59,6 +61,7 @@ public class MainMenu : MonoBehaviour
 
     public void EnterButtons()
     {
+        Debug.Log("Trying to play animations for enter");
         buttonAnimator.Play("Enter");
         quitAnimator.Play("QuitEnter");
         StartCoroutine(WaitForAnimFinish());

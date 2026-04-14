@@ -67,7 +67,7 @@ public class PauseMenu : MonoBehaviour
 
     void QuitButton()
     {
-        SceneManager.LoadSceneAsync("Scenes/MainMenu");
+        SceneManager.LoadScene("Scenes/MainMenu", LoadSceneMode.Single);
     }
     
 }
