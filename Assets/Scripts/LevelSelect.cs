@@ -29,6 +29,7 @@ public class LevelSelect : MonoBehaviour
     }
     public void MainMenu()
     {
+        FindFirstObjectByType<MainMenu>().EnterButtons();
         SceneManager.UnloadSceneAsync("Level Select");
     }
 }

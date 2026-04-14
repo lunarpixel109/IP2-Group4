@@ -62,6 +62,8 @@ public class MainMenu : MonoBehaviour
     public void EnterButtons()
     {
         Debug.Log("Trying to play animations for enter");
+        buttonAnimator.gameObject.SetActive(true);
+        quitAnimator.gameObject.SetActive(true);
         buttonAnimator.Play("Enter");
         quitAnimator.Play("QuitEnter");
         StartCoroutine(WaitForAnimFinish());
@@ -69,6 +71,8 @@ public class MainMenu : MonoBehaviour
 
     public void ExitButtons()
     {
+        buttonAnimator.gameObject.SetActive(false);
+        quitAnimator.gameObject.SetActive(false);
         buttonAnimator.Play("Exit");
         quitAnimator.Play("QuitExit");
     }
