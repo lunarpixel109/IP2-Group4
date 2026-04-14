@@ -27,6 +27,7 @@ public class SceneTransitions : MonoBehaviour
     }
     public IEnumerator LoadScene()
     {
+        yield return new WaitForSeconds(0.25f);
         FindFirstObjectByType<CarController>().canMove = false;
         TransitionAnim2.SetTrigger("End");
         yield return new WaitForSeconds(2f);
