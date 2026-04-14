@@ -15,7 +15,7 @@ public class LeaderboardRowUI : MonoBehaviour
         totalText.text = FormatTime(lap.totalTime);
         s1Text.text = FormatTime(lap.sectorTimes[0]);
         s2Text.text = FormatTime(lap.sectorTimes[1]);
-        s3Text.text = FormatTime(lap.sectorTimes[2]);
+        s3Text.text = FormatTime(lap.totalTime - (lap.sectorTimes[0] + lap.sectorTimes[1]));
     }
 
     private string FormatTime(float time)
