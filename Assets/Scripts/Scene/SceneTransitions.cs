@@ -18,6 +18,7 @@ public class SceneTransitions : MonoBehaviour
 
     private void Start()
     {
+        FindFirstObjectByType<CarController>().canMove = false;
         TrackMap.SetActive(false);
         PlayerIcon.SetActive(false);
         Timer.SetActive(false);
@@ -27,10 +28,11 @@ public class SceneTransitions : MonoBehaviour
     }
     public IEnumerator LoadScene()
     {
-        yield return new WaitForSeconds(0.25f);
-        FindFirstObjectByType<CarController>().canMove = false;
+        
         TransitionAnim2.SetTrigger("End");
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(.5f);
+        FindFirstObjectByType<CarController>().canMove = false;
+        yield return new WaitForSeconds(1.5f);
 
         TransitionAnim1.SetTrigger("End");
 
